@@ -94,10 +94,11 @@ namespace ColorDx.Main.Host
                 var browserProcessHandler = new BrowserProcessHandler();
                 Cef.Initialize(settings, performDependencyCheck: false, browserProcessHandler: browserProcessHandler);
 
-                var browser = new ChromiumWebBrowser("http://google.lt");
+                var browser = new ChromiumWebBrowser("http://localhost:8000/static/index.html");
                 browser.Dock = DockStyle.Fill;
 
                 var mainForm = new Form();
+                mainForm.WindowState = FormWindowState.Maximized;
                 mainForm.Controls.Add(browser);
 
                 Application.EnableVisualStyles();

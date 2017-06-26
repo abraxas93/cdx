@@ -1,6 +1,11 @@
-﻿using Owin;
+﻿using Microsoft.Owin;
+using Microsoft.Owin.FileSystems;
+using Microsoft.Owin.StaticFiles;
+using Microsoft.Owin.StaticFiles.Infrastructure;
+using Owin;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Routing;
 
 namespace ColorDx.Main.Host
 {
@@ -16,7 +21,14 @@ namespace ColorDx.Main.Host
             config.Formatters.JsonFormatter.SupportedMediaTypes
                 .Add(new MediaTypeHeaderValue("text/html"));
 
-            // Configure Web API for self-host. 
+            // Configure Web API for self-host.
+            config.Routes.MapHttpRoute(
+                "FilesRoute",
+                "static/{*pathInfo}",
+                null,
+                null,
+                handler: new StopRoutingHandler());
+
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "{controller}/{action}/{id}",
@@ -24,6 +36,15 @@ namespace ColorDx.Main.Host
             );
 
             appBuilder.UseWebApi(config);
+
+            var staticOptions = new StaticFileOptions(new SharedOptions {
+                RequestPath = new PathString("/static"),
+                FileSystem = new PhysicalFileSystem("StaticContent") })
+            {
+                ServeUnknownFileTypes = false,
+                DefaultContentType = "application/octet-stream"
+            };
+            appBuilder.UseStaticFiles(staticOptions);
         }
     }
 }
