@@ -7,7 +7,7 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Routing;
 
-namespace ColorDx.Main.Host
+namespace WaggonerDx.Main.Host
 {
     public class Startup
     {

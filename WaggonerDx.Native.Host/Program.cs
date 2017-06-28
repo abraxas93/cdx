@@ -6,7 +6,7 @@ using System.IO;
 using System.Net.Http;
 using System.Windows.Forms;
 
-namespace ColorDx.Main.Host
+namespace WaggonerDx.Main.Host
 {
     public class BrowserProcessHandler : IBrowserProcessHandler
     {
@@ -19,7 +19,7 @@ namespace ColorDx.Main.Host
         {
             //The Request Context has been initialized, you can now set preferences, like proxy server settings
             var cookieManager = Cef.GetGlobalCookieManager();
-            var appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ColorDx");
+            var appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WaggonerDx");
             if (!Directory.Exists(appDataFolder))
             {
                 try
@@ -75,7 +75,7 @@ namespace ColorDx.Main.Host
             {
                 Cef.EnableHighDPISupport();
 
-                var appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "ColorDx");
+                var appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WaggonerDx");
                 if (!Directory.Exists(appDataFolder))
                 {
                     try

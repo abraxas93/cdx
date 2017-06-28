@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace ColorDx.Main.Host.Controllers
+namespace WaggonerDx.Main.Host.Controllers
 {
     public class RegistrationController : ApiController
     {

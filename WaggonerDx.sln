@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaggonerDx.Native.Host", "WaggonerDx.Native.Host\WaggonerDx.Native.Host.csproj", "{F4649CC5-E31D-4A0C-89AF-72C47F35450B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaggonerDx.Native.Dialogs", "WaggonerDx.Native.Dialogs\WaggonerDx.Native.Dialogs.csproj", "{6CC936C5-B77D-4870-8162-1602627713E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaggonerDx.Native.Launcher", "WaggonerDx.Native.Launcher\WaggonerDx.Native.Launcher.csproj", "{B9288552-F2D5-43A3-A4CC-EABF60649E6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4649CC5-E31D-4A0C-89AF-72C47F35450B}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{F4649CC5-E31D-4A0C-89AF-72C47F35450B}.Debug|Any CPU.Build.0 = Debug|x86
+		{F4649CC5-E31D-4A0C-89AF-72C47F35450B}.Debug|x86.ActiveCfg = Debug|x86
+		{F4649CC5-E31D-4A0C-89AF-72C47F35450B}.Debug|x86.Build.0 = Debug|x86
+		{F4649CC5-E31D-4A0C-89AF-72C47F35450B}.Release|Any CPU.ActiveCfg = Release|x86
+		{F4649CC5-E31D-4A0C-89AF-72C47F35450B}.Release|Any CPU.Build.0 = Release|x86
+		{F4649CC5-E31D-4A0C-89AF-72C47F35450B}.Release|x86.ActiveCfg = Release|x86
+		{F4649CC5-E31D-4A0C-89AF-72C47F35450B}.Release|x86.Build.0 = Release|x86
+		{6CC936C5-B77D-4870-8162-1602627713E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CC936C5-B77D-4870-8162-1602627713E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CC936C5-B77D-4870-8162-1602627713E9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6CC936C5-B77D-4870-8162-1602627713E9}.Debug|x86.Build.0 = Debug|Any CPU
+		{6CC936C5-B77D-4870-8162-1602627713E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CC936C5-B77D-4870-8162-1602627713E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CC936C5-B77D-4870-8162-1602627713E9}.Release|x86.ActiveCfg = Release|Any CPU
+		{6CC936C5-B77D-4870-8162-1602627713E9}.Release|x86.Build.0 = Release|Any CPU
+		{B9288552-F2D5-43A3-A4CC-EABF60649E6F}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{B9288552-F2D5-43A3-A4CC-EABF60649E6F}.Debug|Any CPU.Build.0 = Debug|x86
+		{B9288552-F2D5-43A3-A4CC-EABF60649E6F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B9288552-F2D5-43A3-A4CC-EABF60649E6F}.Debug|x86.Build.0 = Debug|Any CPU
+		{B9288552-F2D5-43A3-A4CC-EABF60649E6F}.Release|Any CPU.ActiveCfg = Release|x86
+		{B9288552-F2D5-43A3-A4CC-EABF60649E6F}.Release|Any CPU.Build.0 = Release|x86
+		{B9288552-F2D5-43A3-A4CC-EABF60649E6F}.Release|x86.ActiveCfg = Release|Any CPU
+		{B9288552-F2D5-43A3-A4CC-EABF60649E6F}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
