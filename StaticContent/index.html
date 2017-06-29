@@ -1,15 +1,207 @@
-﻿<html>
+<html>
+
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
+    <link href="css/style.css" media="all" rel="stylesheet">
+    <link href="css/responsive.css" media="all" rel="stylesheet">    
 </head>
+
 <body>
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: #e2ebf2 url('/static/background.jpg') no-repeat; background-size: 100% 100%; overflow: hidden">
-        <div style="position: absolute; top: 30%; left: 100px; opacity: 0.2">
-            <img src="/static/background-eye.png" style="height: 40%" />
+    <div class="bg-wrap">
+        <div class="bg-pics">
+            <img src="img/background-eye.png" class="bg-eye" />
+            <img src="img/waggoner-logo.png" class="bg-logo" />
         </div>
-        <div style="position: absolute; bottom: 150px; left: 40%; width: 20%; opacity: 0.4">
-            <img src="/static/waggoner-logo.png" style="width: 100%" />
+        <div class="reg container">
+            <div class="top-head s100">
+                <div class="top-banner">
+                    <img src="img/reg-head.jpg" class="top-logo">
+                    <div class="text-wrap">
+                        <h1 class="main-title">Registration</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="form-wrap">
+                <div class="form-line">
+                    <div class="s20">
+                        <p class="input-label">First Name <span class="input-req">*</span></p>
+                        <input type="text" class="form-field" name="" placeholder="">
+                    </div>
+                    <div class="s20">
+                        <p class="input-label">Last Name <span class="input-req">*</span></p>
+                        <input type="text" class="form-field" name="" placeholder="">
+                    </div>
+                    <div class="s20">
+                        <p class="input-label">Email <span class="input-req">*</span></p>
+                        <input type="text" class="form-field" name="" placeholder="">
+                    </div>
+                    <div class="s20">
+                        <p class="input-label">Phone Number<span class="input-req">*</span></p>
+                        <input type="text" class="form-field" name="" placeholder="">
+                    </div>
+                    <div class="s20"></div>
+                </div>
+                <div class="form-line">
+                    <div class="s20">
+                        <p class="input-label">Company Name</p>
+                        <input type="text" class="form-field" name="" placeholder="">
+                    </div>
+                    <div class="s20">
+                        <p class="input-label">Website URL</p>
+                        <input type="text" class="form-field" name="" placeholder="">
+                    </div>
+                    <div class="s20"></div>
+                    <div class="s20"></div>
+                    <div class="s20"></div>
+                </div>
+                <div class="form-line">
+                    <div class="s20">
+                        <p class="input-label">Address (Street)<span class="input-req">*</span></p>
+                        <input type="text" class="form-field" name="" placeholder="">
+                    </div>
+                    <div class="s20">
+                        <p class="input-label">City<span class="input-req">*</span></p>
+                        <input type="text" class="form-field" name="" placeholder="">
+                    </div>
+                    <div class="s20">
+                        <p class="input-label">State<span class="input-req">*</span></p>
+                        <input type="text" class="form-field" name="" placeholder="">
+                    </div>
+                    <div class="s20">
+                        <p class="input-label">Country<span class="input-req">*</span></p>
+                        <input type="text" class="form-field" name="" placeholder="">
+                    </div>
+                    <div class="s20">
+                        <p class="input-label">Zip code<span class="input-req">*</span></p>
+                        <input type="text" class="form-field" name="" placeholder="">
+                    </div>
+                </div>                
+            </div>
+            <div class="check-form-wrap s35">
+                <p class="check-title">How did you hear about us?</p>
+                <div class="check-form">
+                    <div class="form-line">
+                        <div class="s50">
+                            <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" role="checkbox"> 
+                            <label for="checkbox-1-1"></label>
+                            Distributor
+                        </div>
+                        <div class="s50 info-wrap">
+                            <input type="text" class="info-input" name="" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-line">
+                        <div class="s50">
+                            <input type="checkbox" id="checkbox-1-2" class="regular-checkbox" role="checkbox"> 
+                            <label for="checkbox-1-2"></label>
+                            Facebook
+                        </div>
+                        <div class="s50">
+                            
+                        </div>
+                    </div>
+                    <div class="form-line">
+                        <div class="s50">
+                            <input type="checkbox" id="checkbox-1-3" class="regular-checkbox" role="checkbox"> 
+                            <label for="checkbox-1-3"></label>
+                            Friend / Colleague
+                        </div>
+                        <div class="s50 info-wrap">
+                            <input type="text" class="info-input" name="" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-line">
+                        <div class="s50">
+                            <input type="checkbox" id="checkbox-1-4" class="regular-checkbox" role="checkbox"> 
+                            <label for="checkbox-1-4"></label>
+                            LinkedIn
+                        </div>
+                        <div class="s50 info-wrap">
+                            
+                        </div>
+                    </div>
+                    <div class="form-line">
+                        <div class="s50">
+                            <input type="checkbox" id="checkbox-1-5" class="regular-checkbox" role="checkbox"> 
+                            <label for="checkbox-1-5"></label>
+                            Sales Representative
+                        </div>
+                        <div class="s50 info-wrap">
+                            <input type="text" class="info-input" name="" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-line">
+                        <div class="s50">
+                            <input type="checkbox" id="checkbox-1-6" class="regular-checkbox" role="checkbox"> 
+                            <label for="checkbox-1-6"></label>
+                            Tradeshow
+                        </div>
+                        <div class="s50 info-wrap">
+                            <input type="text" class="info-input" name="" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-line">
+                        <div class="s50">
+                            <input type="checkbox" id="checkbox-1-7" class="regular-checkbox" role="checkbox"> 
+                            <label for="checkbox-1-7"></label>
+                            Other
+                        </div>
+                        <div class="s50 info-wrap">
+                            <input type="text" class="info-input" name="" placeholder="">
+                        </div>
+                    </div>                                       
+                </div>
+            </div>
+            <div class="clearfix"></div>            
+        </div>
+        <div id="main-nav" class="main-menu">
+            <ul class="navigation">
+                
+            </ul>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            var menu = [{
+                id: 12,
+                title: "Keyboard",
+                url: '#',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: false
+            },
+            {
+                id: 24,
+                title: "Exit",
+                url: '#',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: true
+            },
+            {       
+                id: 34,
+                title: "ItemTab",
+                url: '#',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: false
+            },{
+                id: 67,
+                title: "Some",
+                url: '#',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: false
+            }];
+            renderBottomMenu(menu);
+        });
+    </script>     
 </body>
+
 </html>
