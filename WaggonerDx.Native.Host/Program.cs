@@ -5,6 +5,7 @@ using System;
 using System.IO;
 using System.Net.Http;
 using System.Windows.Forms;
+using WaggonerDx.Native.JsBridge;
 
 namespace WaggonerDx.Main.Host
 {
@@ -95,6 +96,9 @@ namespace WaggonerDx.Main.Host
                 Cef.Initialize(settings, performDependencyCheck: false, browserProcessHandler: browserProcessHandler);
 
                 var browser = new ChromiumWebBrowser("http://localhost:8000/static/index.html");
+
+                browser.RegisterJsObject("native", new JsBridge());
+
                 browser.Dock = DockStyle.Fill;
 
                 var mainForm = new Form();

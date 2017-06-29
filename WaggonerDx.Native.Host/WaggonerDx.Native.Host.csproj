@@ -116,26 +116,56 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\StaticContent\background-eye.png">
-      <Link>StaticContent\background-eye.png</Link>
+    <Content Include="..\StaticContent\css\responsive.css">
+      <Link>StaticContent\css\responsive.css</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\StaticContent\background.jpg">
-      <Link>StaticContent\background.jpg</Link>
+    <Content Include="..\StaticContent\css\style.css">
+      <Link>StaticContent\css\style.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\background-eye.png">
+      <Link>StaticContent\img\background-eye.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\background.jpg">
+      <Link>StaticContent\img\background.jpg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\button-right.png">
+      <Link>StaticContent\img\button-right.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\loading.png">
+      <Link>StaticContent\img\loading.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\reg-head.jpg">
+      <Link>StaticContent\img\reg-head.jpg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\waggoner-logo.png">
+      <Link>StaticContent\img\waggoner-logo.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\index.html">
       <Link>StaticContent\index.html</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\StaticContent\waggoner-logo.png">
-      <Link>StaticContent\waggoner-logo.png</Link>
+    <Content Include="..\StaticContent\js\main.js">
+      <Link>StaticContent\js\main.js</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WaggonerDx.Native.JsBridge\WaggonerDx.Native.JsBridge.csproj">
+      <Project>{4bb51028-6ec8-4812-86de-86cfb1301300}</Project>
+      <Name>WaggonerDx.Native.JsBridge</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets" Condition="Exists('..\packages\cef.redist.x64.3.2987.1601\build\cef.redist.x64.targets')" />
