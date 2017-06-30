@@ -5,7 +5,7 @@
     <link href="css/style.css" media="all" rel="stylesheet">
     <link href="css/responsive.css" media="all" rel="stylesheet">    
     <script>
-        native = native || {
+        native = window.native || {
             // Mocking native if launched not from c#
             init: function(){},
             log: function(string, level){console.log(string);}
