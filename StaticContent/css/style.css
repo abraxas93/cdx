@@ -259,9 +259,14 @@ input[type="radio" i], input[type="checkbox" i] {
 .navigation li {    
     float: left;
     min-width: 200px;
-    text-align: center;
-    background: #0c5697;
+    text-align: center;    
+    background-repeat: no-repeat;
     padding: 15px;
+}
+.navigation li:after {
+    display: block;
+    content: "";
+    background-image: url(../img/button-right.png);
 }
 .navigation li a {
     color: #fff;

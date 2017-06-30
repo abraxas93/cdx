@@ -10,7 +10,7 @@ function renderBottomMenu(menu) {
             html: item.title,
             click: item.onClick
         });
-        $(menuEl).appendTo(container).wrap('<li></li>');
+        $(menuEl).appendTo(container).wrap('<li><div class="wrapper"></div></li>');
         if(item.active) menuEl.addClass('active');
     });
 }
