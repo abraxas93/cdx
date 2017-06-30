@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 
 <head>
     <meta charset="utf-8">
@@ -8,7 +8,8 @@
         native = window.native || {
             // Mocking native if launched not from c#
             init: function(){},
-            log: function(string, level){console.log(string);}
+            log: function (string, level) { console.log(string); },
+            btmMenuClick: function (id) { console.log(id + ' clicked....'); }
         };
     
         var log = {
@@ -22,7 +23,7 @@
     </script>
 </head>
 
-<body>
+<body style="-webkit-user-select: none">
     <div class="bg-wrap">
         <div class="bg-pics">
             <img src="img/background-eye.png" class="bg-eye" />
@@ -195,10 +196,10 @@
                 title: "Exit",
                 url: '#',
                 class: 'orange',
-                onClick: function() {
-                    console.log('clicked item: ' + this.id);
+                onClick: function () {
+                    native.btmMenuClick(this.id);
                 },
-                active: true
+                active: false
             },
             {       
                 id: 34,

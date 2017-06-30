@@ -5,6 +5,8 @@ using System;
 using System.IO;
 using System.Net.Http;
 using System.Windows.Forms;
+using WaggonerDx.Native.Dialogs;
+using WaggonerDx.Native.Flows;
 using WaggonerDx.Native.JsBridge;
 
 namespace WaggonerDx.Main.Host
@@ -70,43 +72,50 @@ namespace WaggonerDx.Main.Host
         [System.STAThread]
         static void Main()
         {
-            string baseAddress = "http://localhost:8000/";
-
-            using (WebApp.Start<Startup>(url: baseAddress))
+            try
             {
-                Cef.EnableHighDPISupport();
+                string baseAddress = "http://localhost:8000/";
 
-                var appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WaggonerDx");
-                if (!Directory.Exists(appDataFolder))
+                using (WebApp.Start<Startup>(url: baseAddress))
                 {
-                    try
+                    Cef.EnableHighDPISupport();
+
+                    var appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "WaggonerDx");
+                    if (!Directory.Exists(appDataFolder))
                     {
-                        Directory.CreateDirectory(appDataFolder);
+                        try
+                        {
+                            Directory.CreateDirectory(appDataFolder);
+                        }
+                        catch
+                        {
+                        }
                     }
-                    catch
-                    {
-                    }
+
+                    var settings = new CefSettings();
+                    settings.RemoteDebuggingPort = 8088;
+                    settings.CachePath = Path.Combine(appDataFolder, "cache");
+
+                    var browserProcessHandler = new BrowserProcessHandler();
+                    Cef.Initialize(settings, performDependencyCheck: false, browserProcessHandler: browserProcessHandler);
+
+                    var browser = new ChromiumWebBrowser("http://localhost:8000/static/index.html");
+
+                    var mainForm = new Form();
+                    mainForm.MinimumSize = new System.Drawing.Size(800, 600);
+                    mainForm.WindowState = FormWindowState.Maximized;
+                    mainForm.Controls.Add(browser);
+
+                    browser.RegisterJsObject("native", new JsBridge(new MainFlow(mainForm)));
+                    browser.Dock = DockStyle.Fill;
+
+                    Application.EnableVisualStyles();
+                    Application.Run(mainForm);
                 }
-
-                var settings = new CefSettings();
-                settings.RemoteDebuggingPort = 8088;
-                settings.CachePath = Path.Combine(appDataFolder, "cache");
-
-                var browserProcessHandler = new BrowserProcessHandler();
-                Cef.Initialize(settings, performDependencyCheck: false, browserProcessHandler: browserProcessHandler);
-
-                var browser = new ChromiumWebBrowser("http://localhost:8000/static/index.html");
-
-                browser.RegisterJsObject("native", new JsBridge());
-
-                browser.Dock = DockStyle.Fill;
-
-                var mainForm = new Form();
-                mainForm.WindowState = FormWindowState.Maximized;
-                mainForm.Controls.Add(browser);
-
-                Application.EnableVisualStyles();
-                Application.Run(mainForm);
+            }
+            catch (Exception ex)
+            {
+                (new Error(ex.InnerException != null ? ex.InnerException.Message : ex.Message)).ShowDialog();
             }
         }
     }

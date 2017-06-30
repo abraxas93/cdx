@@ -80,6 +80,8 @@
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -104,6 +106,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -132,8 +135,12 @@
       <Link>StaticContent\img\background.jpg</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\StaticContent\img\button-right.png">
-      <Link>StaticContent\img\button-right.png</Link>
+    <Content Include="..\StaticContent\img\btmmenu-button-blue.png">
+      <Link>StaticContent\img\btmmenu-button-blue.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\btmmenu-button-orange.png">
+      <Link>StaticContent\img\btmmenu-button-orange.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\img\loading.png">
@@ -162,8 +169,16 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WaggonerDx.Native.Dialogs\WaggonerDx.Native.Dialogs.csproj">
+      <Project>{6cc936c5-b77d-4870-8162-1602627713e9}</Project>
+      <Name>WaggonerDx.Native.Dialogs</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WaggonerDx.Native.Flows\WaggonerDx.Native.Flows.csproj">
+      <Project>{124e6110-59b8-497c-8de0-c333c9b3ace6}</Project>
+      <Name>WaggonerDx.Native.Flows</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WaggonerDx.Native.JsBridge\WaggonerDx.Native.JsBridge.csproj">
-      <Project>{4bb51028-6ec8-4812-86de-86cfb1301300}</Project>
+      <Project>{89275ab7-376e-43b6-9c9c-343a29fe2d21}</Project>
       <Name>WaggonerDx.Native.JsBridge</Name>
     </ProjectReference>
   </ItemGroup>

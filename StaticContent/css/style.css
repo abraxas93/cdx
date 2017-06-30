@@ -66,7 +66,7 @@ ul {
 
 .bg-logo {
     position: absolute;
-    bottom: 5%;
+    bottom: 15%;
     left: 0;
     width: 14%;
     opacity: 0.4;
@@ -78,7 +78,7 @@ ul {
     position: absolute;    
     left: 0;
     opacity: 0.2;
-    bottom: 10%;
+    bottom: 30%;
 }
 
 .container {
