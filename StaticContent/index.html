@@ -172,9 +172,7 @@
         </div>
         <div id="main-nav" class="main-menu">
             <ul class="navigation">
-                <li>
-                    <a>Keyboard</a>
-                </li>
+                
             </ul>
         </div>
     </div>
@@ -184,8 +182,9 @@
         $(document).ready(function() {
             var menu = [{
                 id: 12,
-                title: "Keyboard",
+                title: "UsersKeyboard",
                 url: '#',
+                class: 'blue',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
                 },
@@ -195,6 +194,7 @@
                 id: 24,
                 title: "Exit",
                 url: '#',
+                class: 'orange',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
                 },
@@ -204,6 +204,7 @@
                 id: 34,
                 title: "ItemTab",
                 url: '#',
+                class: 'blue',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
                 },
@@ -212,12 +213,13 @@
                 id: 67,
                 title: "Some",
                 url: '#',
+                class: 'orange',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
                 },
                 active: false
             }];
-            //renderBottomMenu(menu);
+            renderBottomMenu(menu);
         });
     </script>     
 </body>

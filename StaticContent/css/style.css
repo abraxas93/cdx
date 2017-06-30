@@ -258,10 +258,34 @@ input[type="radio" i], input[type="checkbox" i] {
 }
 .navigation li {    
     float: left;
-    min-width: 200px;
+    min-width: 215px;
     text-align: center;    
+    position: relative;
     background-repeat: no-repeat;
-    padding: 15px;
+    padding: 11px;
+    //background: #0c5697;    
+    background-repeat: no-repeat;
+    background-size: 100%;
+    bottom: -7px;
+    transition: all 0.5s ease 0s;
+    cursor: pointer;
+}
+.navigation li:hover {
+    bottom: -1px;
+}
+/* menu buttons section */
+.orange {
+    background-image: url(../img/btmmenu-button-orange.png);
+}
+.blue {
+    background-image: url(../img/btmmenu-button-blue.png);
+}
+li.active {
+    bottom: -1px;
+    z-index: 5;
+}
+li.active:hover {
+    bottom: -7px;
 }
 .navigation li:after {
     display: block;
