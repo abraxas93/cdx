@@ -267,7 +267,7 @@ input[type="radio" i], input[type="checkbox" i] {
     background-repeat: no-repeat;
     background-size: 100%;
     bottom: -7px;
-    transition: all 0.5s ease 0s;
+    transition: all 0.2s ease 0s;
     cursor: pointer;
 }
 .navigation li:hover {
@@ -285,7 +285,7 @@ li.active {
     z-index: 5;
 }
 li.active:hover {
-    bottom: -7px;
+    
 }
 .navigation li:after {
     display: block;
