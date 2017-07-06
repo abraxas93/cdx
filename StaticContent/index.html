@@ -8,7 +8,8 @@
         native = window.native || {
             // Mocking native if launched not from c#
             init: function(){},
-            log: function(string, level){console.log(string);}
+            log: function (string, level) { console.log(string); },
+            btmMenuClick: function (id) { console.log(id + ' clicked....'); }
         };
     
         var log = {
@@ -22,7 +23,7 @@
     </script>
 </head>
 
-<body>
+<body style="-webkit-user-select: none">
     <div class="bg-wrap">
         <div class="bg-pics">
             <img src="img/background-eye.png" class="bg-eye" />
@@ -100,7 +101,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-1"></label>
-                            <span class="inner-text">Distributor</span>
+                            Distributor
                         </div>
                         <div class="s50 info-wrap">
                             <input type="text" class="info-input" name="" placeholder="">
@@ -110,7 +111,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-2" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-2"></label>
-                            <span class="inner-text">Facebook</span>
+                            Facebook
                         </div>
                         <div class="s50">
                             
@@ -120,7 +121,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-3" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-3"></label>
-                            <span class="inner-text">Friend / Colleague</span>
+                            Friend / Colleague
                         </div>
                         <div class="s50 info-wrap">
                             <input type="text" class="info-input" name="" placeholder="">
@@ -130,7 +131,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-4" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-4"></label>
-                            <span class="inner-text">LinkedIn</span>
+                            LinkedIn
                         </div>
                         <div class="s50 info-wrap">
                             
@@ -140,7 +141,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-5" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-5"></label>
-                            <span class="inner-text">Sales Representative</span>
+                            Sales Representative
                         </div>
                         <div class="s50 info-wrap">
                             <input type="text" class="info-input" name="" placeholder="">
@@ -150,7 +151,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-6" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-6"></label>
-                            <span class="inner-text">Tradeshow</span>
+                            Tradeshow
                         </div>
                         <div class="s50 info-wrap">
                             <input type="text" class="info-input" name="" placeholder="">
@@ -160,7 +161,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-7" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-7"></label>
-                            <span class="inner-text">Other</span>
+                            Other
                         </div>
                         <div class="s50 info-wrap">
                             <input type="text" class="info-input" name="" placeholder="">
@@ -178,10 +179,48 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/data.js"></script>
     <script>
-        $(document).ready(function() {            
-            app.renderBotMenu(menu);
+        $(document).ready(function() {
+            var menu = [{
+                id: 12,
+                title: "UsersKeyboard",
+                url: '#',
+                class: 'blue',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: false
+            },
+            {
+                id: 24,
+                title: "Exit",
+                url: '#',
+                class: 'orange',
+                onClick: function () {
+                    native.btmMenuClick(this.id);
+                },
+                active: false
+            },
+            {       
+                id: 34,
+                title: "ItemTab",
+                url: '#',
+                class: 'blue',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: false
+            },{
+                id: 67,
+                title: "Some",
+                url: '#',
+                class: 'orange',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: false
+            }];
+            renderBottomMenu(menu);
         });
     </script>     
 </body>
