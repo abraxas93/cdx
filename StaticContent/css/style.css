@@ -151,7 +151,7 @@ ul {
 }
 
 .top-banner {
-    width: 35%;
+    width: 40%;
     margin: auto;    
 }
 
@@ -159,6 +159,7 @@ ul {
     color:#fff;
     font-size: 30px;
     text-align: center;
+    font-weight: bold;
 }
 
 .top-logo {
@@ -400,3 +401,76 @@ li.active:hover {
 }
 
 /* screen03 css styles */
+
+.list-body {
+    width: 40%;
+    margin: 0 auto;
+}
+.label {
+    background: #0c5697;
+    overflow: hidden;
+    color: #fff;
+    padding: 13px;
+    font-size: 15px;
+    border-top-left-radius: 14px 24px;
+    border-bottom-left-radius: 14px 24px;
+    border-top-right-radius: 14px 24px;
+    border-bottom-right-radius: 14px 24px;
+    font-weight: bold;
+}
+.label .right-col {
+    text-align: right;
+}
+.list-item {
+    background: #fff;
+    color: #0c5697;
+    overflow: hidden;
+    margin-top: 15px;    
+    border-top-left-radius: 14px 24px;
+    border-bottom-left-radius: 14px 24px;
+    border-top-right-radius: 14px 24px;
+    border-bottom-right-radius: 14px 24px;
+    font-weight: bold;
+    font-size: 15px;
+}
+.test-position {
+    float: left;
+    width: 25%;
+    text-align: center;
+    border-right: 2px solid #ccc;
+    padding: 13px;
+}
+.test-name {
+    width: 50%;
+    float: left;
+    padding: 13px;
+    text-align: left;
+    padding-left: 5%;
+    border-right: 2px solid #ccc;
+}
+.menu-item {
+    background: #0c5697;
+    border-right: 2px solid #ccc;
+    float: left;
+    width: 16%;
+    color: #fff;
+    padding: 13px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+.config-menu {
+    overflow: hidden;
+    margin-top: 45px;
+}
+
+.menu-item.left-item {
+    border-top-left-radius: 23px;
+    border-bottom-left-radius: 23px;
+}
+.menu-item.active {
+    background: #f26d21;
+}
+.menu-item:hover {
+    background: #f26d21;
+}
