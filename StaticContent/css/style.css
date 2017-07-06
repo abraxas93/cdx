@@ -53,12 +53,12 @@ ul {
     list-style: none;  
 }
 
-.bg-wrap {   
+.bg-wrap {
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: #e2ebf2 url('../img/background.jpg') no-repeat;
+    background: #e2ebf2 url(../img/background.jpg) no-repeat;
     background-size: 100% 100%;
     overflow: hidden;
     min-height: 760px;
@@ -68,28 +68,23 @@ ul {
 
 .bg-logo {
     position: absolute;
-<<<<<<< HEAD
-    bottom: 6%;
-=======
     bottom: 15%;
->>>>>>> upstream/master
     left: 0;
-    width: 14%;
-    opacity: 1;
-    right: 0;
+    width: 14%;    
+    right: 0;    
     margin: auto;
+    bottom: 20px;
 }
 
 .bg-eye {
     position: absolute;    
     left: 0;
     opacity: 0.2;
-    bottom: 30%;
+    bottom: 10%;
 }
 
 .container {
-    width: 90%;
-    //border: 1px solid #ccc;
+    width: 90%;    
     margin: 0 auto;
     position: relative;
     max-width: 1365px;
@@ -99,17 +94,19 @@ ul {
     clear: both;
     overflow: hidden;
 }
+
 .submit-arrow {
     display: block;
-    width: 60px;
-    height: 36px;
     background-image: url(../img/submit-arrow.jpg);
     background-repeat: no-repeat;
-    position: absolute;
-    bottom: 55px;
-    right: 5%;
+    width: 64px;
+    height: 50px;
     background-size: 100%;
+    position: absolute;
+    right: 0;
+    bottom: -70px;
 }
+
 /*
 * custom sizes s10, s20, s25, s50, s75, s100 in %
 */
@@ -149,7 +146,6 @@ ul {
 .text-wrap {
     background: #0c5697;
     padding: 13px;
-    height: 62px;
     border-bottom-right-radius: 9px;
 }
 
@@ -231,13 +227,9 @@ ul {
     position: relative;
     cursor: pointer;
     margin-right: 5px;
-    float:left;
+    float: left;
 }
-.inner-text {
-    padding-top: 8px;
-    display: block;
-    padding-left: 25px;
-}
+
 .regular-checkbox {
     display: none;
 }
@@ -254,7 +246,7 @@ ul {
 /***** bottom menu css style *****/
 
 #main-nav {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     right: 0;
     //width: 100%;
@@ -269,10 +261,9 @@ ul {
     position: relative;
     background-repeat: no-repeat;
     padding: 11px;
-    //background: #0c5697;    
+    background-image: url(../img/btmmenu-button-blue.png);
     background-repeat: no-repeat;
     background-size: 100%;
-    background-image: url(../img/btmmenu-button-blue.png);
     bottom: -7px;
     transition: all 0.2s ease 0s;
     cursor: pointer;
@@ -284,8 +275,8 @@ ul {
 
 li.active {
     bottom: -1px;
-    z-index: 5;
     background-image: url(../img/btmmenu-button-orange.png);
+    z-index: 5;
 }
 li.active:hover {
     
@@ -303,7 +294,11 @@ li.active:hover {
 .navigation li a:hover {
     
 }
-
+.inner-text {
+    display: block;
+    padding-top: 8px;
+    padding-left: 25px;
+}
 
 /* screen02 css styles */
 
@@ -323,7 +318,7 @@ li.active:hover {
 }
 .slider-wrap {
     overflow: hidden;
-    min-height: 310px;
+    min-height: 325px;
 }
 .text-box {
     background: #fff;
