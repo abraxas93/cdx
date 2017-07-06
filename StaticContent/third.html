@@ -38,6 +38,75 @@
                     </div>
                 </div>
             </div>
+            <div class="list-body">
+                <div class="label">
+                    <div class="s50">
+                        Current Order
+                    </div>
+                    <div class="s50">
+                        Desired Order
+                    </div>
+                </div>
+                <ul class="test-list">
+                    <li class="list-item">
+                        <div class="test-position"></div>
+                        <div class="test-name"></div>
+                        <div class="test-control"></div>
+                    </li>
+                    <li class="list-item">
+                        <div class="test-position"></div>
+                        <div class="test-name"></div>
+                        <div class="test-control"></div>
+                    </li>
+                    <li class="list-item">
+                        <div class="test-position"></div>
+                        <div class="test-name"></div>
+                        <div class="test-control"></div>
+                    </li>
+                    <li class="list-item">
+                        <div class="test-position"></div>
+                        <div class="test-name"></div>
+                        <div clas="test-control"></div>                    
+                    </li>
+                    <li class="list-item">
+                        <div class="test-position"></div>
+                        <div class="test-name"></div>
+                        <div class="test-control"></div>
+                    </li>
+                    <li class="list-item">
+                        <div class="test-position"></div>
+                        <div class="test-name"></div>
+                        <div class="test-control"></div>
+                    </li>
+                    <li class="list-item">
+                        <div class="test-position"></div>
+                        <div class="test-name"></div>
+                        <div class="test-control"></div>
+                    </li>
+                </ul>                
+            </div>
+            <div class="config-menu">
+                <ul>
+                    <li>
+                        Deactivation
+                    </li>
+                    <li>
+                        Calibration
+                    </li>
+                    <li>
+                        Profile
+                    </li>
+                    <li>
+                        Email
+                    </li>
+                    <li>
+                        Test Ordering
+                    </li>
+                    <li>
+                        TeamViewer
+                    </li>
+                </ul>
+            </div>
         </div>
         <div class="clearfix"></div>
         <div id="main-nav" class="main-menu">
@@ -51,19 +120,11 @@
     <script src="js/slider.js"></script>
     <script src="js/data.js"></script>
     <script>
-        $(window).resize(function() {
-           console.log($(window).width());
-            
-        });
-        $(document).ready(function() {            
-            
-            slider.render({
-                slides: slides,
-                sliderWrap: '.slider1',
-                leftSel: '.left-arrow',
-                rightSel: '.right-arrow'
-            });
-                        
+//        $(window).resize(function() {
+//           console.log($(window).width());
+//            
+//        });
+        $(document).ready(function() {                                    
             app.renderBotMenu(menu);
         });
     </script>     

@@ -1,3 +1,26 @@
+native = window.native || {
+    // Mocking native if launched not from c#
+    init: function () {},
+    log: function (string, level) {
+        console.log(string);
+    },
+    btmMenuClick: function (id) {
+        console.log(id + ' clicked....');
+    },
+    submitNext: function() {
+        console.log('Submitting next');
+    }
+};
+
+var log = {
+    info: 1,
+    warning: 5,
+    error: 10
+};
+native.init();
+native.log('Native bridge inited.', log.info);
+
+
 var app = (function () {
 
     function renderBottomMenu(menu) {
