@@ -1,5 +1,57 @@
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 960px) {
+    .input-label {
+        font-size: 13px;
+    }
+    .slide-title {
+        font-size: 14px;
+    }
+    
+    .slider-wrap {
+        min-height: 225px;
+    }    
+    .main-title {    
+        font-size: 26px;  
+    }
+    .slider-wrap {
+        min-height: 195px;
+    }
+    .text-box {
+        font-size: 15px;
+    }
+    .left-arrow, .right-arrow {
+        height: 160px;
+    }
+}
+
+@media screen and (max-width: 1150px) {
+    .check-form {
+        padding: 40px;
+    }
+    .check-form-wrap {
+        width: 100%;
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+
+@media screen and (min-width: 960px) and (max-width: 1250px) {
+    
+    .slider-wrap {
+        min-height: 265px;
+    }
     .input-label {
         font-size: 15px;
+    }
+    
+    .text-box:before {
+        left: 24%;
+    }
+}
+
+@media screen and (max-width: 1250px) {
+    .left-arrow, .right-arrow {   
+        background-size: 49px;
+        height: 228px;
+        background-size: cover;
     }
 }

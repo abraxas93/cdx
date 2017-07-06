@@ -1,0 +1,57 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="css/style.css" media="all" rel="stylesheet">
+    <link href="css/responsive.css" media="all" rel="stylesheet">   
+</head>
+
+<body>
+    <div class="bg-wrap">
+        <div class="bg-pics">
+            <img src="img/background-eye.png" class="bg-eye" />
+            <img src="img/waggoner-logo.png" class="bg-logo" />            
+        </div>        
+        <div class="slider-wrap slider1">
+            <a class="left-arrow"></a> 
+            <a class="right-arrow"></a>                           
+        </div>
+        <div class="container scr2">            
+            <div class="text-box">
+                Sample text. Sample text. Sample text. Sample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample text
+                Sample text. Sample text. Sample text. Sample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample text
+                Sample text. Sample text. Sample text. Sample text. Sample text.
+            </div>
+            <a class="submit-arrow"></a>
+        </div>
+        <div class="clearfix"></div>
+        <div id="main-nav" class="main-menu">
+            <ul class="navigation">
+                
+            </ul>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/slider.js"></script>
+    <script src="js/data.js"></script>
+    <script>
+        $(window).resize(function() {
+           console.log($(window).width());
+            
+        });
+        $(document).ready(function() {            
+            
+            slider.render({
+                slides: slides,
+                sliderWrap: '.slider1',
+                leftSel: '.left-arrow',
+                rightSel: '.right-arrow'
+            });
+                        
+            app.renderBotMenu(menu);
+        });
+    </script>     
+</body>
+
+</html>
