@@ -100,7 +100,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-1" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-1"></label>
-                            Distributor
+                            <span class="inner-text">Distributor</span>
                         </div>
                         <div class="s50 info-wrap">
                             <input type="text" class="info-input" name="" placeholder="">
@@ -110,7 +110,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-2" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-2"></label>
-                            Facebook
+                            <span class="inner-text">Facebook</span>
                         </div>
                         <div class="s50">
                             
@@ -120,7 +120,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-3" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-3"></label>
-                            Friend / Colleague
+                            <span class="inner-text">Friend / Colleague</span>
                         </div>
                         <div class="s50 info-wrap">
                             <input type="text" class="info-input" name="" placeholder="">
@@ -130,7 +130,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-4" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-4"></label>
-                            LinkedIn
+                            <span class="inner-text">LinkedIn</span>
                         </div>
                         <div class="s50 info-wrap">
                             
@@ -140,7 +140,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-5" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-5"></label>
-                            Sales Representative
+                            <span class="inner-text">Sales Representative</span>
                         </div>
                         <div class="s50 info-wrap">
                             <input type="text" class="info-input" name="" placeholder="">
@@ -150,7 +150,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-6" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-6"></label>
-                            Tradeshow
+                            <span class="inner-text">Tradeshow</span>
                         </div>
                         <div class="s50 info-wrap">
                             <input type="text" class="info-input" name="" placeholder="">
@@ -160,7 +160,7 @@
                         <div class="s50">
                             <input type="checkbox" id="checkbox-1-7" class="regular-checkbox" role="checkbox"> 
                             <label for="checkbox-1-7"></label>
-                            Other
+                            <span class="inner-text">Other</span>
                         </div>
                         <div class="s50 info-wrap">
                             <input type="text" class="info-input" name="" placeholder="">
@@ -178,48 +178,10 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
     <script>
-        $(document).ready(function() {
-            var menu = [{
-                id: 12,
-                title: "UsersKeyboard",
-                url: '#',
-                class: 'blue',
-                onClick: function() {
-                    console.log('clicked item: ' + this.id);
-                },
-                active: false
-            },
-            {
-                id: 24,
-                title: "Exit",
-                url: '#',
-                class: 'orange',
-                onClick: function() {
-                    console.log('clicked item: ' + this.id);
-                },
-                active: true
-            },
-            {       
-                id: 34,
-                title: "ItemTab",
-                url: '#',
-                class: 'blue',
-                onClick: function() {
-                    console.log('clicked item: ' + this.id);
-                },
-                active: false
-            },{
-                id: 67,
-                title: "Some",
-                url: '#',
-                class: 'orange',
-                onClick: function() {
-                    console.log('clicked item: ' + this.id);
-                },
-                active: false
-            }];
-            renderBottomMenu(menu);
+        $(document).ready(function() {            
+            app.renderBotMenu(menu);
         });
     </script>     
 </body>

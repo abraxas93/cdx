@@ -53,23 +53,25 @@ ul {
     list-style: none;  
 }
 
-.bg-wrap {
-    position: absolute;
+.bg-wrap {   
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: #e2ebf2 url('../img/background.jpg') no-repeat;
     background-size: 100% 100%;
-    overflow: hidden
+    overflow: hidden;
+    min-height: 760px;
+    height: 100%;
+    position: relative;
 }
 
 .bg-logo {
     position: absolute;
-    bottom: 5%;
+    bottom: 6%;
     left: 0;
     width: 14%;
-    opacity: 0.4;
+    opacity: 1;
     right: 0;
     margin: auto;
 }
@@ -93,7 +95,17 @@ ul {
     clear: both;
     overflow: hidden;
 }
-
+.submit-arrow {
+    display: block;
+    width: 60px;
+    height: 36px;
+    background-image: url(../img/submit-arrow.jpg);
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: 55px;
+    right: 5%;
+    background-size: 100%;
+}
 /*
 * custom sizes s10, s20, s25, s50, s75, s100 in %
 */
@@ -133,6 +145,7 @@ ul {
 .text-wrap {
     background: #0c5697;
     padding: 13px;
+    height: 62px;
     border-bottom-right-radius: 9px;
 }
 
@@ -214,24 +227,13 @@ ul {
     position: relative;
     cursor: pointer;
     margin-right: 5px;
+    float:left;
 }
-/*
-input[type="checkbox" i] {
-    margin: 3px 3px 3px 4px;
+.inner-text {
+    padding-top: 8px;
+    display: block;
+    padding-left: 25px;
 }
-
-input[type="checkbox" i] {
-    -webkit-appearance: checkbox;
-    box-sizing: border-box;
-}
-
-input[type="radio" i], input[type="checkbox" i] {
-    background-color: initial;
-    margin: 3px 0.5ex;
-    padding: initial;
-    border: initial;
-}
-*/
 .regular-checkbox {
     display: none;
 }
@@ -248,7 +250,7 @@ input[type="radio" i], input[type="checkbox" i] {
 /***** bottom menu css style *****/
 
 #main-nav {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
     //width: 100%;
@@ -266,6 +268,7 @@ input[type="radio" i], input[type="checkbox" i] {
     //background: #0c5697;    
     background-repeat: no-repeat;
     background-size: 100%;
+    background-image: url(../img/btmmenu-button-blue.png);
     bottom: -7px;
     transition: all 0.2s ease 0s;
     cursor: pointer;
@@ -274,15 +277,11 @@ input[type="radio" i], input[type="checkbox" i] {
     bottom: -1px;
 }
 /* menu buttons section */
-.orange {
-    background-image: url(../img/btmmenu-button-orange.png);
-}
-.blue {
-    background-image: url(../img/btmmenu-button-blue.png);
-}
+
 li.active {
     bottom: -1px;
     z-index: 5;
+    background-image: url(../img/btmmenu-button-orange.png);
 }
 li.active:hover {
     
@@ -299,4 +298,103 @@ li.active:hover {
 }
 .navigation li a:hover {
     
+}
+
+
+/* screen02 css styles */
+
+.slide-item {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.slider-viewport .s20 {
+    padding: 40px;
+}
+
+.slide-title {
+    color: #0d5595;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.slider-wrap {
+    overflow: hidden;
+    min-height: 310px;
+}
+.text-box {
+    background: #fff;
+    padding: 25px;
+    padding-bottom: 40px;
+    border-radius: 4px;
+    border-top-left-radius: 41px 40px;
+    border-bottom-right-radius: 41px 40px;
+    margin-top: 10px;
+    min-height: 225px;
+}
+.text-box:before {
+    content: ' ';
+    position: relative;
+    width: 0;
+    height: 0;
+    top: -71px;
+    left: 26.5%;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 30px solid #fff;
+}
+.text-box.box1:before {
+    left: 6.5%;
+}
+.text-box.box2:before {
+    left: 26.5%;
+}
+.text-box.box3:before {
+    left: 47.5%;
+}
+.text-box.box4:before {
+    left: 68.5%;
+}
+.text-box.box5:before {
+    left: 89%;
+}
+.slider-viewport {   
+    width: 90%;
+    margin: 0 auto;    
+    position: relative;
+}
+
+.slider-viewport .s20 {
+    padding: 15px;
+    position: absolute;
+    cursor: pointer;
+    transition: all 0.4s ease-in 1s;    
+}
+.hidden {
+    display: none;
+}
+.left-arrow, .right-arrow {
+    background-repeat: no-repeat;    
+    height: 275px;
+    background-size: 100%;
+    display: block;
+    width: 5%;
+    cursor: pointer;
+    position: absolute;
+    z-index: 5;
+    height: 325px;
+    overflow: hidden;
+}
+.left-arrow {    
+    background-image: url(../img/scr2-ar-left.jpg);   
+    background-size: cover;
+    left: 0;
+}
+.right-arrow {   
+    background-image: url(../img/scr2-ar-right.jpg);
+    background-size: cover;
+    right: 0;
+}
+.fade {
+    transition: all 0.2s linear 0.5s;
+    opacity: 0;
 }
