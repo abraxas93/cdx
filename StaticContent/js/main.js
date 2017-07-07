@@ -49,16 +49,10 @@ var app = (function () {
 
 })();
 
-var positions = [];
 
-$('.list-item').each(function(i, test) {    
-    $(test).attr('data-pos', i);
-    positions[i] = test;    
-});
 
-console.log(positions.length);
 
-$('.list-item').click(function() {
+/*$('.list-item').click(function() {
     
     var currentPos = $(this).attr('data-pos');
     var previousPos = currentPos - 1;
@@ -66,17 +60,13 @@ $('.list-item').click(function() {
     
     
     if(parseInt(currentPos) === 0) {
-        
-        $(this).attr('data-pos',  positions.length - 1);
-        var lastTest = positions.pop();
-        positions.push(this);
-        positions[0] = lastTest;                
-        
         $(this).appendTo('#tests');
-        $('.test-position').each(function(i, el) {            
-            $(el).html(i + 1);
-        });
         
+        $('.list-item').each(function(i, el) {
+            $(el).attr('data-pos', i).css('top','0px');
+            $(el).children('.test-position').html(i+1);
+            positions[i] = el;
+        });       
     } else {
         positions[currentPos] = previousTest;
         positions[previousPos] = this;
@@ -94,8 +84,102 @@ $('.list-item').click(function() {
         }, 2000, function() {
             $(previousTest).children('.test-position').html(++previousPos);
         });
-    }  
+    }      
+});*/
+
+var TestSwitcher = (function() {
+    var positions = $('.list-item').toArray();
     
+    positions.forEach(function(el, i) {
+        $(el).attr('data-pos', i);
+    });
+    
+    function refreshAll() {
+        $('.list-item').each(function (i, el) {
+            $(el).attr('data-pos', i).css('top', '0px');
+            $(el).children('.test-position').html(i + 1);
+            positions[i] = el;
+        });
+    }
+    
+    function moveTestUp() {       
+        
+        var currentPos = parseInt($(this).attr('data-pos'));
+        var previousPos = currentPos - 1;
+        var previousTest = positions[previousPos];
+        
+        if (currentPos === 0) { // if we have top position , then move to bottom
+            $(this).appendTo('#tests');
+            refreshAll();
+        } else {
+            positions[currentPos] = previousTest;
+            positions[previousPos] = this;
+
+            $(this).attr('data-pos', --currentPos);
+            $(previousTest).attr('data-pos', ++previousPos);
+
+            $(this).animate({
+                top: "-=58"
+            }, 2000, function () {
+                $(this).children('.test-position').html(++currentPos);
+            });
+            $(previousTest).animate({
+                top: "+=58"
+            }, 2000, function () {
+                $(previousTest).children('.test-position').html(++previousPos);
+            });
+        }
+
+    }
+    
+    function moveTestDown() {
+        var currentPos = parseInt($(this).attr('data-pos'));
+        var nextPos = currentPos + 1;
+        var nextTest = positions[nextPos];
+        
+        if (currentPos === positions.length - 1) {
+            $(this).prependTo('#tests');
+            refreshAll();
+        } else {
+            positions[currentPos] = nextTest;
+            positions[nextPos] = this;
+
+            $(this).attr('data-pos', ++currentPos);
+            $(nextTest).attr('data-po', --nextPos);
+
+            $(this).animate({
+                top: "+=58"
+            }, 2000, function () {
+                $(this).children('.test-position').html(++currentPos);
+            });
+            $(nextTest).animate({
+                top: "-=58"
+            }, 2000, function () {
+                $(nextTest).children('.test-position').html(++nextPos);
+            });
+        }        
+    }
+    
+    
+    return {
+        moveUp: function(context) {            
+            var moveFunc = moveTestUp.bind(context);
+            moveFunc();
+        },
+        moveDown: function(context) {
+            var moveFunc = moveTestDown.bind(context);
+            moveFunc();
+        }
+    }
+    
+})();
+
+$('.move-up').click(function() {
+    var listItem = $(this).parent().parent().parent();
+    TestSwitcher.moveUp(listItem);
 });
 
-
+$('.move-down').click(function() {
+    var listItem = $(this).parent().parent().parent();
+    TestSwitcher.moveDown(listItem);
+});

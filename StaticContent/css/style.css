@@ -508,3 +508,10 @@ li.active:hover {
     font-size: 20px;
     cursor: pointer;
 }
+.move-up, .move-down {
+    transition: all 0.1s linear 0.2s;
+}
+.move-up:hover, .move-down:hover {
+    background: #0c5697;
+    color: #fff;
+}
