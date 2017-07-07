@@ -9,6 +9,9 @@ native = window.native || {
     },
     submitNext: function() {
         console.log('Submitting next');
+    },
+    testsOrderSubmitted: function(payload) {
+        console.log('Saving sort order ...');
     }
 };
 
@@ -49,46 +52,10 @@ var app = (function () {
 
 })();
 
-
-
-
-/*$('.list-item').click(function() {
-    
-    var currentPos = $(this).attr('data-pos');
-    var previousPos = currentPos - 1;
-    var previousTest = positions[previousPos];
-    
-    
-    if(parseInt(currentPos) === 0) {
-        $(this).appendTo('#tests');
-        
-        $('.list-item').each(function(i, el) {
-            $(el).attr('data-pos', i).css('top','0px');
-            $(el).children('.test-position').html(i+1);
-            positions[i] = el;
-        });       
-    } else {
-        positions[currentPos] = previousTest;
-        positions[previousPos] = this;
-        
-        $(this).attr('data-pos', --currentPos);    
-        $(previousTest).attr('data-pos', ++previousPos);
-        
-        $(this).animate({        
-            top: "-=58"
-        }, 2000, function() {
-            $(this).children('.test-position').html(++currentPos);
-        });
-        $(previousTest).animate({
-            top: "+=58"
-        }, 2000, function() {
-            $(previousTest).children('.test-position').html(++previousPos);
-        });
-    }      
-});*/
-
 var TestSwitcher = (function() {
     var positions = $('.list-item').toArray();
+    var animationTime = 1000;
+    var blocked = false;
     
     positions.forEach(function(el, i) {
         $(el).attr('data-pos', i);
@@ -100,10 +67,11 @@ var TestSwitcher = (function() {
             $(el).children('.test-position').html(i + 1);
             positions[i] = el;
         });
+        blocked = false;
     }
     
     function moveTestUp() {       
-        
+        blocked = true;
         var currentPos = parseInt($(this).attr('data-pos'));
         var previousPos = currentPos - 1;
         var previousTest = positions[previousPos];
@@ -120,19 +88,21 @@ var TestSwitcher = (function() {
 
             $(this).animate({
                 top: "-=58"
-            }, 2000, function () {
+            }, animationTime, function () {
                 $(this).children('.test-position').html(++currentPos);
             });
             $(previousTest).animate({
                 top: "+=58"
-            }, 2000, function () {
+            }, animationTime, function () {
                 $(previousTest).children('.test-position').html(++previousPos);
+                blocked = false;
             });
         }
-
+        native.testsOrderSubmitted();
     }
     
     function moveTestDown() {
+        blocked = true;
         var currentPos = parseInt($(this).attr('data-pos'));
         var nextPos = currentPos + 1;
         var nextTest = positions[nextPos];
@@ -145,41 +115,38 @@ var TestSwitcher = (function() {
             positions[nextPos] = this;
 
             $(this).attr('data-pos', ++currentPos);
-            $(nextTest).attr('data-po', --nextPos);
+            $(nextTest).attr('data-pos', --nextPos);
 
             $(this).animate({
                 top: "+=58"
-            }, 2000, function () {
+            }, animationTime, function () {
                 $(this).children('.test-position').html(++currentPos);
             });
             $(nextTest).animate({
                 top: "-=58"
-            }, 2000, function () {
+            }, animationTime, function () {
                 $(nextTest).children('.test-position').html(++nextPos);
+                blocked = false;
             });
-        }        
+        }
+        native.testsOrderSubmitted();
     }
     
     
     return {
         moveUp: function(context) {            
             var moveFunc = moveTestUp.bind(context);
-            moveFunc();
+            if(!blocked) {
+                moveFunc();
+            }
         },
         moveDown: function(context) {
             var moveFunc = moveTestDown.bind(context);
-            moveFunc();
+            if(!blocked) {
+                moveFunc();
+            }
         }
     }
     
 })();
 
-$('.move-up').click(function() {
-    var listItem = $(this).parent().parent().parent();
-    TestSwitcher.moveUp(listItem);
-});
-
-$('.move-down').click(function() {
-    var listItem = $(this).parent().parent().parent();
-    TestSwitcher.moveDown(listItem);
-});
