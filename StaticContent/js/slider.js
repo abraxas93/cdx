@@ -1,13 +1,17 @@
-
+'use strict';
 
 var slider = (function() {   
     var slides_margin = null;
     var visibleSlides = 5; // a number of slides in viewport
     var slideWidth = 20; // width of one slide in viewport, compare like % val
     var widthLimit = visibleSlides * slideWidth; // limit in after we reset inner circle of slides margins, compare like % val
-    var blocked = true;
+    String.prototype.bool = function() {
+        return (/^true$/i).test(this);
+    };
     
-    function leftArrowHandler(slides) {
+    function leftArrowHandler(slides) {     
+        $(this).attr('blocked', true);
+        
         slides.forEach(function (slide, i) {
             if (slides_margin[i] === -60) {
                 $(slide).fadeOut(900, function () {
@@ -23,13 +27,18 @@ var slider = (function() {
 
             $(slide).css('left', slides_margin[i] + '%');
         });
+        
+        var that = this;
+        setTimeout(function() {            
+            $(that).attr('blocked', false);
+        }, 1000);
     }
                 
-    function rightArrowHandler(slides) {    
-        
+    function rightArrowHandler(slides) {  
+        $(this).attr('blocked', true);
         slides.forEach(function(slide, i) {            
             if(slides_margin[i] === widthLimit ) {                                
-                     $(slide).fadeOut(900, function() {                     
+                $(slide).fadeOut(900, function() {                     
                      slides_margin[i] = -slideWidth * (slides.length - 1 - visibleSlides);
                      $(slide).css('left', slides_margin[i] + '%'); 
                      setTimeout(function() {
@@ -39,12 +48,15 @@ var slider = (function() {
                  });                             
             }  else {                 
                 slides_margin[i] += slideWidth; 
-            }
-                  
+            }                 
                 
-            $(slide).css('left', slides_margin[i] + '%');               
+            $(slide).css('left', slides_margin[i] + '%');
         });
         
+        var that = this;
+        setTimeout(function() {
+            $(that).attr('blocked', false);
+        }, 1000);        
     }    
       
     function renderSlider(slides_data, sliderWrap) {       
@@ -89,13 +101,17 @@ var slider = (function() {
     }
     
     function setArrowsHandlers(leftSel, rightSel, sliderWrap) {
-        var slides = $(sliderWrap + ' .slider-viewport').children().toArray();
+        var slides = $(sliderWrap + ' .slider-viewport').children().toArray();  
+        $(leftSel).attr('blocked', false);
+        $(rightSel).attr('blocked', false);
         
-        $(leftSel).click(function () {           
-            leftArrowHandler(slides);
+        $(leftSel).click(function () {     
+            var block = $(this).attr('blocked');            
+            if(!block.bool()) leftArrowHandler.bind(this, slides)();
         });
         $(rightSel).click(function () {
-            rightArrowHandler(slides);
+            var block = $(this).attr('blocked');
+            if(!block.bool()) rightArrowHandler.bind(this, slides)();            
         });
     }
     

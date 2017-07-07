@@ -52,6 +52,7 @@ var app = (function () {
 
 })();
 
+/* Switcher for test table */
 var TestSwitcher = (function() {
     var positions = $('.list-item').toArray();
     var animationTime = 1000;
