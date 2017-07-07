@@ -21,6 +21,14 @@
     .left-arrow, .right-arrow {
         height: 160px;
     }
+    .list-body {
+        width: 75%;
+    }
+    .menu-item {
+        font-size: 14px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
 }
 
 @media screen and (max-width: 1150px) {
@@ -46,6 +54,10 @@
     .text-box:before {
         left: 24%;
     }
+    .test-name {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 @media screen and (max-width: 1250px) {
@@ -54,4 +66,11 @@
         height: 228px;
         background-size: cover;
     }
+}
+
+@media screen and (max-width: 1100px) {
+    .test-name {
+        font-size: 13px;
+    }
+    
 }

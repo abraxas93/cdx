@@ -49,6 +49,53 @@ var app = (function () {
 
 })();
 
+var positions = [];
 
+$('.list-item').each(function(i, test) {    
+    $(test).attr('data-pos', i);
+    positions[i] = test;    
+});
+
+console.log(positions.length);
+
+$('.list-item').click(function() {
+    
+    var currentPos = $(this).attr('data-pos');
+    var previousPos = currentPos - 1;
+    var previousTest = positions[previousPos];
+    
+    
+    if(parseInt(currentPos) === 0) {
+        
+        $(this).attr('data-pos',  positions.length - 1);
+        var lastTest = positions.pop();
+        positions.push(this);
+        positions[0] = lastTest;                
+        
+        $(this).appendTo('#tests');
+        $('.test-position').each(function(i, el) {            
+            $(el).html(i + 1);
+        });
+        
+    } else {
+        positions[currentPos] = previousTest;
+        positions[previousPos] = this;
+        
+        $(this).attr('data-pos', --currentPos);    
+        $(previousTest).attr('data-pos', ++previousPos);
+        
+        $(this).animate({        
+            top: "-=58"
+        }, 2000, function() {
+            $(this).children('.test-position').html(++currentPos);
+        });
+        $(previousTest).animate({
+            top: "+=58"
+        }, 2000, function() {
+            $(previousTest).children('.test-position').html(++previousPos);
+        });
+    }  
+    
+});
 
 
