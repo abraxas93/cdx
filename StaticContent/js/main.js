@@ -7,11 +7,11 @@ native = window.native || {
     btmMenuClick: function (id) {
         console.log(id + ' clicked....');
     },
-    submitNext: function() {
-        console.log('Submitting next');
-    },
     testsOrderSubmitted: function(payload) {
         console.log('Saving sort order ...');
+    },
+    registrationSubmitted(payload, callback) {
+        console.log('Submit registration page...');
     }
 };
 
@@ -27,27 +27,72 @@ native.log('Native bridge inited.', log.info);
 var app = (function () {
 
     function renderBottomMenu(menu) {
+        var itemWidth = 215; // min-width of menu item        
+        var menuWidth = $('#main-nav').width();
+        var marginRight = 188;
+        
         var container = $('#main-nav .navigation');
-        var marginRight = 37;
-
-        var pixels = -((menu.length - 1) * marginRight);
-
-        menu.forEach(function (item, i) {
-            var menuEl = $('<a/>', {
-                href: item.url,
-                id: item.id,
-                html: item.title,
-                click: item.onClick
+        var maxMenuItems = Math.round(menuWidth / marginRight);       
+        console.log(maxMenuItems); // should be redone
+        if(maxMenuItems < menu.length) {
+            
+            var pixels = 0;
+            menu.forEach(function (item, i) {
+                var menuEl = $('<a/>', {
+                    href: item.url,
+                    id: item.id,
+                    html: item.title,
+                    click: item.onClick
+                });
+                $(menuEl).appendTo(container).wrap('<li class="' + item.class + '"></li>');
+                if (item.active) menuEl.parent().addClass('active');
+                if (i !== menu.length - 1) menuEl.parent().css('right', pixels);
+                pixels += marginRight;
             });
-            $(menuEl).appendTo(container).wrap('<li class="' + item.class + '"></li>');
-            if (item.active) menuEl.parent().addClass('active');
-            if (i !== menu.length - 1) menuEl.parent().css('right', pixels);
-            pixels += marginRight;
-        });
+            
+        } else {
+            
+            var pixels = 0;
+            menu.forEach(function (item, i) {
+                var menuEl = $('<a/>', {
+                    href: item.url,
+                    id: item.id,
+                    html: item.title,
+                    click: item.onClick
+                });
+                $(menuEl).appendTo(container).wrap('<li class="' + item.class + '"></li>');
+                if (item.active) menuEl.parent().addClass('active');
+                if (i !== menu.length - 1) menuEl.parent().css('right', pixels);
+                pixels += marginRight;
+            });
+        }       
     }
-
+    
+    function parseFormFields() {
+        var model = {};
+        model.firstName = $("input[name='first-name']").val();
+        model.lastName = $("input[name='last-name']").val();
+        model.email = $("input[name='email']").val();
+        model.phone = $("input[name='phone']").val();
+        model.companyName = $("input[name='company-name']").val();
+        model.webSite = $("input[name='web-site']").val();
+        model.adress = $("input[name='adress']").val();
+        model.city = $("input[name='city']").val();
+        model.state = $("input[name='state']").val();
+        model.country = $("input[name='country']").val();
+        model.zipCode = $("input[name='zip-code']").val();
+        model.distributor = $("input[name='distributor']").val();
+        model.friend = $("input[name='distributor']").val();
+        model.sales = $("input[name='sales']").val();
+        model.trade = $("input[name='trade']").val();
+        model.other = $("input[name='other']").val();
+        
+        console.log($( "input:checked" ));
+    }
+    
     return {
-        renderBotMenu: renderBottomMenu
+        renderBotMenu: renderBottomMenu,
+        parseFormFields: parseFormFields
     }
 
 })();

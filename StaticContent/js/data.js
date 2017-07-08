@@ -27,7 +27,8 @@ var menu = [{
                     console.log('clicked item: ' + this.id);
                 },
                 active: false
-            },{
+            },
+            {
                 id: 67,
                 title: "Some",
                 url: '#',
@@ -36,7 +37,39 @@ var menu = [{
                     console.log('clicked item: ' + this.id);
                 },
                 active: false
-            }];
+            },
+            {
+                id: 67,
+                title: "Some",
+                url: '#',
+                class: '',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: false
+            },
+            {
+                id: 67,
+                title: "Category",
+                url: '#',
+                class: '',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: false
+            },
+            {
+                id: 67,
+                title: "MenuItem",
+                url: '#',
+                class: '',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: false
+            }          
+           ];
+
 var slides = [
     {
         id: 252,

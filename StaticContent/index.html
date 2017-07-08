@@ -1,9 +1,8 @@
 <html>
-
 <head>
     <meta charset="utf-8">
     <link href="css/style.css" media="all" rel="stylesheet">
-    <link href="css/responsive.css" media="all" rel="stylesheet">   
+    <link href="css/responsive.css" media="all" rel="stylesheet">    
 </head>
 
 <body style="-webkit-user-select: none">
@@ -25,30 +24,30 @@
                 <div class="form-line">
                     <div class="s20">
                         <p class="input-label">First Name <span class="input-req">*</span></p>
-                        <input type="text" class="form-field" name="" placeholder="">
+                        <input type="text" class="form-field" name="first-name" placeholder="">
                     </div>
                     <div class="s20">
                         <p class="input-label">Last Name <span class="input-req">*</span></p>
-                        <input type="text" class="form-field" name="" placeholder="">
+                        <input type="text" class="form-field" name="last-name" placeholder="">
                     </div>
                     <div class="s20">
                         <p class="input-label">Email <span class="input-req">*</span></p>
-                        <input type="text" class="form-field" name="" placeholder="">
+                        <input type="text" class="form-field" name="email" placeholder="">
                     </div>
                     <div class="s20">
                         <p class="input-label">Phone Number<span class="input-req">*</span></p>
-                        <input type="text" class="form-field" name="" placeholder="">
+                        <input type="text" class="form-field" name="phone" placeholder="">
                     </div>
                     <div class="s20"></div>
                 </div>
                 <div class="form-line">
                     <div class="s20">
                         <p class="input-label">Company Name</p>
-                        <input type="text" class="form-field" name="" placeholder="">
+                        <input type="text" class="form-field" name="company-name" placeholder="">
                     </div>
                     <div class="s20">
                         <p class="input-label">Website URL</p>
-                        <input type="text" class="form-field" name="" placeholder="">
+                        <input type="text" class="form-field" name="web-site" placeholder="">
                     </div>
                     <div class="s20"></div>
                     <div class="s20"></div>
@@ -57,23 +56,23 @@
                 <div class="form-line">
                     <div class="s20">
                         <p class="input-label">Address (Street)<span class="input-req">*</span></p>
-                        <input type="text" class="form-field" name="" placeholder="">
+                        <input type="text" class="form-field" name="adress" placeholder="">
                     </div>
                     <div class="s20">
                         <p class="input-label">City<span class="input-req">*</span></p>
-                        <input type="text" class="form-field" name="" placeholder="">
+                        <input type="text" class="form-field" name="city" placeholder="">
                     </div>
                     <div class="s20">
                         <p class="input-label">State<span class="input-req">*</span></p>
-                        <input type="text" class="form-field" name="" placeholder="">
+                        <input type="text" class="form-field" name="state" placeholder="">
                     </div>
                     <div class="s20">
                         <p class="input-label">Country<span class="input-req">*</span></p>
-                        <input type="text" class="form-field" name="" placeholder="">
+                        <input type="text" class="form-field" name="country" placeholder="">
                     </div>
                     <div class="s20">
                         <p class="input-label">Zip code<span class="input-req">*</span></p>
-                        <input type="text" class="form-field" name="" placeholder="">
+                        <input type="text" class="form-field" name="zip-code" placeholder="">
                     </div>
                 </div>                
             </div>
@@ -87,7 +86,7 @@
                             <span class="inner-text">Distributor</span>
                         </div>
                         <div class="s50 info-wrap">
-                            <input type="text" class="info-input" name="" placeholder="">
+                            <input type="text" class="info-input" name="distributor" placeholder="">
                         </div>
                     </div>
                     <div class="form-line">
@@ -107,7 +106,7 @@
                             <span class="inner-text">Friend / Colleague</span>
                         </div>
                         <div class="s50 info-wrap">
-                            <input type="text" class="info-input" name="" placeholder="">
+                            <input type="text" class="info-input" name="friend" placeholder="">
                         </div>
                     </div>
                     <div class="form-line">
@@ -127,7 +126,7 @@
                             <span class="inner-text">Sales Representative</span>
                         </div>
                         <div class="s50 info-wrap">
-                            <input type="text" class="info-input" name="" placeholder="">
+                            <input type="text" class="info-input" name="sales" placeholder="">
                         </div>
                     </div>
                     <div class="form-line">
@@ -137,7 +136,7 @@
                             <span class="inner-text">Tradeshow</span>
                         </div>
                         <div class="s50 info-wrap">
-                            <input type="text" class="info-input" name="" placeholder="">
+                            <input type="text" class="info-input" name="trade" placeholder="">
                         </div>
                     </div>
                     <div class="form-line">
@@ -147,7 +146,7 @@
                             <span class="inner-text">Other</span>
                         </div>
                         <div class="s50 info-wrap">
-                            <input type="text" class="info-input" name="" placeholder="">
+                            <input type="text" class="info-input" name="other" placeholder="">
                         </div>
                     </div>                                       
                 </div>
@@ -156,17 +155,21 @@
             <a class="submit-arrow"></a>
         </div>        
         <div id="main-nav" class="main-menu">
-            <ul class="navigation">
-                
-            </ul>
+            <div class="nav-wrap">
+                <ul class="navigation">                
+                </ul>
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/data.js"></script>
+    <script src="js/data.js"></script>    
     <script>
         $(document).ready(function() {            
             app.renderBotMenu(menu);
+            $('.submit-arrow').click(function() {
+                app.parseFormFields();
+            })
         });
     </script>     
 </body>
