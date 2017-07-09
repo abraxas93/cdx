@@ -143,12 +143,32 @@
       <Link>StaticContent\img\btmmenu-button-orange.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\StaticContent\img\error.png">
+      <Link>StaticContent\img\error.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\StaticContent\img\loading.png">
       <Link>StaticContent\img\loading.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\img\reg-head.jpg">
       <Link>StaticContent\img\reg-head.jpg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\scr2-ar-left.jpg">
+      <Link>StaticContent\img\scr2-ar-left.jpg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\scr2-ar-right.jpg">
+      <Link>StaticContent\img\scr2-ar-right.jpg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\scr2-pic1.jpg">
+      <Link>StaticContent\img\scr2-pic1.jpg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\submit-arrow.jpg">
+      <Link>StaticContent\img\submit-arrow.jpg</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\img\waggoner-logo.png">
@@ -159,8 +179,24 @@
       <Link>StaticContent\index.html</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\StaticContent\js\data.js">
+      <Link>StaticContent\js\data.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\StaticContent\js\main.js">
       <Link>StaticContent\js\main.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\js\slider.js">
+      <Link>StaticContent\js\slider.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\second.html">
+      <Link>StaticContent\second.html</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\third.html">
+      <Link>StaticContent\third.html</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

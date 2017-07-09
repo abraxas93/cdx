@@ -188,9 +188,12 @@ ul {
 }
 .form-field {
     border: 1.5px solid #0b5697;
-    padding: 8px;    
-    display: block;    
-    width: 100%;    
+    padding: 8px;
+    display: block;
+    width: 100%;
+}
+.form-field.error {
+    border: 1.5px solid #E00000;
 }
 .reg .s20 {
     padding-left: 2%;
