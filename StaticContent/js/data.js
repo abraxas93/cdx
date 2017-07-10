@@ -16,7 +16,7 @@ var menu = [{
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
                 },
-                active: true
+                active: false
             },
             {       
                 id: 34,
@@ -46,7 +46,7 @@ var menu = [{
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
                 },
-                active: false
+                active: true
             },
             {
                 id: 67,
@@ -57,6 +57,36 @@ var menu = [{
                     console.log('clicked item: ' + this.id);
                 },
                 active: false
+            },
+            {
+                id: 67,
+                title: "MenuItem",
+                url: '#',
+                class: '',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: true
+            },
+            {
+                id: 67,
+                title: "Category",
+                url: '#',
+                class: '',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: false
+            },
+            {
+                id: 22,
+                title: "Active",
+                url: '#',
+                class: '',
+                onClick: function() {
+                    console.log('clicked item: ' + this.id);
+                },
+                active: true
             },
             {
                 id: 67,

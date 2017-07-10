@@ -27,46 +27,25 @@ native.log('Native bridge inited.', log.info);
 var app = (function () {
 
     function renderBottomMenu(menu) {
-        var itemWidth = 215; // min-width of menu item        
         var menuWidth = $('#main-nav').width();
-        var marginRight = 188;
+        var shift = 19 * (menu.length - 1);
         
-        var container = $('#main-nav .navigation');
-        var maxMenuItems = Math.round(menuWidth / marginRight);       
-        console.log(maxMenuItems); // should be redone
-        if(maxMenuItems < menu.length) {
-            
-            var pixels = 0;
-            menu.forEach(function (item, i) {
-                var menuEl = $('<a/>', {
-                    href: item.url,
-                    id: item.id,
-                    html: item.title,
-                    click: item.onClick
-                });
-                $(menuEl).appendTo(container).wrap('<li class="' + item.class + '"></li>');
-                if (item.active) menuEl.parent().addClass('active');
-                if (i !== menu.length - 1) menuEl.parent().css('right', pixels);
-                pixels += marginRight;
+        $('.navigation').css('right', shift);
+        menu.forEach(function (item, i) {
+            var menuEl = $('<a/>', {
+                href: item.url,
+                id: item.id,
+                html: item.title,
+                click: item.onClick
             });
-            
-        } else {
-            
-            var pixels = 0;
-            menu.forEach(function (item, i) {
-                var menuEl = $('<a/>', {
-                    href: item.url,
-                    id: item.id,
-                    html: item.title,
-                    click: item.onClick
-                });
-                $(menuEl).appendTo(container).wrap('<li class="' + item.class + '"></li>');
-                if (item.active) menuEl.parent().addClass('active');
-                if (i !== menu.length - 1) menuEl.parent().css('right', pixels);
-                pixels += marginRight;
-            });
-        }       
+            $(menuEl).appendTo('.navigation').wrap('<li class="' + item.class + '"></li>');
+            if (item.active) menuEl.parent().addClass('active');
+            menuEl.parent().css('right', -shift);
+            shift -= 17;
+        });
     }
+            
+    
     
     function parseFormFields() {
         var model = {};
