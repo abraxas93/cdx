@@ -74,3 +74,19 @@
     }
     
 }
+
+@media screen and (min-width: 1650px)  {
+    .slider-wrap {
+        min-height: 365px;
+    }
+}
+@media screen and (min-width: 1750px)  {
+    .slider-wrap {
+        min-height: 420px;
+    }
+}
+@media screen and (min-width: 1800px)  {
+    .slider-wrap {
+        min-height: 47%;
+    }
+}
