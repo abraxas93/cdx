@@ -1,3 +1,15 @@
+var requiredTable = {
+        "firstName" : "first-name",
+        "lastName" : "last-name",
+        "email" : "email",
+        "phone": "phone",
+        "adress" : "adress",
+        "city": "city",
+        "state": "state",
+        "country": "country",
+        "zipCode": "zip-code"       
+    };
+
 native = window.native || {
     // Mocking native if launched not from c#
     init: function () {},
@@ -12,8 +24,16 @@ native = window.native || {
     },
     registrationSubmitted(payload, callback) {
         console.log('Submitting registration page...');
-        if (!payload.firstName || payload.firstName == '') {
-            callback(new Error("Please enter first name\nMultiline example"), ['firstName'])
+        var notValidFields = [];
+        for(var field in payload) {
+            if(payload[field] == 0 && field in requiredTable) {
+                notValidFields.push(field);
+            }
+        }
+        if(notValidFields.length) {
+            var fieldsString = notValidFields.join(',');
+            console.log(fieldsString);
+            callback(new Error("Please enter " + fieldsString + " fields"), notValidFields);
         } else {
             window.location.href = 'second.html';
         }
@@ -29,7 +49,7 @@ native.init();
 native.log('Native bridge inited.', log.info);
 
 
-var app = (function () {
+var app = (function () {  
 
     function renderBottomMenu(menu) {
         var menuWidth = $('#main-nav').width();
@@ -40,38 +60,25 @@ var app = (function () {
             var menuEl = $('<a/>', {
                 href: item.url,
                 id: item.id,
-                html: item.title,
-                click: item.onClick
+                html: item.title
             });
-            $(menuEl).appendTo('.navigation').wrap('<li class="' + item.class + '"></li>');
+            $(menuEl).appendTo('.navigation')
+                .wrap('<li class="' + item.class + '"></li>')
+                .parent().click(function() {
+                    item.onClick();
+                });
             if (item.active) menuEl.parent().addClass('active');
             menuEl.parent().css('right', -shift);
             shift -= 17;
         });
     }
-    function highlightErrors(errorFieldNames) {
-        $("input[name='first-name']").removeClass('error');
-        $("input[name='last-name']").removeClass('error');
-        $("input[name='email']").removeClass('error');
-        $("input[name='phone']").removeClass('error');
-        $("input[name='company-name']").removeClass('error');
-        $("input[name='web-site']").removeClass('error');
-        $("input[name='adress']").removeClass('error');
-        $("input[name='city']").removeClass('error');
-        $("input[name='state']").removeClass('error');
-        $("input[name='country']").removeClass('error');
-        $("input[name='zip-code']").removeClass('error');
-        $("input[name='distributor']").removeClass('error');
-        $("input[name='distributor']").removeClass('error');
-        $("input[name='sales']").removeClass('error');
-        $("input[name='trade']").removeClass('error');
-        $("input[name='other']").removeClass('error');
-
+    
+    function highlightErrors(errorFieldNames) {       
         errorFieldNames.forEach(function (item) {
-            // TODO full mapping
-            if (item == 'firstName') {
-                $("input[name='first-name']").addClass('error');
-            }
+            var selector = "input[name='" + requiredTable[item] + "']";            
+            $(selector).addClass('error').attr('placeholder','required field').focus(function() {
+                $(this).removeClass('error').attr('placeholder','');
+            })            
         });
     }    
     function parseFormFields() {
@@ -94,8 +101,8 @@ var app = (function () {
         model.other = $("input[name='other']").val();
         
         native.registrationSubmitted(model, function (err, errorFieldNames) {
-            if (err) {
-                alert(err.message);
+            if (err) {                
+                $('.main-title').html(err.message).addClass('err-notes');
                 highlightErrors(errorFieldNames);
             }
         });
@@ -111,7 +118,7 @@ var app = (function () {
 /* Switcher for test table */
 var TestSwitcher = (function() {
     var positions = $('.list-item').toArray();
-    var animationTime = 1000;
+    var animationTime = 500;
     var blocked = false;
     
     positions.forEach(function(el, i) {
