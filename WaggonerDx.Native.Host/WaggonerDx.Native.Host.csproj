@@ -183,6 +183,10 @@
       <Link>StaticContent\js\data.js</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\StaticContent\js\jquery.min.js">
+      <Link>StaticContent\js\jquery.min.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\StaticContent\js\main.js">
       <Link>StaticContent\js\main.js</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

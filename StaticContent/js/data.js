@@ -1,7 +1,6 @@
 var menu = [{
                 id: 12,
                 title: "UsersKeyboard",
-                url: '#',
                 class: '',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
@@ -11,17 +10,15 @@ var menu = [{
             {
                 id: 24,
                 title: "Exit",
-                url: '#',
                 class: '',
-                onClick: function() {
-                    console.log('clicked item: ' + this.id);
+                onClick: function () {
+                    window.native.btmMenuClick(this.id);
                 },
                 active: false
             },
             {       
                 id: 34,
                 title: "ItemTab",
-                url: '#',
                 class: '',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
@@ -31,7 +28,6 @@ var menu = [{
             {
                 id: 67,
                 title: "Some",
-                url: '#',
                 class: '',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
@@ -41,7 +37,6 @@ var menu = [{
             {
                 id: 67,
                 title: "Some",
-                url: '#',
                 class: '',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
@@ -51,7 +46,6 @@ var menu = [{
             {
                 id: 67,
                 title: "Category",
-                url: '#',
                 class: '',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
@@ -61,7 +55,6 @@ var menu = [{
             {
                 id: 67,
                 title: "MenuItem",
-                url: '#',
                 class: '',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
@@ -71,7 +64,6 @@ var menu = [{
             {
                 id: 67,
                 title: "Category",
-                url: '#',
                 class: '',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
@@ -81,7 +73,6 @@ var menu = [{
             {
                 id: 22,
                 title: "Active",
-                url: '#',
                 class: '',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);
@@ -91,7 +82,6 @@ var menu = [{
             {
                 id: 67,
                 title: "MenuItem",
-                url: '#',
                 class: '',
                 onClick: function() {
                     console.log('clicked item: ' + this.id);

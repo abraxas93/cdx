@@ -10,13 +10,17 @@ native = window.native || {
     testsOrderSubmitted: function(payload) {
         console.log('Saving sort order ...');
     },
-    registrationSubmitted(payload, callback) {
+    registrationSubmitted(payload) {
         console.log('Submitting registration page...');
-        if (!payload.firstName || payload.firstName == '') {
-            callback(new Error("Please enter first name\nMultiline example"), ['firstName'])
+        payload = JSON.parse(payload);
+        if (!payload['firstName'] || payload.firstName == '') {
+            return Promise.reject('whatever');
         } else {
-            window.location.href = 'second.html';
+            return Promise.resolve('second.html');
         }
+    },
+    getRegistrationError() {
+        return Promise.resolve('{"message":"Please enter first name\\nMultiline example","fields":["firstName"]}');
     }
 };
 
@@ -38,13 +42,12 @@ var app = (function () {
         $('.navigation').css('right', shift);
         menu.forEach(function (item, i) {
             var menuEl = $('<a/>', {
-                href: item.url,
                 id: item.id,
-                html: item.title,
-                click: item.onClick
+                html: item.title
             });
             $(menuEl).appendTo('.navigation').wrap('<li class="' + item.class + '"></li>');
             if (item.active) menuEl.parent().addClass('active');
+            menuEl.parent().click(item.onClick);
             menuEl.parent().css('right', -shift);
             shift -= 17;
         });
@@ -92,12 +95,15 @@ var app = (function () {
         model.sales = $("input[name='sales']").val();
         model.trade = $("input[name='trade']").val();
         model.other = $("input[name='other']").val();
-        
-        native.registrationSubmitted(model, function (err, errorFieldNames) {
-            if (err) {
-                alert(err.message);
-                highlightErrors(errorFieldNames);
-            }
+
+        native.registrationSubmitted(JSON.stringify(model)).then(function (location) {
+            window.location.href = location;
+        }).catch(function (message) {
+            native.getRegistrationError().then(function (errorObject) {
+                var actualError = JSON.parse(errorObject);
+                alert(actualError.message);
+                highlightErrors(actualError.fields);
+            });
         });
     }
     
@@ -127,7 +133,7 @@ var TestSwitcher = (function() {
         blocked = false;
     }
     
-    function moveTestUp() {       
+    function moveTestUp() {
         blocked = true;
         var currentPos = parseInt($(this).attr('data-pos'));
         var previousPos = currentPos - 1;

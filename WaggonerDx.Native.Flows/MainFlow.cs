@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using CefSharp;
+using System.Windows.Forms;
 
 namespace WaggonerDx.Native.Flows
 {
@@ -13,7 +14,14 @@ namespace WaggonerDx.Native.Flows
 
         public void Exit()
         {
-            _mainForm.Invoke((MethodInvoker) delegate { _mainForm.Close(); });
+            System.Threading.Tasks.Task.Run(() =>
+            {
+                System.Threading.Thread.Sleep(100);
+                _mainForm.Invoke((MethodInvoker)delegate
+                {
+                    _mainForm.Close();
+                });
+            });
         }
     }
 }

@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("WaggonerDx.Native.Host")]
-[assembly: AssemblyCopyright("WaggonerDx ©  2017")]
+[assembly: AssemblyCopyright("WaggonerDx © 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

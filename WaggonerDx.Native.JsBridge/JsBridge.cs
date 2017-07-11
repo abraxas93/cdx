@@ -1,5 +1,7 @@
 ﻿using System;
+using Newtonsoft.Json;
 using WaggonerDx.Native.Flows;
+using System.Collections.Generic;
 
 namespace WaggonerDx.Native.JsBridge
 {
@@ -30,6 +32,22 @@ namespace WaggonerDx.Native.JsBridge
         public void BtmMenuClick(string clickedId)
         {
             _mainFlow.Exit();
+        }
+
+        public string RegistrationSubmitted(string payload)
+        {
+            var deserialized = JsonConvert.DeserializeObject<Dictionary<string,string>>(payload);
+            if (!deserialized.ContainsKey("firstName") || string.IsNullOrWhiteSpace(deserialized["firstName"]))
+            {
+                throw new Exception("Please enter first name\nMultiline example");
+            }
+
+            return "second.html";
+        }
+
+        public string GetRegistrationError()
+        {
+            return "{\"message\":\"Please enter first name\\nMultiline example\",\"fields\":[\"firstName\"]}";
         }
     }
 }

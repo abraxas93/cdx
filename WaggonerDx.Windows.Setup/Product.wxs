@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+	<Product Id="*" Name="WaggonerDx" Language="1033" Version="1.0.0.0" Manufacturer="Waggoner software" UpgradeCode="d70d979f-91c4-447a-9823-a8a99ff9213c">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+		<Feature Id="Complete" Title="WaggonerDx" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="WaggonerDx">
+          <Directory Id="LocalesFolder" Name="locales" />
+          <Directory Id="StaticContentFolder" Name="StaticContent">
+            <Directory Id="CssFolder" Name="css" />
+            <Directory Id="ImgFolder" Name="img" />
+            <Directory Id="JsFolder" Name="js" />
+          </Directory>
+        </Directory>
+			</Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="WaggonerDx"/>
+      </Directory>
+		</Directory>
+	</Fragment>
+	<Fragment>
+    <ComponentGroup Id="ProductComponents">
+      <Component Id="cmp5EBAF03BC4B41C2753A93CC967DBB569" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC63B}" Directory="INSTALLFOLDER">
+        <File Id="fil71D485A0B38A95621D771D4B71F14690" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\cef.pak" />
+        <File Id="fil6C3E7F33DA5D75A0759E822DBDE6D7F8" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.BrowserSubprocess.Core.dll" />
+        <File Id="filB915754E6FCB312422F1F9C065E4C4FB" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.BrowserSubprocess.Core.pdb" />
+        <File Id="fil1F02FB9F86A1B74294A73004DC319C7A" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.BrowserSubprocess.exe" />
+        <File Id="filAE81F68B8107058E299CEAD9BED04710" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.BrowserSubprocess.pdb" />
+        <File Id="fil60B3659E68B6E4AE0B3D99B6748CBBBC" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.Core.dll" />
+        <File Id="fil74677669743361B15B0E61555F5988A6" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.Core.pdb" />
+        <File Id="fil2A47350E15685743BED761977E2C64EB" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.Core.xml" />
+        <File Id="fil7186E0B5A5329938BC411B185D8ADCA4" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.dll" />
+        <File Id="fil6B40E52C9347678D6DF775C6C7BE1AB2" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.pdb" />
+        <File Id="fil45BD5D6AAD415FC141CBD9A5E2156369" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.WinForms.dll" />
+        <File Id="fil5C21247D2DD27F08EFFE3FD16309AE7F" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.WinForms.pdb" />
+        <File Id="fil253EFB0706CDE114114D79E54F41DF35" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.WinForms.xml" />
+        <File Id="fil44E8603A603421CED462AC1C95726272" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.xml" />
+        <File Id="fil11B201EA84F5B18B7CC118EB95E14EA1" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\cef_100_percent.pak" />
+        <File Id="fil62FEEFDD1836D0EF5F4A1774BA2BF6EE" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\cef_200_percent.pak" />
+        <File Id="fil822099D5D3608C8D5AEB09420A675010" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\cef_extensions.pak" />
+        <File Id="fil9C066030039A9525CB8734A5C587F889" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\chrome_elf.dll" />
+        <File Id="fil946DE5EFC7B0458719B04551157A7258" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\d3dcompiler_47.dll" />
+        <File Id="filA8554DFAD72282F43BF0F94A45CD41B1" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\devtools_resources.pak" />
+        <File Id="filAADEE48A0E1B4D0F55063BDF42F1AF1C" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\icudtl.dat" />
+        <File Id="launcherExecutable" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\launcher.exe" />
+        <File Id="filC40ACA9E7EFA45BE352958CD8C8D6E96" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\launcher.exe.config" />
+        <File Id="fil91527807C96CC5D548A476951144BBF9" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\launcher.pdb" />
+        <File Id="fil8AC28259CA2C29BB35DFBAD658F93EA3" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\libcef.dll" />
+        <File Id="fil4A8D50BA4D10E7D1BF0ED3DC98161654" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\libEGL.dll" />
+        <File Id="fil17BFAB83EC37CADFF928563B88C2E8FE" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\libGLESv2.dll" />
+        <File Id="filFAAF71EC651439F1E15CB44275B73840" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Microsoft.Owin.dll" />
+        <File Id="fil77F9AAA90035899443248B60C7870EBD" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Microsoft.Owin.FileSystems.dll" />
+        <File Id="filABF26A4C2E8865CC64833FD80DE2577D" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Microsoft.Owin.FileSystems.xml" />
+        <File Id="fil06DA9336BEDEE98AFB9A49BBEE4E4D04" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Microsoft.Owin.Host.HttpListener.dll" />
+        <File Id="fil9BCC64C77D0ADE469B3FC1E71978B8D2" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Microsoft.Owin.Host.HttpListener.xml" />
+        <File Id="filD3F5E3CAFD75FA39F29B40C0AFB02A11" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Microsoft.Owin.Hosting.dll" />
+        <File Id="filF37BB9C9F4318F19DAFC1F6501509E52" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Microsoft.Owin.Hosting.xml" />
+        <File Id="fil1FB48475A3C8B5BE0FF419E7981EFF03" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Microsoft.Owin.StaticFiles.dll" />
+        <File Id="filA6E08B3259AA288C365693AB637CEF8B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Microsoft.Owin.StaticFiles.xml" />
+        <File Id="fil6637F1D6B4D66FB42B4F299926E90FAF" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Microsoft.Owin.xml" />
+        <File Id="fil6990D1BE4486DC416EC0821603469524" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\natives_blob.bin" />
+        <File Id="fil8FBE68E162D06DA9B5182D02C362DB85" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Newtonsoft.Json.dll" />
+        <File Id="filD50372808935BBC1764637BE2CD69239" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Newtonsoft.Json.xml" />
+        <File Id="fil8C12312593247F53B0C3C9B6F3679FA9" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\Owin.dll" />
+        <File Id="filE357E7630B285FC773F0E424DBDE9935" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\snapshot_blob.bin" />
+        <File Id="filF168B145707A238FAED65A12A106429A" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\System.Net.Http.Formatting.dll" />
+        <File Id="fil49EBF9B0B98E21159E04DD7E060B8677" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\System.Net.Http.Formatting.xml" />
+        <File Id="fil15C59866C8C9EE2A438F872BBE7A1F4E" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\System.Web.Http.dll" />
+        <File Id="fil6F9ED1B7AD9B33C622DE6A3D9A279746" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\System.Web.Http.Owin.dll" />
+        <File Id="fil410C19B33A399784D805E9CF677DF525" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\System.Web.Http.Owin.xml" />
+        <File Id="filBA88FCF003BA3A7C954D7CFD02C2F770" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\System.Web.Http.WebHost.dll" />
+        <File Id="fil25B1A4B4FB333F3E4E7C7FCC0F8A4CB7" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\System.Web.Http.WebHost.xml" />
+        <File Id="filFCEB880FF95DF3CBA7B170D6EE0199E5" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\System.Web.Http.xml" />
+        <File Id="filB573C48ED866B6F770A196732F448409" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\waggonerdx.exe" />
+        <File Id="fil55A92BA4B3A8CDC3CB057BC9C553B1D5" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\waggonerdx.exe.config" />
+        <File Id="filDEB73EDED3C873C67EFB9964F5A32F39" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\WaggonerDx.Native.Dialogs.dll" />
+        <File Id="fil2CEE6E79AB78DDEC1FCD25E20E3D424E" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\WaggonerDx.Native.Dialogs.pdb" />
+        <File Id="fil2492D8D1F2306AF084A12321330C8031" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\WaggonerDx.Native.Flows.dll" />
+        <File Id="fil7C92D48570231CBCD958BFF213B7E225" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\WaggonerDx.Native.Flows.pdb" />
+        <File Id="fil2437E5BB3E4B445A06E3005C7D584B59" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\WaggonerDx.Native.JsBridge.dll" />
+        <File Id="filBF2E66EEA9329FC7127841082EB0BA03" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\WaggonerDx.Native.JsBridge.pdb" />
+        <File Id="filDF4ABAB9B75489278568AFA34516D329" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\waggonerdx.pdb" />
+        <File Id="fil839D3173F447C1A77D1B9FBC4681B98E" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\widevinecdmadapter.dll" />
+      </Component>
+      <Component Id="cmp5EBAF03BC4B41C2753A93CC967DBB56A" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC63C}" Directory="LocalesFolder">
+        <File Id="filD62CD04A14BADFE312C62DC96F04BDC3" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\am.pak" />
+        <File Id="filA100475C3A5E5F7A7233BCB1DC3209B5" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\ar.pak" />
+        <File Id="fil9FEDAE1BD2AC3760C5DA1EB94EC40A23" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\bg.pak" />
+        <File Id="fil792D1BB60C60BC85B54D6FF08838BC93" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\bn.pak" />
+        <File Id="filD0D25E428382B9CDF7D2635D428CA211" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\ca.pak" />
+        <File Id="fil75AD024E06328A18D9D01D7018B50BC1" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\cs.pak" />
+        <File Id="fil857C557F995C25E0330F67CA72D9F85A" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\da.pak" />
+        <File Id="fil02C7622CDB1A8976F2F97C4BEEE35E65" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\de.pak" />
+        <File Id="fil5F49D28313199323FC8124C16AF26FE9" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\el.pak" />
+        <File Id="filEA2A6C232A294E44E9484E58888E805E" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\en-GB.pak" />
+        <File Id="fil942A5291F5A401B8B877DFC4D62FE1CE" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\en-US.pak" />
+        <File Id="filB28A95C15FF51B6B55668100ECCB2A1A" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\es-419.pak" />
+        <File Id="filD5C92CEEC9A7F9564C4E243142B3136D" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\es.pak" />
+        <File Id="filCEB82B4E47C9D9BA26AB21FDA020BE1C" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\et.pak" />
+        <File Id="fil994FC8531C9290419A1A69C2938454FA" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\fa.pak" />
+        <File Id="filDDD910D75BD4E026AA47D850C781A8DD" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\fi.pak" />
+        <File Id="fil52B4D31BAC8F9E01C4B37C45E23C1903" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\fil.pak" />
+        <File Id="fil693F1DBEAB4D014012DF352C288125D8" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\fr.pak" />
+        <File Id="filA054E1072BC6C216420EA66993DBE71A" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\gu.pak" />
+        <File Id="fil57D17029C1AEAD8FF5596301358D8B9B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\he.pak" />
+        <File Id="fil27AEE8184339CFFE761BE61314FD06E2" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\hi.pak" />
+        <File Id="fil693F26F346331D24B6B8E41CDD33C2D2" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\hr.pak" />
+        <File Id="fil5A2C95676A29A628ED3E9FB7E2D5FFD2" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\hu.pak" />
+        <File Id="filE8E823093ACE2A73D09F6E38C2874990" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\id.pak" />
+        <File Id="fil09F6A1DE740E331462137810A100B772" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\it.pak" />
+        <File Id="fil641E97F964E910693D01F8BB2D7FE549" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\ja.pak" />
+        <File Id="fil16617A10C00F9F29B85932934E9FC1A8" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\kn.pak" />
+        <File Id="fil7340D3FEB8B497F4D2FDA39C2841C1C6" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\ko.pak" />
+        <File Id="fil87A0F9AF06641215E59CEB70123EB430" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\lt.pak" />
+        <File Id="fil238B6B5F92A2608F0AD4A6FB353E2F28" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\lv.pak" />
+        <File Id="filB913EFC03530DC9DC6200D612CE95131" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\ml.pak" />
+        <File Id="fil7661358CEF346616E5FEF0B025B2D42E" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\mr.pak" />
+        <File Id="fil28F20B13B0800997A60E18B42D7132C9" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\ms.pak" />
+        <File Id="filFCFE7F7BE4FAE935F5640E1C2CFADBE0" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\nb.pak" />
+        <File Id="fil7C018E55E12D4995C7C458CCD09EDDC7" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\nl.pak" />
+        <File Id="fil4FCB8C9847E51453DF2165C1792DF8E7" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\pl.pak" />
+        <File Id="fil2BBD765C313D3ADA2CB0003912210697" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\pt-BR.pak" />
+        <File Id="filC95B97F6F145F7E026429794F1FDE576" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\pt-PT.pak" />
+        <File Id="filF880A96E5F9891A8A98182D401411B60" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\ro.pak" />
+        <File Id="fil56C267ECAB04BF4A28C10455F139E867" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\ru.pak" />
+        <File Id="filF9A87975C2C44741130DB47F1D9AAA20" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\sk.pak" />
+        <File Id="filB7F6B3401B42A7E8B321C192A3166739" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\sl.pak" />
+        <File Id="fil569159927C7810EA69AE5A6CE01D443D" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\sr.pak" />
+        <File Id="fil483FA521F47E4F7AE220ACA784DE7522" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\sv.pak" />
+        <File Id="fil58F733F27424E80F654C5C63DD06E235" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\sw.pak" />
+        <File Id="fil68F373F30E2B7243A48B795C2DF0D214" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\ta.pak" />
+        <File Id="fil9DA4AE77076160D3CAB7D6ED1544D30F" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\te.pak" />
+        <File Id="filC9DB22DFC5038B8FC964D7697D34B912" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\th.pak" />
+        <File Id="fil15B9B04C8A19907A89A1972D0CC720CE" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\tr.pak" />
+        <File Id="fil409F24B9D5F9B7A4285754B7EB9C981A" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\uk.pak" />
+        <File Id="filFFBC7AC59B26901BE6E99816115152F0" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\vi.pak" />
+        <File Id="filDF7F1F25D4F88BCBD24A7468D69EEC21" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\zh-CN.pak" />
+        <File Id="fil54241C6D30BB19BF178013A7CCFA4F65" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\locales\zh-TW.pak" />
+      </Component>
+      <Component Id="cmp5EBAF03BC4B41C2753A93CC967DBB56B" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC63D}" Directory="StaticContentFolder">
+        <File Id="filC29F38BBC7E8EA11B9E40B43975760AA" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\index.html" />
+        <File Id="fil4F99A30083FA510F950C06BB070C277A" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\second.html" />
+        <File Id="fil8414CB74075AFFB196C931C2F593FA52" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\third.html" />
+      </Component>
+      <Component Id="cmp5EBAF03BC4B41C2753A93CC967DBB56C" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC63E}" Directory="CssFolder">
+        <File Id="filCFAA4861CA960420256AB107778138E7" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\css\responsive.css" />
+        <File Id="fil7355F016553A734EA56819E44CB0340F" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\css\style.css" />
+      </Component>
+      <Component Id="cmp5EBAF03BC4B41C2753A93CC967DBB56D" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC63F}" Directory="ImgFolder">
+        <File Id="fil7DEC6683CEB379475A92B2AF153EEFFB" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\background-eye.png" />
+        <File Id="filE5F625BF5D3E6E02DFAF74E4C7A112F1" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\background.jpg" />
+        <File Id="filE2CE4DCE26ADA2DF5912F60577074157" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\btmmenu-button-blue.png" />
+        <File Id="filDE10C90B57E2FCF920AAFF4E169A95B5" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\btmmenu-button-orange.png" />
+        <File Id="filD6EBE0F6B2CAA0ECA25293D33FF39BAD" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\error.png" />
+        <File Id="fil382DDE6BFAAFA0A9269C56FEE48FE50C" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\loading.png" />
+        <File Id="fil62A72E9F5E65127A901DC38DB0ED7404" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\reg-head.jpg" />
+        <File Id="fil61E299B86D100FB6C252660CE5AA6B0F" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\scr2-ar-left.jpg" />
+        <File Id="filA0A48C5768DCBCFC681C9F631489185E" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\scr2-ar-right.jpg" />
+        <File Id="fil19E401AD95139D5CEF889EC68004CD57" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\scr2-pic1.jpg" />
+        <File Id="fil2DB5D09B90A778024E55F1744E8583FD" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\submit-arrow.jpg" />
+        <File Id="filFC6995CAF5CD4E167185D3865B0DD07B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\waggoner-logo.png" />
+      </Component>
+      <Component Id="cmp5EBAF03BC4B41C2753A93CC967DBB56E" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC630}" Directory="JsFolder">
+        <File Id="filAC49C938FA11FE49EC1F5C2AFE9C5507" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\js\data.js" />
+        <File Id="fil3D3F0E8FD769D29D18B1F07895A367EB" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\js\main.js" />
+        <File Id="filF552A40715F3BD095B4E0F67F3E6AA66" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\js\slider.js" />
+        <File Id="filF552A40715F3BD095B4E0F67F3E6AA67" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\js\jquery.min.js" />
+      </Component>
+      <Component Id="ApplicationShortcut" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC640}" Directory="ApplicationProgramsFolder">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+                  Name="WaggonerDx"
+                  Target="[#launcherExecutable]"
+                  WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue Root="HKCU" Key="Software\WaggonerDx" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+      </Component>
+    </ComponentGroup>
+	</Fragment>
+</Wix>

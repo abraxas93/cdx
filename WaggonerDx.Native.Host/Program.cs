@@ -99,14 +99,18 @@ namespace WaggonerDx.Main.Host
                     var browserProcessHandler = new BrowserProcessHandler();
                     Cef.Initialize(settings, performDependencyCheck: false, browserProcessHandler: browserProcessHandler);
 
+#if DEBUG
+                    var browser = new ChromiumWebBrowser("http://localhost:8000/static/index.html?_=" + DateTime.UtcNow.Ticks);
+#else
                     var browser = new ChromiumWebBrowser("http://localhost:8000/static/index.html");
+#endif
 
                     var mainForm = new Form();
                     mainForm.MinimumSize = new System.Drawing.Size(800, 600);
                     mainForm.WindowState = FormWindowState.Maximized;
                     mainForm.Controls.Add(browser);
 
-                    browser.RegisterJsObject("native", new JsBridge(new MainFlow(mainForm)));
+                    browser.RegisterAsyncJsObject("native", new JsBridge(new MainFlow(mainForm)));
                     browser.Dock = DockStyle.Fill;
 
                     Application.EnableVisualStyles();
