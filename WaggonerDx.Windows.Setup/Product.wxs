@@ -166,6 +166,8 @@
         <File Id="fil19E401AD95139D5CEF889EC68004CD57" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\scr2-pic1.jpg" />
         <File Id="fil2DB5D09B90A778024E55F1744E8583FD" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\submit-arrow.jpg" />
         <File Id="filFC6995CAF5CD4E167185D3865B0DD07B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\waggoner-logo.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B0DD08B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\left-arrow-gray-md.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B0DD09B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\left-arrow-right-md.png" />
       </Component>
       <Component Id="cmp5EBAF03BC4B41C2753A93CC967DBB56E" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC630}" Directory="JsFolder">
         <File Id="filAC49C938FA11FE49EC1F5C2AFE9C5507" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\js\data.js" />

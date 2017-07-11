@@ -147,6 +147,14 @@
       <Link>StaticContent\img\error.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\StaticContent\img\left-arrow-gray-md.png">
+      <Link>StaticContent\img\left-arrow-gray-md.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\left-arrow-right-md.png">
+      <Link>StaticContent\img\left-arrow-right-md.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\StaticContent\img\loading.png">
       <Link>StaticContent\img\loading.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
