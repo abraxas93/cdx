@@ -3,7 +3,7 @@
 	<Product Id="*" Name="WaggonerDx" Language="1033" Version="1.0.0.0" Manufacturer="Waggoner software" UpgradeCode="d70d979f-91c4-447a-9823-a8a99ff9213c">
 		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate />
+		<MediaTemplate EmbedCab="yes" />
 		<Feature Id="Complete" Title="WaggonerDx" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
 		</Feature>
@@ -28,6 +28,9 @@
 	<Fragment>
     <ComponentGroup Id="ProductComponents">
       <Component Id="cmp5EBAF03BC4B41C2753A93CC967DBB569" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC63B}" Directory="INSTALLFOLDER">
+        <File Id="fil71D485A0B38A95621D771D4B71F24690" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\msvcp120.dll" />
+        <File Id="fil71D485A0B38A95621D771D4B71F34690" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\msvcr120.dll" />
+        <File Id="fil71D485A0B38A95621D771D4B71F44690" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\vccorlib120.dll" />
         <File Id="fil71D485A0B38A95621D771D4B71F14690" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\cef.pak" />
         <File Id="fil6C3E7F33DA5D75A0759E822DBDE6D7F8" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.BrowserSubprocess.Core.dll" />
         <File Id="filB915754E6FCB312422F1F9C065E4C4FB" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\CefSharp.BrowserSubprocess.Core.pdb" />
