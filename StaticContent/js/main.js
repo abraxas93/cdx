@@ -1,3 +1,17 @@
+var requiredTable = {
+        "firstName" : "first-name",
+        "lastName" : "last-name",
+        "email" : "email",
+        "phone": "phone",
+        "adress" : "adress",
+        "city": "city",
+        "state": "state",
+        "country": "country",
+        "zipCode": "zip-code"       
+    };
+
+var notValidFields;
+var fieldsString;
 native = window.native || {
     // Mocking native if launched not from c#
     init: function () {},
@@ -13,14 +27,21 @@ native = window.native || {
     registrationSubmitted(payload) {
         console.log('Submitting registration page...');
         payload = JSON.parse(payload);
-        if (!payload['firstName'] || payload.firstName == '') {
+        notValidFields = [];
+        for(var field in payload) {
+            if(payload[field] == 0 && field in requiredTable) {
+                notValidFields.push(field);
+            }
+        }
+        if(notValidFields.length) {
+            fieldsString = notValidFields.join(',');
             return Promise.reject('whatever');
         } else {
             return Promise.resolve('second.html');
         }
     },
     getRegistrationError() {
-        return Promise.resolve('{"message":"Please enter first name\\nMultiline example","fields":["firstName"]}');
+        return Promise.resolve(JSON.stringify({ message: fieldsString, fields: notValidFields }));
     }
 };
 
@@ -33,7 +54,7 @@ native.init();
 native.log('Native bridge inited.', log.info);
 
 
-var app = (function () {
+var app = (function () {  
 
     function renderBottomMenu(menu) {
         var menuWidth = $('#main-nav').width();
@@ -45,36 +66,24 @@ var app = (function () {
                 id: item.id,
                 html: item.title
             });
-            $(menuEl).appendTo('.navigation').wrap('<li class="' + item.class + '"></li>');
+            $(menuEl).appendTo('.navigation')
+                .wrap('<li class="' + item.class + '"></li>')
+                .parent().click(function() {
+                    item.onClick();
+                });
             if (item.active) menuEl.parent().addClass('active');
             menuEl.parent().click(item.onClick);
             menuEl.parent().css('right', -shift);
             shift -= 17;
         });
     }
-    function highlightErrors(errorFieldNames) {
-        $("input[name='first-name']").removeClass('error');
-        $("input[name='last-name']").removeClass('error');
-        $("input[name='email']").removeClass('error');
-        $("input[name='phone']").removeClass('error');
-        $("input[name='company-name']").removeClass('error');
-        $("input[name='web-site']").removeClass('error');
-        $("input[name='adress']").removeClass('error');
-        $("input[name='city']").removeClass('error');
-        $("input[name='state']").removeClass('error');
-        $("input[name='country']").removeClass('error');
-        $("input[name='zip-code']").removeClass('error');
-        $("input[name='distributor']").removeClass('error');
-        $("input[name='distributor']").removeClass('error');
-        $("input[name='sales']").removeClass('error');
-        $("input[name='trade']").removeClass('error');
-        $("input[name='other']").removeClass('error');
-
+    
+    function highlightErrors(errorFieldNames) {       
         errorFieldNames.forEach(function (item) {
-            // TODO full mapping
-            if (item == 'firstName') {
-                $("input[name='first-name']").addClass('error');
-            }
+            var selector = "input[name='" + requiredTable[item] + "']";            
+            $(selector).addClass('error').attr('placeholder','required field').focus(function() {
+                $(this).removeClass('error').attr('placeholder','');
+            })            
         });
     }    
     function parseFormFields() {
@@ -98,10 +107,10 @@ var app = (function () {
 
         native.registrationSubmitted(JSON.stringify(model)).then(function (location) {
             window.location.href = location;
-        }).catch(function (message) {
+        }).catch(function (errorObject) {
             native.getRegistrationError().then(function (errorObject) {
                 var actualError = JSON.parse(errorObject);
-                alert(actualError.message);
+                $('.main-title').html(actualError.message).addClass('err-notes');
                 highlightErrors(actualError.fields);
             });
         });
@@ -117,7 +126,7 @@ var app = (function () {
 /* Switcher for test table */
 var TestSwitcher = (function() {
     var positions = $('.list-item').toArray();
-    var animationTime = 1000;
+    var animationTime = 500;
     var blocked = false;
     
     positions.forEach(function(el, i) {
