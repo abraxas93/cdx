@@ -41,7 +41,8 @@ native = window.native || {
         }
     },
     getRegistrationError() {
-        return Promise.resolve(JSON.stringify({ message: fieldsString, fields: notValidFields }));
+        var messagesFromServer = ['msg from server1', 'msg from server2', 'msg from server3', 'err message4','msg from server4'];
+        return Promise.resolve(JSON.stringify({ message: messagesFromServer, fields: notValidFields }));
     }
 };
 
@@ -78,10 +79,10 @@ var app = (function () {
         });
     }
     
-    function highlightErrors(errorFieldNames) {       
-        errorFieldNames.forEach(function (item) {
+    function highlightErrors(errorFieldNames, errorFieldMessages) { 
+        errorFieldNames.forEach(function (item, i) {
             var selector = "input[name='" + requiredTable[item] + "']";            
-            $(selector).addClass('error').attr('placeholder','required field').focus(function() {
+            $(selector).addClass('error').attr('placeholder', errorFieldMessages[i] || 'default msg').focus(function() {
                 $(this).removeClass('error').attr('placeholder','');
             })            
         });
@@ -111,7 +112,7 @@ var app = (function () {
             native.getRegistrationError().then(function (errorObject) {
                 var actualError = JSON.parse(errorObject);
                 $('.main-title').html(actualError.message).addClass('err-notes');
-                highlightErrors(actualError.fields);
+                highlightErrors(actualError.fields, actualError.message);
             });
         });
     }
