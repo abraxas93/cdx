@@ -64,7 +64,7 @@
     .left-arrow, .right-arrow {   
         background-size: 49px;
         height: 228px;
-        background-size: cover;
+        background-size: 100%;
     }
 }
 

@@ -1,6 +1,7 @@
 'use strict';
 
 var slider = (function() {   
+    var slides = null;
     var slides_margin = null;
     var visibleSlides = 5; // a number of slides in viewport
     var slideWidth = 20; // width of one slide in viewport, compare like % val
@@ -9,9 +10,8 @@ var slider = (function() {
         return (/^true$/i).test(this);
     };
     
-    function leftArrowHandler(slides) {     
-        $(this).attr('blocked', true);
-        
+    function leftArrowHandler() {     
+        $(this).attr('blocked', true);        
         slides.forEach(function (slide, i) {
             if (slides_margin[i] === -60) {
                 $(slide).fadeOut(900, function () {
@@ -31,10 +31,10 @@ var slider = (function() {
         var that = this;
         setTimeout(function() {            
             $(that).attr('blocked', false);
-        }, 1000);
+        }, 1500);
     }
                 
-    function rightArrowHandler(slides) {  
+    function rightArrowHandler() {  
         $(this).attr('blocked', true);
         slides.forEach(function(slide, i) {            
             if(slides_margin[i] === widthLimit ) {                                
@@ -56,7 +56,7 @@ var slider = (function() {
         var that = this;
         setTimeout(function() {
             $(that).attr('blocked', false);
-        }, 1000);        
+        }, 1500);        
     }    
       
     function renderSlider(slides_data, sliderWrap) {       
@@ -79,7 +79,7 @@ var slider = (function() {
             viewPort.append(slideDiv);
         });     
         $(sliderWrap).append(viewPort);        
-        
+        slides = $(sliderWrap + ' .slider-viewport').children().toArray();
     }
     
     function setMargins(sliderWrap) {
@@ -100,23 +100,24 @@ var slider = (function() {
         });
     }
     
-    function setArrowsHandlers(leftSel, rightSel, sliderWrap) {
-        var slides = $(sliderWrap + ' .slider-viewport').children().toArray();  
+    function setArrowsHandlers(leftSel, rightSel) {         
         $(leftSel).attr('blocked', false);
         $(rightSel).attr('blocked', false);
         
-        $(leftSel).click(function () {     
+        $(leftSel).click(function (e) {                
             var block = $(this).attr('blocked');            
-            if(!block.bool()) leftArrowHandler.bind(this, slides)();
+            if(!block.bool()) leftArrowHandler.bind(this)();
+            else e.stopImmediatePropagation();
         });
-        $(rightSel).click(function () {
+        $(rightSel).click(function (e) {
             var block = $(this).attr('blocked');
-            if(!block.bool()) rightArrowHandler.bind(this, slides)();            
+            if(!block.bool()) rightArrowHandler.bind(this)();      
+            else e.stopImmediatePropagation();
         });
     }
     
     return {        
-        render: function(opts) {             
+        render: function(opts) {            
             renderSlider(opts.slides, opts.sliderWrap);
             setMargins(opts.sliderWrap);
             setArrowsHandlers(opts.leftSel, opts.rightSel, opts.sliderWrap);

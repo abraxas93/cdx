@@ -125,13 +125,10 @@ var app = (function () {
 
 /* Switcher for test table */
 var TestSwitcher = (function() {
-    var positions = $('.list-item').toArray();
+    var positions = null;
     var animationTime = 500;
-    var blocked = false;
+    var blocked = false;   
     
-    positions.forEach(function(el, i) {
-        $(el).attr('data-pos', i);
-    });
     
     function refreshAll() {
         $('.list-item').each(function (i, el) {
@@ -204,8 +201,42 @@ var TestSwitcher = (function() {
         native.testsOrderSubmitted();
     }
     
+    function init(tests) {
+        tests.forEach(function(test, i) {           
+            var testLi = $('<li/>', {               
+                class: 'list-item',  
+                html: '<div class="test-position">'+ (i + 1) +'</div><div class="test-name">'
+                + test.title + '</div><div class="test-control">' 
+                + '<ul class="controls"><li class="move-up">▲</li><li class="move-down">▼</li></ul>'
+                + '</div>'
+            }).attr('data-pos', i);
+            
+            $(testLi).appendTo('.test-list');
+        });        
+        positions = $('.list-item').toArray();
+        
+        $('.move-up').click(function() {
+            var listItem = $(this).parent().parent().parent();
+            var moveFunc = moveTestUp.bind(listItem);
+            if(!blocked) {
+                moveFunc();
+            }
+        });
+
+        $('.move-down').click(function() {            
+            var listItem = $(this).parent().parent().parent();
+            var moveFunc = moveTestDown.bind(listItem);
+            if(!blocked) {
+                moveFunc();
+            }            
+        }); 
+    }   
+    
     
     return {
+        initTests: function(testsArray) {
+            init(testsArray);
+        },
         moveUp: function(context) {            
             var moveFunc = moveTestUp.bind(context);
             if(!blocked) {

@@ -281,3 +281,14 @@ var slides = [
         description: 'Sample text. Sample text. Sample text. Sample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample text'
     },
 ];
+
+
+var _tests = [
+    { title: 'Adult Diagnostic' },
+    { title: 'Older Children Diagnostic' },
+    { title: 'Senior Diagnostic' },
+    { title: 'Pediactric CVTME' },
+    { title: 'Screening: 14' },
+    { title: 'Tritan: 12' },
+    { title: 'D - 15' },
+]

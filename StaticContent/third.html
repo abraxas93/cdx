@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 
 <head>
     <meta charset="utf-8">
@@ -32,90 +32,7 @@
                     </div>
                 </div>
                 <ul id="tests" class="test-list">
-                    <li class="list-item">
-                        <div class="test-position">1</div>
-                        <div class="test-name">
-                            Adult Diagnostic
-                        </div>
-                        <div class="test-control">
-                            <ul class="controls">
-                                <li class="move-up">▲</li>
-                                <li class="move-down">▼</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="list-item">
-                        <div class="test-position">2</div>
-                        <div class="test-name">
-                            Older Children Diagnostic
-                        </div>
-                        <div class="test-control">
-                            <ul class="controls">
-                                <li class="move-up">▲</li>
-                                <li class="move-down">▼</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="list-item">
-                        <div class="test-position">3</div>
-                        <div class="test-name">
-                            Senior Diagnostic
-                        </div>
-                        <div class="test-control">
-                            <ul class="controls">
-                                <li class="move-up">▲</li>
-                                <li class="move-down">▼</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="list-item">
-                        <div class="test-position">4</div>
-                        <div class="test-name">
-                            Pediactric CVTME
-                        </div>
-                        <div class="test-control">
-                            <ul class="controls">
-                                <li class="move-up">▲</li>
-                                <li class="move-down">▼</li>
-                            </ul>
-                        </div>                    
-                    </li>
-                    <li class="list-item">
-                        <div class="test-position">5</div>
-                        <div class="test-name">
-                            Screening: 14
-                        </div>
-                        <div class="test-control">
-                            <ul class="controls">
-                                <li class="move-up">▲</li>
-                                <li class="move-down">▼</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="list-item">
-                        <div class="test-position">6</div>
-                        <div class="test-name">
-                            Tritan: 12
-                        </div>
-                        <div class="test-control">
-                            <ul class="controls">
-                                <li class="move-up">▲</li>
-                                <li class="move-down">▼</li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="list-item">
-                        <div class="test-position">7</div>
-                        <div class="test-name">
-                            D - 15
-                        </div>
-                        <div class="test-control">
-                            <ul class="controls">
-                                <li class="move-up">▲</li>
-                                <li class="move-down">▼</li>
-                            </ul>
-                        </div>
-                    </li>
+                   
                 </ul>                
             </div>
             <div class="config-menu">
@@ -156,7 +73,8 @@
     <script>
     $(document).ready(function() {
         app.renderBotMenu(menu);
-        $('.move-up').click(function() {
+        TestSwitcher.initTests(_tests);
+        /*$('.move-up').click(function() {
             var listItem = $(this).parent().parent().parent();
             TestSwitcher.moveUp(listItem);
         });
@@ -164,7 +82,7 @@
         $('.move-down').click(function() {
             var listItem = $(this).parent().parent().parent();
             TestSwitcher.moveDown(listItem);
-        });
+        }); */
     });
     </script>     
 </body>

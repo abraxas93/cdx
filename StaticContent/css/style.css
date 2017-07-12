@@ -538,3 +538,7 @@ li.active:hover {
     background: #0c5697;
     color: #fff;
 }
+.test-list {
+    max-height: 290px;
+    overflow-y: scroll;
+}
