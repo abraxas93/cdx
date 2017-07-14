@@ -81,7 +81,7 @@ var app = (function () {
             
             if (item.active) menuEl.parent().addClass('active');
             var width = $(menuEl).width();
-            console.log(width);
+            $('.container').css('padding-top', '50px');
         });
     }
 
