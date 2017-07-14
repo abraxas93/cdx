@@ -85,6 +85,9 @@ ul {
     position: relative;
     max-width: 1365px;
 }
+.container.top-menu {
+    padding-top: 50px;
+}
 .container.scr2 {
     max-width: 100%;
 }
@@ -541,4 +544,49 @@ li.active:hover {
 .test-list {
     max-height: 290px;
     overflow-y: scroll;
+}
+
+/* top navigation styles */
+
+.top-menu-item, .control-btn {
+    display: inline-block;
+    text-align: center;  
+    cursor: pointer;
+    position: relative;    
+}
+.control-btn a img {
+    cursor: pointer;
+}
+.top-menu-item.control-btn {
+    background: none;
+    min-width: 50px;
+    padding-bottom: 0;
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.top-menu-item {
+    min-width: 215px;
+    max-width: 16.3%;
+    background-image: url(../img/btmmenu-button-blue.png);
+    background-size: 100%;
+    padding: 11px;
+    transform: rotateX(180deg);
+    z-index: 4;
+    bottom: 5px;
+    transition: all 0.2s ease 0s;
+}
+.top-menu-item:hover {
+    bottom: 0;
+}
+.top-menu-item.active {
+    bottom: 0px;
+    background-image: url(../img/btmmenu-button-orange.png);
+    z-index: 5;
+}
+.top-nav-wrap a {
+    transform: rotateX(180deg);
+    display: block;
+    color: #fff;
+    text-decoration: none;
 }

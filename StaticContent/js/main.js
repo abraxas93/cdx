@@ -56,6 +56,34 @@ native.log('Native bridge inited.', log.info);
 
 
 var app = (function () {  
+    
+    function renderTopMenu(menu) {
+        menu.forEach(function(item, i) {
+            console.log(item);
+            var props = {
+                id:item.id,
+                class: item.class
+            }
+            if(item.img) {
+                props.html = '<img src="' + item.img + '" alt="'+ item.title + '">' + '</img>';
+            } else {
+                props.html = item.title;
+            } 
+            
+            var menuEl = $('<a/>', props);
+            
+            
+            $(menuEl)
+                .wrap('<div class="top-menu-item ' + item.class + '"></div>')
+                .parent()
+                .css('float', item.position)
+                .appendTo('.top-nav-wrap');
+            
+            if (item.active) menuEl.parent().addClass('active');
+            var width = $(menuEl).width();
+            console.log(width);
+        });
+    }
 
     function renderBottomMenu(menu) {
         var menuWidth = $('#main-nav').width();
@@ -119,6 +147,7 @@ var app = (function () {
     
     return {
         renderBotMenu: renderBottomMenu,
+        renderTopMenu: renderTopMenu,
         parseFormFields: parseFormFields
     }
 
