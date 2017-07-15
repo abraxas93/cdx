@@ -64,7 +64,7 @@ ul {
     //min-height: 760px;
     //height: 100%;
     position: relative;
-    padding-bottom: 65px;
+    padding-bottom: 105px;
 }
 
 .bg-logo {
@@ -76,7 +76,11 @@ ul {
     bottom: 65px;
 }
 .bg-logo.settings {
-    
+    position: absolute;
+    left: 6%;
+    width: 14%;    
+    margin: inherit;
+    top: 91px;
 }
 
 .bg-eye {
@@ -582,10 +586,10 @@ li.active:hover {
     transition: all 0.2s ease 0s;
 }
 .top-menu-item:hover {
-    bottom: 2px;
+    bottom: 3px;
 }
 .top-menu-item.active {
-    bottom: 2px;
+    bottom: 3px;
     background-image: url(../img/btmmenu-button-orange.png);
     z-index: 5;
     background-repeat: no-repeat;
@@ -614,22 +618,24 @@ li.active:hover {
     padding: 15px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
+    height: 67px;
+    line-height: 38px;
 }
 
 .step-input {
     border: 2px solid #0c5596;
     padding: 5px;
-    width: 150px;
-    margin-left: 20px;
+    width: 140px;
+    margin-left: 2%;
 }
 
 .steps {
-    padding-left: 35px;
-    padding-right: 35px;
+    padding-left: 12%;
+    padding-right: 12%;
 }
 
 .inner-title {
-    margin-left: 10%;
+    margin-left: 5%;
 }
 .inner-list {
     border: 2px solid #0c5596;
@@ -641,7 +647,7 @@ li.active:hover {
     background-repeat: no-repeat;
     background-size: 100%;
     float: left;
-    margin-left: 18%;
+    margin-left: 15%;
     padding-top: 44px;
     text-align: center;
     text-decoration: none;
@@ -678,5 +684,50 @@ li.active:hover {
     width: 85%;
     float: left;
 }
-
+.inner-radio {
+    margin-left: 3%;
+}
 /* side menu css */
+
+.side-menu {
+    position: fixed;
+    top: 35%;
+    z-index: 6;
+}
+.side-menu-item {
+    background: #0c5596;
+    margin-bottom: 15px;
+    padding: 10px;
+    padding-left: 15px;
+    text-align: center;
+    padding-right: 15px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+}
+.side-menu-item.active {
+    background: #f26d21;
+}
+.side-menu-item a {
+    color: #fff;
+}
+.side-menu-item a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.scale {
+    padding: 15px;
+    background: #fff;
+    position: absolute;
+    top: 24%;
+    right: 2%;
+}
+.scale img {
+    min-height: 495px;
+}
+.step.custom {
+    width: 106%;
+}
+.custom .step-box {
+    border-bottom-right-radius: 0;
+}

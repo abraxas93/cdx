@@ -15,7 +15,7 @@
                 <li class="side-menu-item">
                     <a class="">Luminance Calibration</a>
                 </li>
-                <li class="side-menu-item">
+                <li class="side-menu-item active">
                     <a class="">Size Calibration</a>
                 </li>
             </ul>
@@ -25,7 +25,7 @@
         </div>
         <div class="bg-pics">
             <img src="img/background-eye.png" class="bg-eye" />
-            <img src="img/waggoner-logo.png" class="bg-logo settings" />
+            <img src="img/waggoner-logo.png" class="bg-logo settings" />            
         </div>
         <div class="container">
             <div class="top-head s100">
@@ -37,16 +37,16 @@
                 </div>
             </div>     
             <div class="steps-container">
-                <ul class="steps">
+                <ul class="steps"> <!-- TO DO custom radio buttons -->
                     <li class="step">
                         <h3 class="step-title">Step 1:</h3>
                         <p class="step-box">
                             Please select your prefered measurement unit: 
-                            <input type="radio"> Metrics (meter, centimeters)
-                            <input type="radio"> Imperial (feet, inches)
+                            <input type="radio" class="inner-radio"> Metrics (meter, centimeters)
+                            <input type="radio" class="inner-radio"> Imperial (feet, inches)
                         </p>
                     </li>
-                    <li class="step">
+                    <li class="step custom">
                         <h3 class="step-title">Step 2:</h3>
                         <p class="step-box">
                             Please measure the ruler on the right side and insert its length here (centimeters or inches):
@@ -90,7 +90,7 @@
                             </div>
                         </div>                        
                     </li>
-                </ul>
+                </ul>                
                 <div class="clearfix"></div>
             </div>
             <div class="config-menu">
@@ -115,6 +115,9 @@
                     </li>
                 </ul>
             </div>
+            <div class="scale">
+                <img src="img/scale.jpg">
+            </div>
         </div>        
         <div id="main-nav" class="main-menu">
             <div class="nav-wrap">
@@ -128,8 +131,11 @@
     <script src="js/data.js"></script>
     <script>
         $(document).ready(function () {
+            
+            
+            
             app.renderBotMenu(menu);
-            app.renderTopMenu(topmenu);
+            //app.renderTopMenu(topmenu);
             $('.submit-arrow').click(function() {
                 app.parseFormFields();
             })
