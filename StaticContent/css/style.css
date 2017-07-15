@@ -2,7 +2,10 @@
 
 
 /* ---- Fonts ---- */
-
+@font-face {
+	font-family: "TaiLe";
+	src: url("../fonts/taile.ttf") format("truetype");	
+}
 
 /* --- Fonts End --- */
 
@@ -10,7 +13,8 @@
 /* --- Common CSS ---- */
 
 * {
-    font-family: 'Arial', sans-serif;
+    font-family: 'TaiLe', 'Arial', sans-serif;
+    font-size: 18px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -26,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Arial, sans-serif;
+    font-family: 'TaiLe', sans-serif;
     font-weight: 500;
     margin: 0;
 }
@@ -57,19 +61,22 @@ ul {
     background: #e2ebf2 url(../img/background.jpg) no-repeat;
     background-size: 100% 100%;
     overflow: hidden;
-    min-height: 760px;
-    height: 100%;
+    //min-height: 760px;
+    //height: 100%;
     position: relative;
+    padding-bottom: 65px;
 }
 
 .bg-logo {
     position: absolute;
-    bottom: 15%;
     left: 0;
     width: 14%;    
     right: 0;    
     margin: auto;
-    bottom: 20px;
+    bottom: 65px;
+}
+.bg-logo.settings {
+    
 }
 
 .bg-eye {
@@ -147,21 +154,21 @@ ul {
     background: #0c5697;
     padding: 13px;
     border-bottom-right-radius: 9px;
-    height: 60px;
+    height: 80px;
     width: 87%;
     float: left;
 }
 
 .top-banner {
-    width: 45%;
+    width: 60%;
     margin: auto;
-    height: 60px;
+    height: 80px;
     overflow: hidden;
 }
 
 .main-title {
     color:#fff;
-    font-size: 30px;
+    font-size: 43px;
     text-align: center;
     font-weight: bold;
 }
@@ -173,7 +180,7 @@ ul {
 .top-logo {
     float: left;
     width: 13%;
-    height: 60px;
+    height: 81px;
 }
 .form-wrap {
     overflow: hidden;
@@ -284,7 +291,7 @@ ul {
     bottom: -5px;
 }
 .navigation li:hover {
-    bottom: 0px;
+    bottom: -3px;
 }
 
 .nav-wrap {
@@ -297,7 +304,7 @@ ul {
 /* menu buttons section */
 
 li.active {
-    bottom: 0px;
+    bottom: -2px;
     background-image: url(../img/btmmenu-button-orange.png);
     z-index: 5;
 }
@@ -307,7 +314,7 @@ li.active:hover {
 .navigation li:after {
     display: block;
     content: "";
-    background-image: url(../img/button-right.png);
+    //background-image: url(../img/button-right.png);
 }
 .navigation li a {
     color: #fff;
@@ -491,7 +498,7 @@ li.active:hover {
     float: left;
     width: 16%;
     color: #fff;
-    padding: 16px 13px 0px 13px;
+    padding: 13px 13px 0px 13px;
     height: 50px;
     font-weight: bold;
     text-align: center;
@@ -571,16 +578,17 @@ li.active:hover {
     padding: 11px;
     transform: rotateX(180deg);
     z-index: 4;
-    bottom: 5px;
+    bottom: 7px;
     transition: all 0.2s ease 0s;
 }
 .top-menu-item:hover {
-    bottom: 0;
+    bottom: 2px;
 }
 .top-menu-item.active {
-    bottom: 0px;
+    bottom: 2px;
     background-image: url(../img/btmmenu-button-orange.png);
     z-index: 5;
+    background-repeat: no-repeat;
 }
 .top-nav-wrap a {
     transform: rotateX(180deg);
@@ -588,3 +596,87 @@ li.active:hover {
     color: #fff;
     text-decoration: none;
 }
+
+/* size calibration screen */
+.step {
+    margin-bottom: 20px;
+}
+.step-title {
+    color: #0c5596;
+    font-size: 22px;
+    font-weight: bold;
+    padding-left: 15px;
+}
+.step-box {
+    color: #0c5596;
+    font-size: 18px;
+    background: #fff;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.step-input {
+    border: 2px solid #0c5596;
+    padding: 5px;
+    width: 150px;
+    margin-left: 20px;
+}
+
+.steps {
+    padding-left: 35px;
+    padding-right: 35px;
+}
+
+.inner-title {
+    margin-left: 10%;
+}
+.inner-list {
+    border: 2px solid #0c5596;
+}
+.close, .save {
+    width: 48px;
+    height: 45px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    float: left;
+    margin-left: 18%;
+    padding-top: 44px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+.close:hover {
+    color: #ff0006;
+}
+.save:hover {
+    color: #119504;
+}
+.close {
+    background-image: url(../img/cross.png);
+    color: #ff0006;
+    background-size: 25px;
+    background-position: center center;
+    border: 2px solid #ff0006;
+    border-radius: 4px;
+}
+.save {
+    background-image: url(../img/ok.png);
+    color: #119504;
+    border: 2px solid #119504;
+    background-size: 34px;
+    background-position: center center;
+}
+.controls-wrap {
+    float: left;
+    width: 15%;
+}
+.step-box.last {
+    width: 85%;
+    float: left;
+}
+
+/* side menu css */
