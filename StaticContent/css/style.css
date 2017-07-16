@@ -80,7 +80,7 @@ ul {
     left: 6%;
     width: 14%;    
     margin: inherit;
-    top: 91px;
+    top: 45px;
 }
 
 .bg-eye {
@@ -635,10 +635,11 @@ li.active:hover {
 }
 
 .inner-title {
-    margin-left: 5%;
+    margin-left: 2%;
 }
 .inner-list {
     border: 2px solid #0c5596;
+    padding: 5px;
 }
 .close, .save {
     width: 48px;
@@ -687,7 +688,42 @@ li.active:hover {
 .inner-radio {
     margin-left: 3%;
 }
-/* side menu css */
+.step input[type=radio],
+.step input[type=checkbox] {
+    display: none;
+}
+
+.step input[type=radio]+label:before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+    margin-right: 8px;
+    background-color: #fff;
+    //box-shadow: inset 0px 2px 2px rgba(0, 0, 0, .3);
+    border-radius: 8px;
+    border: 1px solid #0c5596;
+    cursor: pointer;
+}
+
+
+.step input[type=radio]:checked+label:before {
+    content: "\2022";
+    color: #f26d21;
+    background-color: #fff;
+    font-size: 1.8em;
+    text-align: center;
+    line-height: 16px;
+    text-shadow: 0px 0px 3px #eee;
+    cursor: pointer;
+}
+
+
+/*
+* side menu css
+*/
+
 
 .side-menu {
     position: fixed;
@@ -719,7 +755,7 @@ li.active:hover {
     padding: 15px;
     background: #fff;
     position: absolute;
-    top: 24%;
+    top: 133px;
     right: 2%;
 }
 .scale img {
