@@ -2,7 +2,10 @@
 
 
 /* ---- Fonts ---- */
-
+@font-face {
+	font-family: "TaiLe";
+	src: url("../fonts/taile.ttf") format("truetype");	
+}
 
 /* --- Fonts End --- */
 
@@ -10,7 +13,8 @@
 /* --- Common CSS ---- */
 
 * {
-    font-family: 'Arial', sans-serif;
+    font-family: 'TaiLe', 'Arial', sans-serif;
+    font-size: 18px;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -26,7 +30,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: Arial, sans-serif;
+    font-family: 'TaiLe', sans-serif;
     font-weight: 500;
     margin: 0;
 }
@@ -57,19 +61,26 @@ ul {
     background: #e2ebf2 url(../img/background.jpg) no-repeat;
     background-size: 100% 100%;
     overflow: hidden;
-    min-height: 760px;
-    height: 100%;
+    //min-height: 760px;
+    //height: 100%;
     position: relative;
+    padding-bottom: 105px;
 }
 
 .bg-logo {
     position: absolute;
-    bottom: 15%;
     left: 0;
     width: 14%;    
     right: 0;    
     margin: auto;
-    bottom: 20px;
+    bottom: 65px;
+}
+.bg-logo.settings {
+    position: absolute;
+    left: 6%;
+    width: 14%;    
+    margin: inherit;
+    top: 91px;
 }
 
 .bg-eye {
@@ -85,6 +96,7 @@ ul {
     position: relative;
     max-width: 1365px;
 }
+
 .container.scr2 {
     max-width: 100%;
 }
@@ -146,21 +158,21 @@ ul {
     background: #0c5697;
     padding: 13px;
     border-bottom-right-radius: 9px;
-    height: 60px;
+    height: 80px;
     width: 87%;
     float: left;
 }
 
 .top-banner {
-    width: 45%;
+    width: 60%;
     margin: auto;
-    height: 60px;
+    height: 80px;
     overflow: hidden;
 }
 
 .main-title {
     color:#fff;
-    font-size: 30px;
+    font-size: 43px;
     text-align: center;
     font-weight: bold;
 }
@@ -172,7 +184,7 @@ ul {
 .top-logo {
     float: left;
     width: 13%;
-    height: 60px;
+    height: 81px;
 }
 .form-wrap {
     overflow: hidden;
@@ -283,7 +295,7 @@ ul {
     bottom: -5px;
 }
 .navigation li:hover {
-    bottom: 0px;
+    bottom: -3px;
 }
 
 .nav-wrap {
@@ -296,7 +308,7 @@ ul {
 /* menu buttons section */
 
 li.active {
-    bottom: 0px;
+    bottom: -2px;
     background-image: url(../img/btmmenu-button-orange.png);
     z-index: 5;
 }
@@ -306,7 +318,7 @@ li.active:hover {
 .navigation li:after {
     display: block;
     content: "";
-    background-image: url(../img/button-right.png);
+    //background-image: url(../img/button-right.png);
 }
 .navigation li a {
     color: #fff;
@@ -490,7 +502,7 @@ li.active:hover {
     float: left;
     width: 16%;
     color: #fff;
-    padding: 16px 13px 0px 13px;
+    padding: 13px 13px 0px 13px;
     height: 50px;
     font-weight: bold;
     text-align: center;
@@ -537,4 +549,185 @@ li.active:hover {
 .move-up:hover, .move-down:hover {
     background: #0c5697;
     color: #fff;
+}
+.test-list {
+    max-height: 290px;
+    overflow-y: scroll;
+}
+
+/* top navigation styles */
+
+.top-menu-item, .control-btn {
+    display: inline-block;
+    text-align: center;  
+    cursor: pointer;
+    position: relative;    
+}
+.control-btn a img {
+    cursor: pointer;
+}
+.top-menu-item.control-btn {
+    background: none;
+    min-width: 50px;
+    padding-bottom: 0;
+    padding: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.top-menu-item {
+    min-width: 215px;
+    max-width: 16.3%;
+    background-image: url(../img/btmmenu-button-blue.png);
+    background-size: 100%;
+    padding: 11px;
+    transform: rotateX(180deg);
+    z-index: 4;
+    bottom: 7px;
+    transition: all 0.2s ease 0s;
+}
+.top-menu-item:hover {
+    bottom: 3px;
+}
+.top-menu-item.active {
+    bottom: 3px;
+    background-image: url(../img/btmmenu-button-orange.png);
+    z-index: 5;
+    background-repeat: no-repeat;
+}
+.top-nav-wrap a {
+    transform: rotateX(180deg);
+    display: block;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* size calibration screen */
+.step {
+    margin-bottom: 20px;
+}
+.step-title {
+    color: #0c5596;
+    font-size: 22px;
+    font-weight: bold;
+    padding-left: 15px;
+}
+.step-box {
+    color: #0c5596;
+    font-size: 18px;
+    background: #fff;
+    padding: 15px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 67px;
+    line-height: 38px;
+}
+
+.step-input {
+    border: 2px solid #0c5596;
+    padding: 5px;
+    width: 140px;
+    margin-left: 2%;
+}
+
+.steps {
+    padding-left: 12%;
+    padding-right: 12%;
+}
+
+.inner-title {
+    margin-left: 5%;
+}
+.inner-list {
+    border: 2px solid #0c5596;
+}
+.close, .save {
+    width: 48px;
+    height: 45px;
+    display: block;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    float: left;
+    margin-left: 15%;
+    padding-top: 44px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+.close:hover {
+    color: #ff0006;
+}
+.save:hover {
+    color: #119504;
+}
+.close {
+    background-image: url(../img/cross.png);
+    color: #ff0006;
+    background-size: 25px;
+    background-position: center center;
+    border: 2px solid #ff0006;
+    border-radius: 4px;
+}
+.save {
+    background-image: url(../img/ok.png);
+    color: #119504;
+    border: 2px solid #119504;
+    background-size: 34px;
+    background-position: center center;
+}
+.controls-wrap {
+    float: left;
+    width: 15%;
+}
+.step-box.last {
+    width: 85%;
+    float: left;
+}
+.inner-radio {
+    margin-left: 3%;
+}
+/* side menu css */
+
+.side-menu {
+    position: fixed;
+    top: 35%;
+    z-index: 6;
+}
+.side-menu-item {
+    background: #0c5596;
+    margin-bottom: 15px;
+    padding: 10px;
+    padding-left: 15px;
+    text-align: center;
+    padding-right: 15px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+}
+.side-menu-item.active {
+    background: #f26d21;
+}
+.side-menu-item a {
+    color: #fff;
+}
+.side-menu-item a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.scale {
+    padding: 15px;
+    background: #fff;
+    position: absolute;
+    top: 24%;
+    right: 2%;
+}
+.scale img {
+    min-height: 495px;
+}
+.step.custom {
+    width: 106%;
+}
+.custom .step-box {
+    border-bottom-right-radius: 0;
 }

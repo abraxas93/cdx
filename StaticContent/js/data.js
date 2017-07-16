@@ -90,6 +90,72 @@ var menu = [{
             }          
            ];
 
+var topmenu = [{
+        id: 12,
+        title: "Account",
+        img: '',
+        position: 'left',
+        class: 'active',
+        onClick: function () {
+            console.log('clicked item: ' + this.id);
+        },
+        active: false
+            },
+    {
+        id: 24,
+        title: "Help",
+        img: 'img/minus.png',
+        position: 'right',
+        class: 'control-btn',
+        onClick: function () {
+            window.native.btmMenuClick(this.id);
+        },
+        active: false
+            },
+    {
+        id: 34,
+        title: "Support",
+        img: 'img/plus.png',
+        position: 'right',
+        class: 'control-btn',
+        onClick: function () {
+            console.log('clicked item: ' + this.id);
+        },
+        active: false
+            },
+    {
+        id: 67,
+        title: "Service",
+        img: '',
+        position: 'left',
+        class: '',
+        onClick: function () {
+            console.log('clicked item: ' + this.id);
+        },
+        active: false
+            },
+    {
+        id: 67,
+        title: "Profile",
+        img: '',
+        position: 'right',
+        class: '',
+        onClick: function () {
+            console.log('clicked item: ' + this.id);
+        },
+        active: true
+            },
+    {
+        id: 67,
+        title: "Category",
+        img: '',
+        position: 'left',
+        class: '',
+        onClick: function () {
+            console.log('clicked item: ' + this.id);
+        },
+        active: false
+            }];
 var slides = [
     {
         id: 252,
@@ -281,3 +347,14 @@ var slides = [
         description: 'Sample text. Sample text. Sample text. Sample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample text'
     },
 ];
+
+
+var _tests = [
+    { title: 'Adult Diagnostic' },
+    { title: 'Older Children Diagnostic' },
+    { title: 'Senior Diagnostic' },
+    { title: 'Pediactric CVTME' },
+    { title: 'Screening: 14' },
+    { title: 'Tritan: 12' },
+    { title: 'D - 15' },
+]

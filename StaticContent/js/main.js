@@ -41,7 +41,8 @@ native = window.native || {
         }
     },
     getRegistrationError() {
-        return Promise.resolve(JSON.stringify({ message: fieldsString, fields: notValidFields }));
+        var messagesFromServer = ['msg from server1', 'msg from server2', 'msg from server3', 'err message4','msg from server4'];
+        return Promise.resolve(JSON.stringify({ message: messagesFromServer, fields: notValidFields }));
     }
 };
 
@@ -55,6 +56,34 @@ native.log('Native bridge inited.', log.info);
 
 
 var app = (function () {  
+    
+    function renderTopMenu(menu) {
+        menu.forEach(function(item, i) {
+            console.log(item);
+            var props = {
+                id:item.id,
+                class: item.class
+            }
+            if(item.img) {
+                props.html = '<img src="' + item.img + '" alt="'+ item.title + '">' + '</img>';
+            } else {
+                props.html = item.title;
+            } 
+            
+            var menuEl = $('<a/>', props);
+            
+            
+            $(menuEl)
+                .wrap('<div class="top-menu-item ' + item.class + '"></div>')
+                .parent()
+                .css('float', item.position)
+                .appendTo('.top-nav-wrap');
+            
+            if (item.active) menuEl.parent().addClass('active');
+            var width = $(menuEl).width();
+            $('.container').css('padding-top', '50px');
+        });
+    }
 
     function renderBottomMenu(menu) {
         var menuWidth = $('#main-nav').width();
@@ -78,10 +107,10 @@ var app = (function () {
         });
     }
     
-    function highlightErrors(errorFieldNames) {       
-        errorFieldNames.forEach(function (item) {
+    function highlightErrors(errorFieldNames, errorFieldMessages) { 
+        errorFieldNames.forEach(function (item, i) {
             var selector = "input[name='" + requiredTable[item] + "']";            
-            $(selector).addClass('error').attr('placeholder','required field').focus(function() {
+            $(selector).addClass('error').attr('placeholder', errorFieldMessages[i] || 'default msg').focus(function() {
                 $(this).removeClass('error').attr('placeholder','');
             })            
         });
@@ -111,13 +140,14 @@ var app = (function () {
             native.getRegistrationError().then(function (errorObject) {
                 var actualError = JSON.parse(errorObject);
                 $('.main-title').html(actualError.message).addClass('err-notes');
-                highlightErrors(actualError.fields);
+                highlightErrors(actualError.fields, actualError.message);
             });
         });
     }
     
     return {
         renderBotMenu: renderBottomMenu,
+        renderTopMenu: renderTopMenu,
         parseFormFields: parseFormFields
     }
 
@@ -125,13 +155,10 @@ var app = (function () {
 
 /* Switcher for test table */
 var TestSwitcher = (function() {
-    var positions = $('.list-item').toArray();
+    var positions = null;
     var animationTime = 500;
-    var blocked = false;
+    var blocked = false;   
     
-    positions.forEach(function(el, i) {
-        $(el).attr('data-pos', i);
-    });
     
     function refreshAll() {
         $('.list-item').each(function (i, el) {
@@ -204,8 +231,42 @@ var TestSwitcher = (function() {
         native.testsOrderSubmitted();
     }
     
+    function init(tests) {
+        tests.forEach(function(test, i) {           
+            var testLi = $('<li/>', {               
+                class: 'list-item',  
+                html: '<div class="test-position">'+ (i + 1) +'</div><div class="test-name">'
+                + test.title + '</div><div class="test-control">' 
+                + '<ul class="controls"><li class="move-up">▲</li><li class="move-down">▼</li></ul>'
+                + '</div>'
+            }).attr('data-pos', i);
+            
+            $(testLi).appendTo('.test-list');
+        });        
+        positions = $('.list-item').toArray();
+        
+        $('.move-up').click(function() {
+            var listItem = $(this).parent().parent().parent();
+            var moveFunc = moveTestUp.bind(listItem);
+            if(!blocked) {
+                moveFunc();
+            }
+        });
+
+        $('.move-down').click(function() {            
+            var listItem = $(this).parent().parent().parent();
+            var moveFunc = moveTestDown.bind(listItem);
+            if(!blocked) {
+                moveFunc();
+            }            
+        }); 
+    }   
+    
     
     return {
+        initTests: function(testsArray) {
+            init(testsArray);
+        },
         moveUp: function(context) {            
             var moveFunc = moveTestUp.bind(context);
             if(!blocked) {
