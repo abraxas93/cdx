@@ -6,6 +6,7 @@
 </head>
 
 <body style="-webkit-user-select: none">
+   
     <div class="bg-wrap">
         <div class="side-bar">
             <ul class="side-menu">
@@ -41,9 +42,12 @@
                     <li class="step">
                         <h3 class="step-title">Step 1:</h3>
                         <p class="step-box">
-                            Please select your prefered measurement unit: 
-                            <input type="radio" class="inner-radio"> Metrics (meter, centimeters)
-                            <input type="radio" class="inner-radio"> Imperial (feet, inches)
+                            Please select your prefered measurement unit:
+                            
+                            <input type="radio" id="rb1" name="rb" value="" checked>
+                            <label for="rb1">Metrics (meter, centimeters)</label>
+                            <input type="radio" id="rb2" name="rb"value="">
+                            <label for="rb2">Imperial (feet, inches)</label>                            
                         </p>
                     </li>
                     <li class="step custom">
@@ -63,7 +67,7 @@
                     <li class="step">
                         <h3 class="step-title">Step 4:</h3>
                         <p class="step-box">
-                            Please choose how the tests will display on the monitors:
+                            <span>Please choose how the tests will display on the monitors:</span>
                             <strong class="inner-title">Doctor</strong>
                             <select class="inner-list">
                                 <option></option>
