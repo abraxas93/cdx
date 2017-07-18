@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="css/style.css" media="all" rel="stylesheet">
+    <link href="css/responsive.css" media="all" rel="stylesheet">
+</head>
+
+<body style="-webkit-user-select: none">
+   
+    <div class="bg-wrap">        
+        <div class="top-nav-wrap">           
+            
+        </div>
+        <div class="bg-pics">
+            <img src="img/background-eye.png" class="bg-eye" />
+            <img src="img/waggoner-logo.png" class="bg-logo settings" />            
+        </div>
+        <div class="container">
+            <div class="top-head s100">
+                <div class="top-banner">
+                    <img src="img/reg-head.jpg" class="top-logo">
+                    <div class="text-wrap">
+                        <h1 class="main-title">Settings</h1>
+                    </div>
+                </div>
+            </div>     
+            <div class="email-form-wrap">
+                <form class="email-form">
+                    <label class="form-label">Current Email:</label>
+                    <input type="text" class="email-input clear" name="email">
+                    <label class="form-label">New Email:</label>
+                    <input type="text" class="email-input" name="new-email">
+                    <label class="form-label">Confirm Email:</label>
+                    <input type="text" class="email-input" name="confirm-email">
+                    <input type="button" class="reset-btn" value="Reset">
+                    <input type="submit" class="submit-btn" value="Submit">
+                </form>
+            </div>
+            <div class="config-menu">
+                <ul>
+                    <li class="menu-item left-item">
+                        Deactivation
+                    </li>
+                    <li class="menu-item">
+                        Calibration
+                    </li>
+                    <li class="menu-item">
+                        Profile
+                    </li>
+                    <li class="menu-item">
+                        Email
+                    </li>
+                    <li class="menu-item active">
+                        Test Ordering
+                    </li>
+                    <li class="menu-item right-item">
+                        TeamViewer
+                    </li>
+                </ul>
+            </div>
+        </div>        
+        <div id="main-nav" class="main-menu">
+            <div class="nav-wrap">
+                <ul class="navigation">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script>
+        $(document).ready(function () {
+            
+            
+            
+            app.renderBotMenu(menu);
+            //app.renderTopMenu(topmenu);
+            $('.submit-arrow').click(function() {
+                app.parseFormFields();
+            })
+        });
+    </script>
+</body>
+
+</html>

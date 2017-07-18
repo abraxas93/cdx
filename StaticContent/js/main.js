@@ -41,7 +41,7 @@ native = window.native || {
         }
     },
     getRegistrationError() {
-        var messagesFromServer = ['msg from server1', 'msg from server2', 'msg from server3', 'err message4','msg from server4'];
+        var messagesFromServer = ['msg from server1 ', 'msg from server2 ', 'msg from server3 ', 'err message4 ','msg from server4 '];
         return Promise.resolve(JSON.stringify({ message: messagesFromServer, fields: notValidFields }));
     }
 };
@@ -112,6 +112,10 @@ var app = (function () {
             var selector = "input[name='" + requiredTable[item] + "']";            
             $(selector).addClass('error').attr('placeholder', errorFieldMessages[i] || 'default msg').focus(function() {
                 $(this).removeClass('error').attr('placeholder','');
+                if(!$('.error').length) {
+                    $('.top-banner').removeClass('err-banner');
+                    $('.top-logo').attr('src', 'img/reg-head.jpg');
+                }
             })            
         });
     }    
@@ -140,15 +144,22 @@ var app = (function () {
             native.getRegistrationError().then(function (errorObject) {
                 var actualError = JSON.parse(errorObject);
                 $('.main-title').html(actualError.message).addClass('err-notes');
+                $('.top-logo').attr('src','img/eye-err.png');
+                $('.top-banner').addClass('err-banner');                
                 highlightErrors(actualError.fields, actualError.message);
             });
         });
     }
     
+    function loadScreen() {
+        
+    }
+    
     return {
         renderBotMenu: renderBottomMenu,
         renderTopMenu: renderTopMenu,
-        parseFormFields: parseFormFields
+        parseFormFields: parseFormFields,
+        loadScreen: loadScreen
     }
 
 })();

@@ -1,0 +1,134 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="css/style.css" media="all" rel="stylesheet">
+    <link href="css/responsive.css" media="all" rel="stylesheet">
+</head>
+
+<body style="-webkit-user-select: none">
+   
+    <div class="bg-wrap">        
+        <div class="top-nav-wrap">           
+            
+        </div>
+        <div class="bg-pics">
+            <img src="img/background-eye.png" class="bg-eye" />
+            <img src="img/waggoner-logo.png" class="bg-logo settings" />            
+        </div>
+        <div class="container">
+            <div class="top-head s100">
+                <div class="top-banner">
+                    <img src="img/reg-head.jpg" class="top-logo">
+                    <div class="text-wrap">
+                        <h1 class="main-title">Settings</h1>
+                    </div>
+                </div>
+            </div>     
+            <div class="profile-calibration">
+                <div class="profile-line">
+                    <div class="input-box-wrap">
+                        <div class="input-wrap">
+                            <label class="profile-label">First Name<span class="input-req">*</span></label>
+                            <input type="text" class="profile-input" name="first-name" value="" placeholder="">
+                        </div>                    
+                        <div class="input-wrap">
+                            <label class="profile-label">Last Name<span class="input-req">*</span></label>
+                            <input type="text" class="profile-input" name="last-name" value="" placeholder="">
+                        </div>
+                        <div class="input-wrap">
+                            <label class="profile-label">Company Name</label>
+                            <input type="text" class="profile-input" name="company-name" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-line">
+                    <div class="input-box-wrap">
+                        <div class="input-wrap">
+                            <label class="profile-label">Website URL</label>
+                            <input type="text" class="profile-input" name="web-site" value="" placeholder="">
+                        </div>
+                        <div class="input-wrap">
+                            <label class="profile-label">Phone Number<span class="input-req">*</span></label>
+                            <input type="text" class="profile-input" name="phone" value="" placeholder="">
+                        </div>
+                        <div class="input-wrap">
+                            <label class="profile-label">Address (Street)<span class="input-req">*</span></label>
+                            <input type="text" class="profile-input" name="adress" value="" placeholder="">
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-line">
+                    <div class="input-wrap">
+                        <label class="profile-label">City<span class="input-req">*</span></label>
+                        <input type="text" class="profile-input" name="city" value="" placeholder="">
+                    </div>
+                    <div class="input-wrap">
+                        <label class="profile-label">State<span class="input-req">*</span></label>
+                        <input type="text" class="profile-input" name="state" value="" placeholder="">
+                    </div>
+                    <div class="input-wrap">
+                        <label class="profile-label">Zip code<span class="input-req">*</span></label>
+                        <input type="text" class="profile-input" name="zip-code" value="" placeholder="">
+                    </div>
+                    <div class="input-wrap">
+                        <label class="profile-label">Country <span class="input-req">*</span></label>
+                        <input type="text" class="profile-input" name="country" value="" placeholder="">
+                    </div>
+                </div>
+                <ul class="button-controls-wrap">
+                    <li>
+                        <a class="close">Close</a>
+                    </li>
+                    <li>
+                        <a class="save">Save</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="config-menu">
+                <ul>
+                    <li class="menu-item left-item">
+                        Deactivation
+                    </li>
+                    <li class="menu-item">
+                        Calibration
+                    </li>
+                    <li class="menu-item">
+                        Profile
+                    </li>
+                    <li class="menu-item">
+                        Email
+                    </li>
+                    <li class="menu-item active">
+                        Test Ordering
+                    </li>
+                    <li class="menu-item right-item">
+                        TeamViewer
+                    </li>
+                </ul>
+            </div>
+        </div>        
+        <div id="main-nav" class="main-menu">
+            <div class="nav-wrap">
+                <ul class="navigation">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script>
+        $(document).ready(function () {
+            
+            
+            
+            app.renderBotMenu(menu);
+            //app.renderTopMenu(topmenu);
+            $('.submit-arrow').click(function() {
+                app.parseFormFields();
+            })
+        });
+    </script>
+</body>
+
+</html>

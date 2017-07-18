@@ -1,0 +1,126 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="css/style.css" media="all" rel="stylesheet">
+    <link href="css/responsive.css" media="all" rel="stylesheet">
+</head>
+
+<body style="-webkit-user-select: none">
+   
+    <div class="bg-wrap">
+        <div class="side-bar">
+            <ul class="side-menu">
+                <li class="side-menu-item">
+                    <a class="">Collor Calibration</a>
+                </li>
+                <li class="side-menu-item">
+                    <a class="">Luminance Calibration</a>
+                </li>
+                <li class="side-menu-item active">
+                    <a class="">Size Calibration</a>
+                </li>
+            </ul>
+        </div>
+        <div class="top-nav-wrap">           
+            
+        </div>
+        <div class="bg-pics">
+            <img src="img/background-eye.png" class="bg-eye" />
+            <img src="img/waggoner-logo.png" class="bg-logo settings" />            
+        </div>
+        <div class="container">
+            <div class="top-head s100">
+                <div class="top-banner">
+                    <img src="img/reg-head.jpg" class="top-logo">
+                    <div class="text-wrap">
+                        <h1 class="main-title">Settings</h1>
+                    </div>
+                </div>
+            </div>     
+            <div class="inner-text-wrap">
+                <p>
+                    *If you purchased a tablet directly from WagggonerDx, it has been pre-calibrated.<br>
+                    We recommend selecting  "Manually Set Calibration Date" and enter the date<br>
+                    you purchased the device.
+                </p>
+            </div>
+            <div class="calibration-form-wrap">
+                <h3 class="calib-form-title">Choose Calibration Date (MM/DD/YY)</h3>
+                <form class="calibration-form">
+                    <div class="s50">
+                        <ul class="calibration-list">
+                            <li>
+                                <input type="radio" id="rb1" name="rb" value="" checked>
+                                <label for="rb1">Last updated date of file</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="rb2" name="rb" value="" checked>
+                                <label for="rb2">Manually Set Calibration Date</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="rb3" name="rb" value="" checked>
+                                <label for="rb3">Uncalibrated</label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="s50">
+                        <ul class="calibration-inputs-list">
+                            <li>
+                                <input type="text" class="info-input" name="" placeholder="">
+                            </li>
+                            <li>
+                                <input type="text" class="info-input" name="" placeholder="">
+                            </li>
+                        </ul>
+                    </div>
+                </form>
+                <a class="set-date">Set Date</a>
+            </div>
+            <div class="config-menu">
+                <ul>
+                    <li class="menu-item left-item">
+                        Deactivation
+                    </li>
+                    <li class="menu-item">
+                        Calibration
+                    </li> 
+                    <li class="menu-item">
+                        Profile
+                    </li>
+                    <li class="menu-item">
+                        Email
+                    </li>
+                    <li class="menu-item active">
+                        Test Ordering
+                    </li>
+                    <li class="menu-item right-item">
+                        TeamViewer
+                    </li>
+                </ul>
+            </div>           
+        </div>        
+        <div id="main-nav" class="main-menu">
+            <div class="nav-wrap">
+                <ul class="navigation">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/data.js"></script>
+    <script>
+        $(document).ready(function () {
+            
+            
+            
+            app.renderBotMenu(menu);
+            //app.renderTopMenu(topmenu);
+            $('.submit-arrow').click(function() {
+                app.parseFormFields();
+            })
+        });
+    </script>
+</body>
+
+</html>
