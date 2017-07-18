@@ -211,6 +211,7 @@ ul {
 .form-wrap {
     overflow: hidden;
 }
+
 .form-line {
     margin-bottom: 15px;
     overflow: hidden;
@@ -662,6 +663,7 @@ li.active:hover {
 .inner-list {
     border: 2px solid #0c5596;
     padding: 5px;
+    cursor: pointer;
 }
 .close, .save {
     width: 48px;
@@ -923,4 +925,15 @@ li.active:hover {
 }
 .set-date:hover {
     color: #fff;
+}
+
+.overlay {
+    background: #fff;
+    width: 100%;
+    opacity: 0.5;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 9999;
+    display: none;
 }

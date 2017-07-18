@@ -14,8 +14,9 @@
             <img src="img/background-eye.png" class="bg-eye" />
             <img src="img/waggoner-logo.png" class="bg-logo" />
         </div>
-        <div class="reg container">
-            <div class="top-head s100">
+        <div class="inner-frame">
+            <div class="reg container">
+                <div class="top-head s100">
                 <div class="top-banner">
                     <img src="img/reg-head.jpg" class="top-logo">
                     <div class="text-wrap">
@@ -23,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="form-wrap">
+                <div class="form-wrap">
                 <div class="form-line">
                     <div class="s20">
                         <p class="input-label">First Name <span class="input-req">*</span></p>
@@ -79,7 +80,7 @@
                     </div>
                 </div>                
             </div>
-            <div class="check-form-wrap s35">
+                <div class="check-form-wrap s35">
                 <p class="check-title">How did you hear about us?</p>
                 <div class="check-form">
                     <div class="form-line">
@@ -154,8 +155,9 @@
                     </div>
                 </div>
             </div>
-            <div class="clearfix"></div>   
-            <a class="submit-arrow"></a>
+                <div class="clearfix"></div>   
+                <a class="submit-arrow"></a>
+            </div>
         </div>        
         <div id="main-nav" class="main-menu">
             <div class="nav-wrap">
@@ -167,15 +169,23 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/data.js"></script>
+    <script src="js/jquery.transit.min.js"></script>
     <script>
         $(document).ready(function () {
             app.renderBotMenu(menu);
             app.renderTopMenu(topmenu);
             $('.submit-arrow').click(function() {
                 app.parseFormFields();
-            })
+            });
+            $('.top-menu-item.active').click(function() {
+                app.loadScreen({
+                    in: { scale: 0 },
+                    out: { scale: 1 },
+                    time: 1000
+                });
+            });
         });
-    </script>
+    </script>   
 </body>
 
 </html>
