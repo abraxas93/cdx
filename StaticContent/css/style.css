@@ -70,11 +70,9 @@ ul {
 
 .bg-logo {
     position: absolute;
-    left: 0;
-    width: 14%;    
-    right: 0;    
-    margin: auto;
-    bottom: 65px;
+    left: 30px;
+    width: 10%;
+    top: 100px;
 }
 .bg-logo.settings {
     position: absolute;
@@ -130,6 +128,9 @@ ul {
 }
 .s35 {
     width: 35%;
+}
+.s40 {
+    width: 40%;
 }
 .s50 {
     width: 50%;   
@@ -234,8 +235,7 @@ ul {
 .form-field.error, .profile-input.error {
     border: 1.5px solid #E00000;
 }
-.reg .s20 {
-    padding-left: 2%;
+.reg .s20, .reg .s40 {
     padding-right: 2%;
 }
 .check-form {
@@ -251,7 +251,6 @@ ul {
     margin-bottom: 10px;
 }
 .check-form-wrap {
-    padding-left: 2%;
     padding-right: 2%;
 }
 
@@ -270,7 +269,7 @@ ul {
     box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
     padding: 8px;
     border-radius: 3px;
-    top: 5px;
+    top: 8px;
     display: inline-block;
     position: relative;
     cursor: pointer;

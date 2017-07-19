@@ -113,6 +113,19 @@
     <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Content Include="..\StaticContent\calibration.html">
+      <Link>StaticContent\calibration.html</Link>
+    </Content>
+    <Content Include="..\StaticContent\change_email.html">
+      <Link>StaticContent\change_email.html</Link>
+    </Content>
+    <Content Include="..\StaticContent\color_calibration.html">
+      <Link>StaticContent\color_calibration.html</Link>
+    </Content>
+    <Content Include="..\StaticContent\fonts\taile.ttf">
+      <Link>StaticContent\fonts\taile.ttf</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -143,8 +156,16 @@
       <Link>StaticContent\img\btmmenu-button-orange.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\StaticContent\img\cross.png">
+      <Link>StaticContent\img\cross.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\StaticContent\img\error.png">
       <Link>StaticContent\img\error.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\eye-err.png">
+      <Link>StaticContent\img\eye-err.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\img\left-arrow-gray-md.png">
@@ -159,8 +180,24 @@
       <Link>StaticContent\img\loading.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\StaticContent\img\minus.png">
+      <Link>StaticContent\img\minus.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\ok.png">
+      <Link>StaticContent\img\ok.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\plus.png">
+      <Link>StaticContent\img\plus.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\StaticContent\img\reg-head.jpg">
       <Link>StaticContent\img\reg-head.jpg</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\scale.jpg">
+      <Link>StaticContent\img\scale.jpg</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\img\scr2-ar-left.jpg">
@@ -195,6 +232,10 @@
       <Link>StaticContent\js\jquery.min.js</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\StaticContent\js\jquery.transit.min.js">
+      <Link>StaticContent\js\jquery.transit.min.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\StaticContent\js\main.js">
       <Link>StaticContent\js\main.js</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -203,12 +244,28 @@
       <Link>StaticContent\js\slider.js</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\StaticContent\js\tests.js">
+      <Link>StaticContent\js\tests.js</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\profile_calibration.html">
+      <Link>StaticContent\profile_calibration.html</Link>
+    </Content>
     <Content Include="..\StaticContent\second.html">
       <Link>StaticContent\second.html</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\third.html">
       <Link>StaticContent\third.html</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="msvcp120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="msvcr120.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="vccorlib120.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

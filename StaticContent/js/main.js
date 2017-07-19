@@ -7,7 +7,7 @@ var requiredTable = {
         "city": "city",
         "state": "state",
         "country": "country",
-        "zipCode": "zip-code"       
+        "zipCode": "zip-code"
     };
 
 var notValidFields;
@@ -54,9 +54,7 @@ var log = {
 native.init();
 native.log('Native bridge inited.', log.info);
 
-
 var app = (function () {  
-    
     function renderTopMenu(menu) {
         menu.forEach(function(item, i) {
             console.log(item);
@@ -68,17 +66,16 @@ var app = (function () {
                 props.html = '<img src="' + item.img + '" alt="'+ item.title + '">' + '</img>';
             } else {
                 props.html = item.title;
-            } 
-            
+            }
+
             var menuEl = $('<a/>', props);
-            
-            
+
             $(menuEl)
                 .wrap('<div class="top-menu-item ' + item.class + '"></div>')
                 .parent()
                 .css('float', item.position)
                 .appendTo('.top-nav-wrap');
-            
+
             if (item.active) menuEl.parent().addClass('active');
             var width = $(menuEl).width();
             $('.container').css('padding-top', '50px');
@@ -88,7 +85,7 @@ var app = (function () {
     function renderBottomMenu(menu) {
         var menuWidth = $('#main-nav').width();
         var shift = 19 * (menu.length - 1);
-        
+
         $('.navigation').css('right', shift);
         menu.forEach(function (item, i) {
             var menuEl = $('<a/>', {
@@ -106,19 +103,21 @@ var app = (function () {
             shift -= 17;
         });
     }
-    
+
     function highlightErrors(errorFieldNames, errorFieldMessages) { 
         errorFieldNames.forEach(function (item, i) {
-            var selector = "input[name='" + requiredTable[item] + "']";            
-            $(selector).addClass('error').attr('placeholder', errorFieldMessages[i] || 'default msg').focus(function() {
-                $(this).removeClass('error').attr('placeholder','');
-                if(!$('.error').length) {
-                    $('.top-banner').removeClass('err-banner');
-                    $('.top-logo').attr('src', 'img/reg-head.jpg');
-                }
-            })            
+            var selector = "input[name='" + requiredTable[item] + "']";
+            $(selector).addClass('error').attr('placeholder', errorFieldMessages[i] || 'Error in the field').focus(function() {
+                $(this).removeClass('error').attr('placeholder', '');
+                // That looks strange
+                // if(!$('.error').length) {
+                //     $('.top-banner').removeClass('err-banner');
+                //     $('.top-logo').attr('src', 'img/reg-head.jpg');
+                // }
+            })
         });
-    }    
+    }
+
     function parseFormFields() {
         var model = {};
         model.firstName = $("input[name='first-name']").val();
@@ -143,23 +142,23 @@ var app = (function () {
         }).catch(function (errorObject) {
             native.getRegistrationError().then(function (errorObject) {
                 var actualError = JSON.parse(errorObject);
-                $('.main-title').html(actualError.message).addClass('err-notes');
+                $('.main-title').html(actualError.message.join('. ')).addClass('err-notes');
                 $('.top-logo').attr('src','img/eye-err.png');
-                $('.top-banner').addClass('err-banner');                
+                $('.top-banner').addClass('err-banner');
                 highlightErrors(actualError.fields, actualError.message);
             });
         });
     }
-    
+
     function loadScreen(transition) {
-        if(!$('.overlay').length) {            
+        if(!$('.overlay').length) {
             $('<div/>', {
                 class: 'overlay'
             }).appendTo('body');
         }
         
-        var height = $(document).height();        
-        $('.overlay').height(height).fadeIn('slow'); 
+        var height = $(document).height();
+        $('.overlay').height(height).fadeIn('fast'); 
         var currentHeight = $('.inner-frame').height();
         $('.inner-frame').css('min-height', currentHeight);
         
@@ -172,23 +171,19 @@ var app = (function () {
         
         // simple mock for ajax response
         setTimeout(function() {
-            
             $(html).appendTo('.inner-frame');
             $(html).transition(transition.out, transition.time, function() {
-                $('.overlay').fadeOut('slow'); 
-            });       
-            
+                $('.overlay').fadeOut('fast'); 
+            });
         }, 2000);
-          
     }
-    
+
     return {
         renderBotMenu: renderBottomMenu,
         renderTopMenu: renderTopMenu,
         parseFormFields: parseFormFields,
         loadScreen: loadScreen
     }
-
 })();
 
 
