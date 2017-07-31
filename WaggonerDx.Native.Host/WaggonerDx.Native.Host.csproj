@@ -176,6 +176,14 @@
       <Link>StaticContent\img\left-arrow-right-md.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\StaticContent\img\left-arrow-small.png">
+      <Link>StaticContent\img\left-arrow-small.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\left-arrow-tall.png">
+      <Link>StaticContent\img\left-arrow-tall.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\StaticContent\img\loading.png">
       <Link>StaticContent\img\loading.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -196,6 +204,14 @@
       <Link>StaticContent\img\reg-head.jpg</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\StaticContent\img\right-arrow-small.png">
+      <Link>StaticContent\img\right-arrow-small.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\right-arrow-tall.png">
+      <Link>StaticContent\img\right-arrow-tall.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\StaticContent\img\scale.jpg">
       <Link>StaticContent\img\scale.jpg</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -210,10 +226,6 @@
     </Content>
     <Content Include="..\StaticContent\img\scr2-pic1.jpg">
       <Link>StaticContent\img\scr2-pic1.jpg</Link>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\StaticContent\img\submit-arrow.jpg">
-      <Link>StaticContent\img\submit-arrow.jpg</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\img\waggoner-logo.png">

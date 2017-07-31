@@ -23,5 +23,17 @@ namespace WaggonerDx.Native.Flows
                 });
             });
         }
+
+        public void Minimize()
+        {
+            System.Threading.Tasks.Task.Run(() =>
+            {
+                System.Threading.Thread.Sleep(100);
+                _mainForm.Invoke((MethodInvoker)delegate
+                {
+                    _mainForm.WindowState = FormWindowState.Minimized;
+                });
+            });
+        }
     }
 }

@@ -100,14 +100,22 @@ namespace WaggonerDx.Main.Host
                     Cef.Initialize(settings, performDependencyCheck: false, browserProcessHandler: browserProcessHandler);
 
 #if DEBUG
-                    var browser = new ChromiumWebBrowser("http://localhost:8000/static/index.html?_=" + DateTime.UtcNow.Ticks);
-#else
-                    var browser = new ChromiumWebBrowser("http://localhost:8000/static/index.html");
+                    try
+                    {
+                        Directory.Delete(Path.Combine(appDataFolder, "cache"), true);
+                    }
+                    catch
+                    {
+                    }
 #endif
+                    var browser = new ChromiumWebBrowser("http://localhost:8000/static/index.html");
 
                     var mainForm = new Form();
                     mainForm.MinimumSize = new System.Drawing.Size(800, 600);
                     mainForm.WindowState = FormWindowState.Maximized;
+#if !DEBUG
+                    mainForm.FormBorderStyle = FormBorderStyle.None;
+#endif
                     mainForm.Controls.Add(browser);
 
                     browser.RegisterAsyncJsObject("native", new JsBridge(new MainFlow(mainForm)));
@@ -120,6 +128,13 @@ namespace WaggonerDx.Main.Host
             catch (Exception ex)
             {
                 (new Error(ex.InnerException != null ? ex.InnerException.Message : ex.Message)).ShowDialog();
+                try
+                {
+                    Cef.Shutdown();
+                }
+                catch
+                {
+                }
             }
         }
     }

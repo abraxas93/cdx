@@ -1,3 +1,15 @@
+var log = {
+    info: 1,
+    warning: 5,
+    error: 10
+};
+
+var buttons = {
+    close: 1,
+    minimize: 2
+};
+
+
 var menu = [{
                 id: 12,
                 title: "UsersKeyboard",
@@ -100,29 +112,29 @@ var topmenu = [{
             console.log('clicked item: ' + this.id);
         },
         active: false
-            },
+    },
     {
-        id: 24,
-        title: "Help",
-        img: 'img/minus.png',
-        position: 'right',
-        class: 'control-btn',
-        onClick: function () {
-            window.native.btmMenuClick(this.id);
-        },
-        active: false
-            },
-    {
-        id: 34,
-        title: "Support",
+        id: buttons.close,
+        title: "Close",
         img: 'img/plus.png',
         position: 'right',
         class: 'control-btn',
         onClick: function () {
-            console.log('clicked item: ' + this.id);
+            window.native.topMenuClick(this.id);
         },
         active: false
-            },
+    },
+    {
+        id: buttons.minimize,
+        title: "Minimize",
+        img: 'img/minus.png',
+        position: 'right',
+        class: 'control-btn',
+        onClick: function () {
+            window.native.topMenuClick(this.id);
+        },
+        active: false
+    },
     {
         id: 67,
         title: "Service",
@@ -163,14 +175,8 @@ var slides = [
         img: 'img/scr2-pic1.jpg',
         onclick: function (position) {
             console.log('Item was clicked: ' + this.title);
-            var classes = $('.text-box').attr('class').split(' ');
-            
-            
-            classes.forEach(function(className, i) {
-                if(i != 0) $('.text-box').removeClass(className);
-            });
-            
-            $('.text-box').addClass('box' + position);
+            var classes = $('.text-box-before').attr('class', '');
+            $('.text-box-before').addClass('box' + position);
             this.showTextBox('.text-box');
         },
         showTextBox: function(textBox) {

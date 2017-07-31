@@ -12,6 +12,13 @@ namespace WaggonerDx.Native.JsBridge
         Error = 10
     }
 
+    public enum Button
+    {
+        Close = 1,
+        Minimize = 2,
+        Keyboard = 3
+    }
+
     public class JsBridge
     {
         private MainFlow _mainFlow;
@@ -31,7 +38,25 @@ namespace WaggonerDx.Native.JsBridge
 
         public void BtmMenuClick(string clickedId)
         {
-            _mainFlow.Exit();
+        }
+
+        public void TopMenuClick(string clickedId)
+        {
+            var buttonClicked = (Button)int.Parse(clickedId);
+            switch (buttonClicked)
+            {
+                case Button.Close:
+                    _mainFlow.Exit();
+                    break;
+
+                case Button.Minimize:
+                    _mainFlow.Minimize();
+                    break;
+
+                default:
+                    // TODO log error there
+                    break;
+            }
         }
 
         private class RegistrationErrors
@@ -120,6 +145,68 @@ namespace WaggonerDx.Native.JsBridge
         public string GetRegistrationError()
         {
             return JsonConvert.SerializeObject(_registrationErrors);
+        }
+
+        private class MenuItem
+        {
+            [JsonProperty(PropertyName = "id")]
+            public Button Id;
+
+            [JsonProperty(PropertyName = "title")]
+            public string Title;
+
+            [JsonProperty(PropertyName = "img")]
+            public string Img;
+
+            [JsonProperty(PropertyName = "position")]
+            public string Position;
+
+            [JsonProperty(PropertyName = "class")]
+            public string Class;
+
+            [JsonProperty(PropertyName = "active")]
+            public bool Active;
+        }
+
+        public string GetTopMenuItems()
+        {
+            return JsonConvert.SerializeObject(
+                new[]
+                {
+                    new MenuItem
+                    {
+                        Id = Button.Close,
+                        Title = "Close",
+                        Img = "img/plus.png",
+                        Position = "right",
+                        Class = "control-btn",
+                        Active = false
+                    },
+                    new MenuItem
+                    {
+                        Id = Button.Minimize,
+                        Title = "Minimize",
+                        Img = "img/minus.png",
+                        Position = "right",
+                        Class = "control-btn",
+                        Active = false
+                    }
+                });
+        }
+
+        public string GetBotMenuItems()
+        {
+            return JsonConvert.SerializeObject(
+                new[]
+                {
+                    new MenuItem
+                    {
+                        Id = Button.Keyboard,
+                        Title = "Keyboard",
+                        Class = "",
+                        Active = false
+                    }
+                });
         }
     }
 }

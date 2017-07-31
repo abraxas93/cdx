@@ -19,9 +19,6 @@
     .text-box {
         font-size: 15px;
     }
-    .left-arrow, .right-arrow {
-        height: 160px;
-    }
     .list-body {
         width: 75%;
     }
@@ -32,6 +29,12 @@
     }
     .top-banner, .top-logo {
         height: 58px;
+    }
+    .err-banner .top-logo {
+        height: 40px;
+    }
+    .text-wrap .err-notes {
+        margin-top: -5px;
     }
     .bg-logo.settings {
         top: 50px;
@@ -115,9 +118,6 @@
         padding-left: 5px;
         padding-right: 10px;
     }
-    .slider-wrap {
-        min-height: 265px;
-    }
     .input-label {
         font-size: 15px;
     }
@@ -128,14 +128,6 @@
     .test-name {
         padding-left: 10px;
         padding-right: 10px;
-    }
-}
-
-@media screen and (max-width: 1250px) {
-    .left-arrow, .right-arrow {   
-        background-size: 49px;
-        height: 228px;
-        background-size: 100%;
     }
 }
 

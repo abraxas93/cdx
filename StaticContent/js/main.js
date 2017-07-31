@@ -21,6 +21,9 @@ native = window.native || {
     btmMenuClick: function (id) {
         console.log(id + ' clicked....');
     },
+    topMenuClick: function (id) {
+        console.log(id + ' clicked....');
+    },
     testsOrderSubmitted: function(payload) {
         console.log('Saving sort order ...');
     },
@@ -43,24 +46,27 @@ native = window.native || {
     getRegistrationError() {
         var messagesFromServer = ['msg from server1 ', 'msg from server2 ', 'msg from server3 ', 'err message4 ','msg from server4 '];
         return Promise.resolve(JSON.stringify({ message: messagesFromServer, fields: notValidFields }));
+    },
+    getTopMenuItems() {
+        return Promise.resolve(JSON.stringify(topmenu));
+    },
+    getBotMenuItems() {
+        return Promise.resolve(JSON.stringify(menu));
     }
 };
 
-var log = {
-    info: 1,
-    warning: 5,
-    error: 10
-};
 native.init();
 native.log('Native bridge inited.', log.info);
 
 var app = (function () {  
     function renderTopMenu(menu) {
         menu.forEach(function(item, i) {
-            console.log(item);
             var props = {
-                id:item.id,
-                class: item.class
+                id: item.id,
+                class: item.class,
+                click: function () {
+                    window.native.topMenuClick(this.id);
+                }
             }
             if(item.img) {
                 props.html = '<img src="' + item.img + '" alt="'+ item.title + '">' + '</img>';
@@ -78,7 +84,6 @@ var app = (function () {
 
             if (item.active) menuEl.parent().addClass('active');
             var width = $(menuEl).width();
-            $('.container').css('padding-top', '50px');
         });
     }
 
@@ -86,7 +91,7 @@ var app = (function () {
         var menuWidth = $('#main-nav').width();
         var shift = 19 * (menu.length - 1);
 
-        $('.navigation').css('right', shift);
+        //$('.navigation').css('right', shift);
         menu.forEach(function (item, i) {
             var menuEl = $('<a/>', {
                 id: item.id,
@@ -95,16 +100,15 @@ var app = (function () {
             $(menuEl).appendTo('.navigation')
                 .wrap('<li class="' + item.class + '"></li>')
                 .parent().click(function() {
-                    item.onClick();
+                    window.native.btmMenuClick(this.id);
                 });
             if (item.active) menuEl.parent().addClass('active');
-            menuEl.parent().click(item.onClick);
             menuEl.parent().css('right', -shift);
             shift -= 17;
         });
     }
 
-    function highlightErrors(errorFieldNames, errorFieldMessages) { 
+    function highlightErrors(errorFieldNames, errorFieldMessages) {
         errorFieldNames.forEach(function (item, i) {
             var selector = "input[name='" + requiredTable[item] + "']";
             $(selector).addClass('error').attr('placeholder', errorFieldMessages[i] || 'Error in the field').focus(function() {
@@ -142,8 +146,9 @@ var app = (function () {
         }).catch(function (errorObject) {
             native.getRegistrationError().then(function (errorObject) {
                 var actualError = JSON.parse(errorObject);
-                $('.main-title').html(actualError.message.join('. ')).addClass('err-notes');
-                $('.top-logo').attr('src','img/eye-err.png');
+                $('.main-title').html(actualError.message.join('. ')).addClass('err-notes').removeClass('flash');
+                window.setTimeout(function () { $('.main-title').addClass('flash'); }, 0);
+                $('.top-logo').attr('src', 'img/eye-err.png');
                 $('.top-banner').addClass('err-banner');
                 highlightErrors(actualError.fields, actualError.message);
             });
@@ -156,26 +161,15 @@ var app = (function () {
                 class: 'overlay'
             }).appendTo('body');
         }
-        
+
         var height = $(document).height();
-        $('.overlay').height(height).fadeIn('fast'); 
-        var currentHeight = $('.inner-frame').height();
-        $('.inner-frame').css('min-height', currentHeight);
-        
-        // here will start ajax request, something like $('.container').load('second.html .container');
-        
-        var html = $('.container');
-        $('.container').transition(transition.in, transition.time, function() {
-            $('.container').remove();
+        $('.overlay').height(height).fadeIn(200); 
+
+        $('.loading-cont2').load('second.html .bg-wrap', function () {
+            $('.loading-cont').transition(transition.out, transition.time);
+            $('.loading-cont2').transition(transition.in, transition.time);
+            $('.overlay').fadeOut(200);
         });
-        
-        // simple mock for ajax response
-        setTimeout(function() {
-            $(html).appendTo('.inner-frame');
-            $(html).transition(transition.out, transition.time, function() {
-                $('.overlay').fadeOut('fast'); 
-            });
-        }, 2000);
     }
 
     return {
@@ -185,6 +179,3 @@ var app = (function () {
         loadScreen: loadScreen
     }
 })();
-
-
-
