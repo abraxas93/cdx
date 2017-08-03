@@ -11,19 +11,17 @@
         <div class="bg-pics">
             <img src="img/background-eye.png" class="bg-eye" />
         </div>
-        <div class="slider-wrap slider1">
+        <div class="slider-wrap">
             <a class="left-arrow"></a> 
             <a class="right-arrow"></a>
         </div>
         <div class="clearfix"></div>
-        <div class="container scr2">
+        <div class="container test-description" style="display: none">
             <div class="text-box-before">
             </div>
             <div class="text-box">
-                Sample text. Sample text. Sample text. Sample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample text
-                Sample text. Sample text. Sample text. Sample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample textSample text. Sample text. Sample text
-                Sample text. Sample text. Sample text. Sample text. Sample text.
             </div>
+            <a class="submit-arrow"></a>
         </div>
         <div class="top-nav-wrap">
         </div>
@@ -38,10 +36,13 @@
     <script src="js/main.js"></script>
     <script src="js/slider.js"></script>
     <script>
-        $(document).ready(function() {
+        native.init("Main");
+
+        $(document).ready(function () {
+            $('img').on('dragstart', function (event) { event.preventDefault(); });
             slider.render({
                 slides: slides,
-                sliderWrap: '.slider1',
+                sliderWrap: '.slider-wrap',
                 leftSel: '.left-arrow',
                 rightSel: '.right-arrow'
             });

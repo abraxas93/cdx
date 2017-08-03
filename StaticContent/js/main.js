@@ -20,6 +20,7 @@ native = window.native || {
     },
     btmMenuClick: function (id) {
         console.log(id + ' clicked....');
+        return Promise.resolve(null);
     },
     topMenuClick: function (id) {
         console.log(id + ' clicked....');
@@ -55,9 +56,6 @@ native = window.native || {
     }
 };
 
-native.init();
-native.log('Native bridge inited.', log.info);
-
 var app = (function () {  
     function renderTopMenu(menu) {
         menu.forEach(function(item, i) {
@@ -91,7 +89,6 @@ var app = (function () {
         var menuWidth = $('#main-nav').width();
         var shift = 19 * (menu.length - 1);
 
-        //$('.navigation').css('right', shift);
         menu.forEach(function (item, i) {
             var menuEl = $('<a/>', {
                 id: item.id,
@@ -99,8 +96,8 @@ var app = (function () {
             });
             $(menuEl).appendTo('.navigation')
                 .wrap('<li class="' + item.class + '"></li>')
-                .parent().click(function() {
-                    window.native.btmMenuClick(this.id);
+                .parent().click(function () {
+                    window.native.btmMenuClick(item.id.toString()).then(function (page) { if (page != null) { window.location.href = page; } });
                 });
             if (item.active) menuEl.parent().addClass('active');
             menuEl.parent().css('right', -shift);

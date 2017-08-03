@@ -12,6 +12,7 @@ var slider = (function () {
 
     function leftArrowHandler() {
         $(this).attr('blocked', true);
+        $('.test-description').fadeOut();
         slides.forEach(function (slide, i) {
             if (slides_margin[i] === - (slides.length - visibleSlides - 1) * slideWidth) {
                 $(slide).hide();
@@ -32,6 +33,7 @@ var slider = (function () {
 
     function rightArrowHandler() {
         $(this).attr('blocked', true);
+        $('.test-description').fadeOut();
         slides.forEach(function (slide, i) {
             if (slides_margin[i] === widthLimit) {
                 $(slide).hide();
@@ -121,7 +123,11 @@ var slider = (function () {
         $('.slider-wrap .right-arrow').css('margin-top', sliderMargin + 'px');
         $('.slider-wrap .left-arrow').height(sliderHeight);
         $('.slider-wrap .right-arrow').height(sliderHeight);
-        $('.slider-wrap').height(sliderHeight);
+        $('.slider-wrap').height(sliderHeight + sliderMargin * 2 + $('.slider-viewport .s20 h3').height());
+
+        if (sliderHeight < 5) {
+            setTimeout(onResize, 100);
+        }
     }
 
     return {
@@ -129,10 +135,7 @@ var slider = (function () {
             renderSlider(opts.slides, opts.sliderWrap);
             setMargins(opts.sliderWrap);
             setArrowsHandlers(opts.leftSel, opts.rightSel, opts.sliderWrap);
-
-            $(document).ready(function () {
-                setTimeout(onResize, 0);
-            });
+            onResize();
             $(window).on('resize', onResize);
         }
     };

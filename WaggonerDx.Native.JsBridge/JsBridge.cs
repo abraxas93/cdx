@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using Newtonsoft.Json;
 using WaggonerDx.Native.Flows;
 using System.Collections.Generic;
@@ -16,28 +17,56 @@ namespace WaggonerDx.Native.JsBridge
     {
         Close = 1,
         Minimize = 2,
-        Keyboard = 3
+        Keyboard = 3,
+        Settings = 4,
+        TakeATest = 5
+    }
+
+    public enum Page
+    {
+        Index,
+        Main,
+        SettingsDeactivation,
+        SettingsCalibration,
+        SettingsProfile,
+        SettingsEmail,
+        SettingsTestOrdering,
+        SettingsTeamViewer
     }
 
     public class JsBridge
     {
         private MainFlow _mainFlow;
+        private Page _currPage;
 
         public JsBridge(MainFlow mainFlow)
         {
             _mainFlow = mainFlow;
+            _currPage = Page.Index;
         }
 
-        public void Init()
+        public void Init(string page)
         {
+            _currPage = (Page) Enum.Parse(typeof(Page), page);
         }
 
         public void Log(string message, ConsoleLogLevel logLevel)
         {
         }
 
-        public void BtmMenuClick(string clickedId)
+        public string BtmMenuClick(string clickedId)
         {
+            var buttonClicked = (Button)int.Parse(clickedId);
+            switch (buttonClicked)
+            {
+                case Button.TakeATest:
+                    return "second.html";
+
+                case Button.Settings:
+                    return "third.html";
+            }
+
+            return null;
         }
 
         public void TopMenuClick(string clickedId)
@@ -196,8 +225,7 @@ namespace WaggonerDx.Native.JsBridge
 
         public string GetBotMenuItems()
         {
-            return JsonConvert.SerializeObject(
-                new[]
+            var menuItems = new List<MenuItem>
                 {
                     new MenuItem
                     {
@@ -206,7 +234,34 @@ namespace WaggonerDx.Native.JsBridge
                         Class = "",
                         Active = false
                     }
+                };
+
+            if (_currPage != Page.Index)
+            {
+                menuItems.Add(new MenuItem
+                {
+                    Id = Button.Settings,
+                    Title = "Settings",
+                    Class = "",
+                    Active =
+                        (_currPage == Page.SettingsDeactivation) ||
+                        (_currPage == Page.SettingsCalibration) ||
+                        (_currPage == Page.SettingsProfile) ||
+                        (_currPage == Page.SettingsEmail) ||
+                        (_currPage == Page.SettingsTestOrdering) ||
+                        (_currPage == Page.SettingsTeamViewer)
                 });
+
+                menuItems.Add(new MenuItem
+                {
+                    Id = Button.TakeATest,
+                    Title = "Take a test",
+                    Class = "",
+                    Active = _currPage == Page.Main
+                });
+            }
+
+            return JsonConvert.SerializeObject(menuItems.ToArray().Reverse());
         }
     }
 }

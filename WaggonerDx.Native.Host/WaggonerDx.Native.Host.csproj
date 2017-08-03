@@ -115,12 +115,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Content Include="..\StaticContent\calibration.html">
       <Link>StaticContent\calibration.html</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\change_email.html">
       <Link>StaticContent\change_email.html</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\color_calibration.html">
       <Link>StaticContent\color_calibration.html</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\fonts\taile.ttf">
       <Link>StaticContent\fonts\taile.ttf</Link>
@@ -138,6 +141,34 @@
     </Content>
     <Content Include="..\StaticContent\css\style.css">
       <Link>StaticContent\css\style.css</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\12.png">
+      <Link>StaticContent\img\12.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\15.png">
+      <Link>StaticContent\img\15.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\16.png">
+      <Link>StaticContent\img\16.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\45.png">
+      <Link>StaticContent\img\45.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\5.png">
+      <Link>StaticContent\img\5.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\7.png">
+      <Link>StaticContent\img\7.png</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\StaticContent\img\8.png">
+      <Link>StaticContent\img\8.png</Link>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\img\background-eye.png">
@@ -262,6 +293,7 @@
     </Content>
     <Content Include="..\StaticContent\profile_calibration.html">
       <Link>StaticContent\profile_calibration.html</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="..\StaticContent\second.html">
       <Link>StaticContent\second.html</Link>

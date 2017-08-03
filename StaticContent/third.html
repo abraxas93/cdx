@@ -1,4 +1,4 @@
-<html>
+﻿<html>
 
 <head>
     <meta charset="utf-8">
@@ -6,14 +6,14 @@
     <link href="css/responsive.css" media="all" rel="stylesheet">  
 </head>
 
-<body>
+<body style="-webkit-user-select: none">
     <div class="bg-wrap">
         <div class="bg-pics">
             <img src="img/background-eye.png" class="bg-eye" />
             <img src="img/waggoner-logo.png" class="bg-logo" />
             <a class="submit-arrow"></a>
         </div>       
-        <div class="container scr3">            
+        <div class="container scr3">
             <div class="top-head s100">
                 <div class="top-banner">
                     <img src="img/reg-head.jpg" class="top-logo">
@@ -32,24 +32,23 @@
                     </div>
                 </div>
                 <ul id="tests" class="test-list">
-                   
-                </ul>                
+                </ul>
             </div>
             <div class="config-menu">
                 <ul>
                     <li class="menu-item left-item">
                         Deactivation
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item" onclick="window.location.href='calibration.html'">
                         Calibration
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item" onclick="window.location.href='profile_calibration.html'">
                         Profile
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item" onclick="window.location.href='change_email.html'">
                         Email
                     </li>
-                    <li class="menu-item active">
+                    <li class="menu-item active" onclick="window.location.href='third.html'">
                         Test Ordering
                     </li>
                     <li class="menu-item right-item">
@@ -67,16 +66,20 @@
         </div>
     </div>
     <script src="js/jquery.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/slider.js"></script>
     <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
     <script src="js/tests.js"></script>
     <script>
-    $(document).ready(function() {
-        app.renderBotMenu(menu);
-        TestSwitcher.initTests(_tests);        
-    });
-    </script>     
+        native.init("SettingsTestOrdering");
+        $(document).ready(function () {
+            $('img').on('dragstart', function (event) { event.preventDefault(); });
+
+            native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });
+            native.getTopMenuItems().then(function (items) { app.renderTopMenu(JSON.parse(items)); });
+
+            TestSwitcher.initTests(_tests);
+        });
+    </script>
 </body>
 
 </html>

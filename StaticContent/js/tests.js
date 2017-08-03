@@ -1,10 +1,9 @@
 /* Switcher for test table */
 var TestSwitcher = (function() {
     var positions = null;
-    var animationTime = 500;
-    var blocked = false;   
-    
-    
+    var animationTime = 200;
+    var blocked = false;
+
     function refreshAll() {
         $('.list-item').each(function (i, el) {
             $(el).attr('data-pos', i).css('top', '0px');
@@ -44,7 +43,7 @@ var TestSwitcher = (function() {
         }
         native.testsOrderSubmitted();
     }
-    
+
     function moveTestDown() {
         blocked = true;
         var currentPos = parseInt($(this).attr('data-pos'));
@@ -75,19 +74,26 @@ var TestSwitcher = (function() {
         }
         native.testsOrderSubmitted();
     }
-    
+
+    function onResize() {
+        $('.test-list').height($(window).height() - 400);
+    }
+
     function init(tests) {
-        tests.forEach(function(test, i) {           
-            var testLi = $('<li/>', {               
-                class: 'list-item',  
+        onResize();
+        $(window).on('resize', onResize);
+
+        tests.forEach(function (test, i) {
+            var testLi = $('<li/>', {
+                class: 'list-item',
                 html: '<div class="test-position">'+ (i + 1) +'</div><div class="test-name">'
                 + test.title + '</div><div class="test-control">' 
                 + '<ul class="controls"><li class="move-up">▲</li><li class="move-down">▼</li></ul>'
                 + '</div>'
             }).attr('data-pos', i);
-            
+
             $(testLi).appendTo('.test-list');
-        });        
+        });
         positions = $('.list-item').toArray();
         
         $('.move-up').click(function() {
@@ -105,9 +111,8 @@ var TestSwitcher = (function() {
                 moveFunc();
             }            
         }); 
-    }   
-    
-    
+    }
+
     return {
         initTests: function(testsArray) {
             init(testsArray);
@@ -125,5 +130,4 @@ var TestSwitcher = (function() {
             }
         }
     }
-    
 })();
