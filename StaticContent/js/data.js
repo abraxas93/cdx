@@ -1,3 +1,14 @@
+var tabs = [{
+    active: false,
+    text: 'Collor Calibration'    
+}, {
+    active: false,
+    text: 'Luminance Calibration'
+},{
+    active: true,
+    text: 'Size Calibration'
+}];
+
 var log = {
     info: 1,
     warning: 5,

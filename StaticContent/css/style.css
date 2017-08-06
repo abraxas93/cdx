@@ -253,7 +253,15 @@ ul {
     width: 13%;
     height: 81px;
 }
-
+.bot-logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 50%;
+    margin: auto;
+    bottom: 100px;
+    max-width: 800px;
+}
 .form-wrap {
     overflow: hidden;
 }
@@ -597,6 +605,13 @@ li.active {
 .config-menu {
     overflow: hidden;
     margin-top: 45px;
+    max-width: 1000px;
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 70px;
 }
 
 .menu-item.left-item {
@@ -697,6 +712,7 @@ li.active {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
+    z-index: 5;
 }
 
 .top-nav-wrap a {
@@ -739,6 +755,7 @@ li.active {
 .steps {
     padding-left: 12%;
     padding-right: 12%;
+    padding-bottom: 85px;
 }
 
 .inner-title {
@@ -920,7 +937,7 @@ li.active {
     margin-bottom: 3px;
 }
 
-.reset-btn, .submit-btn {
+.reset-btn, .submit-btn, .lunch-btn {
     color: #fff;
     background: #0c5596;
     border: none;
@@ -934,11 +951,13 @@ li.active {
     cursor: pointer;
 }
 
-.submit-btn {
+.submit-btn, .lunch-btn {
     opacity: 1;
     margin: 0;
 }
-
+.lunch-btn {
+    display: block;
+}
 .email-form {
     margin-top: 85px;
     margin-bottom: 100px;
@@ -970,6 +989,7 @@ li.active {
 
 .profile-calibration {
     padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .button-controls-wrap {
@@ -995,6 +1015,7 @@ li.active {
 
 .calibration-form-wrap {
     width: 60%;
+    min-height: 333px;
     margin: 0 auto;
     color: #0c5596;
 }
@@ -1057,4 +1078,108 @@ li.active {
     top: 0;
     z-index: 9999;
     display: none;
+}
+
+/* deactivation page */
+.serial-title, .warn-title {
+    color: #0d5595;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.serial-key {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+.white-box {
+    color: #0d5595;
+    background: #fff;
+    width: 100%;
+    display: block;
+    padding: 8px;
+    font-size: 20px;
+}
+.warning-window .white-box {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.notification {
+    background: #119504;
+    width: 465px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 16px;
+    border-top-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    margin: 30px auto;
+}
+.notification.disconnected {
+    background: #ff0006;
+}
+.deactivate-btn {    
+    background-color: #0c5596;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    width: 300px;
+    display: block;
+    border-top-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    margin: 0 auto;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+}
+.status-list {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+.status-list li {
+    font-size: 18px;
+    color: #0d5595;
+    font-weight: bold;
+}
+.attention {
+    left: -42px;
+    width: 96px;
+    top: -21px;
+    position: absolute;
+}
+.teamviewer-wrap {
+    width: 65%;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 30px;
+}
+.teamview-icon {
+    width: 14%;
+    float: left;
+    margin-right: 3%;
+}
+.teamviewer-wrap .white-box {
+    float: left;
+    width: 83%;
+    padding: 20px;
+    padding-bottom: 45px;
+    border-top-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+.inner-box {
+    overflow: hidden;
+    margin-bottom: 45px;
+    padding-bottom: 15px;
+}
+.lunch-btn {
+    display: block;
+    width: 180px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.lunch-btn:hover {
+    color: #fff;
 }

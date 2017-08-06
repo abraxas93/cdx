@@ -53,6 +53,9 @@ native = window.native || {
     },
     getBotMenuItems() {
         return Promise.resolve(JSON.stringify(menu));
+    },
+    getTabsItems() {
+        return Promise.resolve(JSON.stringify(tabs));
     }
 };
 
@@ -168,11 +171,44 @@ var app = (function () {
             $('.overlay').fadeOut(200);
         });
     }
-
+    
+    function renderSettingTabs(data) {
+        var sideMenu = $('<ul/>', {
+            class: 'side-menu'
+        }).appendTo('.setting-tabs');
+        data.forEach(function(item) {            
+            var menuEl = $('<a/>', {                
+                html: item.text
+            });
+            if(item.active) 
+                menuEl.wrap('<li class="side-menu-item active"></li>');
+            else
+                menuEl.wrap('<li class="side-menu-item"></li>');
+                
+            menuEl.parent().appendTo('.side-menu');
+        });
+        sideMenu.appendTo('.side-bar');
+        $('.side-menu-item').click(function() {
+            $('.side-menu-item.active').removeClass('active');
+            $(this).addClass('active');                
+        });
+    }
+    
     return {
         renderBotMenu: renderBottomMenu,
         renderTopMenu: renderTopMenu,
+        renderTabs: renderSettingTabs,
         parseFormFields: parseFormFields,
         loadScreen: loadScreen
     }
 })();
+
+/* keypress event handler for arrow */
+
+$(document).keypress(function(e) {
+    if(e.which === 13) {
+        $('.submit-arrow').click();    
+        $('.save').click();
+        $('.submit-btn').click();
+    }
+});

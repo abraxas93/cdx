@@ -1,0 +1,103 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="css/style.css" media="all" rel="stylesheet">
+    <link href="css/responsive.css" media="all" rel="stylesheet">
+</head>
+
+<body style="-webkit-user-select: none">
+    <div class="loading-cont2">
+    </div>
+    <div class="loading-cont">
+        <div class="bg-wrap">
+            <div class="bg-pics">
+                <img src="img/background-eye.png" class="bg-eye" />
+                <img src="img/waggoner-logo.png" class="bg-logo" />
+            </div>
+            <div class="inner-frame">
+                <a class="submit-arrow"></a>
+                <div class="container">
+                    <div class="top-head s100">
+                        <div class="top-banner">
+                            <img src="img/reg-head.jpg" class="top-logo">
+                            <div class="text-wrap">
+                                <h1 class="main-title">Settings</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deactivation-wrap">
+                        <div class="serial-key">
+                            <h3 class="serial-title">Your serial key:</h3>
+                            <span class="white-box">Your serial key:</span>
+                        </div>
+                        <div class="warning-window">
+                            <h3 class="warn-title">Warning:</h3>
+                            <span class="white-box">
+                                By selecting the Deactivate WCCVT button below, this software will be deactivated on both this computer and WaggonerDx servers.
+                                Please ensure that you have the above license key in a safe place to activate the software on another computer. 
+                            </span>
+                        </div>
+                        <div class="status-window">                            
+                            <div class="notification disconnected"> You are currently connected to the internet</div>
+                            <a class="deactivate-btn">                                
+                                <img src="img/attention.png" class="attention" />
+                                Deactivate WCCVT
+                            </a>
+                            <ul class="status-list">
+                                <li>+1 (###) ###-####</li>
+                                <li>www.WaggonerDx.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-nav-wrap">
+            </div>
+            <div class="config-menu">
+                <ul>
+                    <li class="menu-item left-item" onclick="window.location.href='deactivation.html'">
+                        Deactivation
+                    </li>
+                    <li class="menu-item" onclick="window.location.href='calibration.html'">
+                        Calibration
+                    </li>
+                    <li class="menu-item active" onclick="window.location.href='profile_calibration.html'">
+                        Profile
+                    </li>
+                    <li class="menu-item" onclick="window.location.href='change_email.html'">
+                        Email
+                    </li>
+                    <li class="menu-item" onclick="window.location.href='third.html'">
+                        Test Ordering
+                    </li>
+                    <li class="menu-item right-item" onclick="window.location.href='teamviewer.html'">
+                        TeamViewer
+                    </li>
+                </ul>
+            </div>
+            <div id="main-nav" class="main-menu">
+                <div class="nav-wrap">
+                    <ul class="navigation"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.transit.min.js"></script>
+    <script>
+        native.init("Index");
+
+        $(document).ready(function () {
+            $('img').on('dragstart', function (event) { event.preventDefault(); });
+            native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });
+            // native.getTopMenuItems().then(function (items) { app.renderTopMenu(JSON.parse(items)); });
+            $('.submit-arrow').click(function () {
+                app.parseFormFields();
+            });
+        });
+    </script>
+</body>
+
+</html>
