@@ -937,7 +937,7 @@ li.active {
     margin-bottom: 3px;
 }
 
-.reset-btn, .submit-btn {
+.reset-btn, .submit-btn, .lunch-btn {
     color: #fff;
     background: #0c5596;
     border: none;
@@ -951,11 +951,13 @@ li.active {
     cursor: pointer;
 }
 
-.submit-btn {
+.submit-btn, .lunch-btn {
     opacity: 1;
     margin: 0;
 }
-
+.lunch-btn {
+    display: block;
+}
 .email-form {
     margin-top: 85px;
     margin-bottom: 100px;
@@ -1144,4 +1146,36 @@ li.active {
     top: -21px;
     position: absolute;
 }
-.setting-tabs {}
+.teamviewer-wrap {
+    width: 65%;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 30px;
+}
+.teamview-icon {
+    width: 14%;
+    float: left;
+    margin-right: 20px;
+}
+.teamviewer-wrap .white-box {
+    float: left;
+    width: 83%;
+    padding: 20px;
+    padding-bottom: 45px;
+    border-top-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+}
+.inner-box {
+    overflow: hidden;
+    margin-bottom: 45px;
+}
+.lunch-btn {
+    display: block;
+    width: 180px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.lunch-btn:hover {
+    color: #fff;
+}
