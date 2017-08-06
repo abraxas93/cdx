@@ -1116,6 +1116,9 @@ li.active {
     border-bottom-right-radius: 16px;
     margin: 30px auto;
 }
+.notification.disconnected {
+    background: #ff0006;
+}
 .deactivate-btn {    
     background-color: #0c5596;
     color: #fff;
