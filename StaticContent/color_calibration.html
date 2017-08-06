@@ -9,17 +9,7 @@
    
     <div class="bg-wrap">
         <div class="side-bar">
-            <ul class="side-menu">
-                <li class="side-menu-item">
-                    <a class="">Collor Calibration</a>
-                </li>
-                <li class="side-menu-item">
-                    <a class="">Luminance Calibration</a>
-                </li>
-                <li class="side-menu-item active">
-                    <a class="">Size Calibration</a>
-                </li>
-            </ul>
+            
         </div>
         <div class="top-nav-wrap">           
             
@@ -113,7 +103,7 @@
         $(document).ready(function () {
             
             
-            
+            app.renderTabs(tabs);
             app.renderBotMenu(menu);
             //app.renderTopMenu(topmenu);
             $('.submit-arrow').click(function() {

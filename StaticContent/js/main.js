@@ -168,10 +168,33 @@ var app = (function () {
             $('.overlay').fadeOut(200);
         });
     }
-
+    
+    function renderSettingTabs(data) {
+        var sideMenu = $('<ul/>', {
+            class: 'side-menu'
+        }).appendTo('.side-bar');
+        data.forEach(function(item) {            
+            var menuEl = $('<a/>', {                
+                html: item.text
+            });
+            if(item.active) 
+                menuEl.wrap('<li class="side-menu-item active"></li>');
+            else
+                menuEl.wrap('<li class="side-menu-item"></li>');
+                
+            menuEl.parent().appendTo('.side-menu');
+        });
+        sideMenu.appendTo('.side-bar');
+        $('.side-menu-item').click(function() {
+            $('.active').removeClass('active');
+            $(this).addClass('active');                
+        });
+    }
+    
     return {
         renderBotMenu: renderBottomMenu,
         renderTopMenu: renderTopMenu,
+        renderTabs: renderSettingTabs,
         parseFormFields: parseFormFields,
         loadScreen: loadScreen
     }
