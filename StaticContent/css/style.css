@@ -1158,7 +1158,7 @@ li.active {
 .teamview-icon {
     width: 14%;
     float: left;
-    margin-right: 20px;
+    margin-right: 3%;
 }
 .teamviewer-wrap .white-box {
     float: left;
@@ -1171,6 +1171,7 @@ li.active {
 .inner-box {
     overflow: hidden;
     margin-bottom: 45px;
+    padding-bottom: 15px;
 }
 .lunch-btn {
     display: block;
