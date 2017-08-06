@@ -8,17 +8,7 @@
 <body style="-webkit-user-select: none">
     <div class="bg-wrap">
         <div class="setting-tabs">
-            <ul class="side-menu">
-                <li class="side-menu-item">
-                    <a class="">Collor Calibration</a>
-                </li>
-                <li class="side-menu-item">
-                    <a class="">Luminance Calibration</a>
-                </li>
-                <li class="side-menu-item active">
-                    <a class="">Size Calibration</a>
-                </li>
-            </ul>
+            
         </div>
         <div class="top-nav-wrap">
         </div>
@@ -131,6 +121,7 @@
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
     <script>
+        
         function onResize() {
             $('.steps-container').css("min-height", $(window).height() - 400);
         }
@@ -143,6 +134,7 @@
 
             native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });
             native.getTopMenuItems().then(function (items) { app.renderTopMenu(JSON.parse(items)); });
+            native.getTabsItems().then(function (items) { app.renderTabs(JSON.parse(items)); });
         });
     </script>
 </body>

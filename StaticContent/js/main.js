@@ -53,6 +53,9 @@ native = window.native || {
     },
     getBotMenuItems() {
         return Promise.resolve(JSON.stringify(menu));
+    },
+    getTabsItems() {
+        return Promise.resolve(JSON.stringify(tabs));
     }
 };
 
@@ -172,7 +175,7 @@ var app = (function () {
     function renderSettingTabs(data) {
         var sideMenu = $('<ul/>', {
             class: 'side-menu'
-        }).appendTo('.side-bar');
+        }).appendTo('.setting-tabs');
         data.forEach(function(item) {            
             var menuEl = $('<a/>', {                
                 html: item.text
@@ -186,7 +189,7 @@ var app = (function () {
         });
         sideMenu.appendTo('.side-bar');
         $('.side-menu-item').click(function() {
-            $('.active').removeClass('active');
+            $('.side-menu-item.active').removeClass('active');
             $(this).addClass('active');                
         });
     }

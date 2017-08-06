@@ -103,7 +103,7 @@
         $(document).ready(function () {
             
             
-            app.renderTabs(tabs);
+            native.getTabsItems().then(function (items) { app.renderTabs(JSON.parse(items)); });
             app.renderBotMenu(menu);
             //app.renderTopMenu(topmenu);
             $('.submit-arrow').click(function() {
