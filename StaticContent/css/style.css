@@ -1077,3 +1077,70 @@ li.active {
     z-index: 9999;
     display: none;
 }
+
+/* deactivation page */
+.serial-title, .warn-title {
+    color: #0d5595;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.serial-key {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+.white-box {
+    color: #0d5595;
+    background: #fff;
+    width: 100%;
+    display: block;
+    padding: 8px;
+    font-size: 20px;
+}
+.warning-window .white-box {
+    padding-left: 25px;
+    padding-right: 25px;
+}
+.notification {
+    background: #119504;
+    width: 465px;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    padding: 8px;
+    font-size: 16px;
+    border-top-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    margin: 30px auto;
+}
+.deactivate-btn {    
+    background-color: #0c5596;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    width: 300px;
+    display: block;
+    border-top-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    margin: 0 auto;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+}
+.status-list {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+.status-list li {
+    font-size: 18px;
+    color: #0d5595;
+    font-weight: bold;
+}
+.attention {
+    left: -42px;
+    width: 96px;
+    top: -21px;
+    position: absolute;
+}
