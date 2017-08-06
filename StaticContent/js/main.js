@@ -176,3 +176,13 @@ var app = (function () {
         loadScreen: loadScreen
     }
 })();
+
+/* keypress event handler for arrow */
+
+$(document).keypress(function(e) {
+    if(e.which === 13) {
+        $('.submit-arrow').click();    
+        $('.save').click();
+        $('.submit-btn').click();
+    }
+});

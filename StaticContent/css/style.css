@@ -253,7 +253,15 @@ ul {
     width: 13%;
     height: 81px;
 }
-
+.bot-logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 50%;
+    margin: auto;
+    bottom: 100px;
+    max-width: 800px;
+}
 .form-wrap {
     overflow: hidden;
 }
@@ -597,6 +605,13 @@ li.active {
 .config-menu {
     overflow: hidden;
     margin-top: 45px;
+    max-width: 1000px;
+    width: 100%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    bottom: 70px;
 }
 
 .menu-item.left-item {
@@ -697,6 +712,7 @@ li.active {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
+    z-index: 5;
 }
 
 .top-nav-wrap a {
@@ -739,6 +755,7 @@ li.active {
 .steps {
     padding-left: 12%;
     padding-right: 12%;
+    padding-bottom: 85px;
 }
 
 .inner-title {
@@ -970,6 +987,7 @@ li.active {
 
 .profile-calibration {
     padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .button-controls-wrap {
@@ -995,6 +1013,7 @@ li.active {
 
 .calibration-form-wrap {
     width: 60%;
+    min-height: 333px;
     margin: 0 auto;
     color: #0c5596;
 }
