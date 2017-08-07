@@ -1,31 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
-	<Product Id="*" Name="WaggonerDx" Language="1033" Version="1.0.0.0" Manufacturer="Waggoner software" UpgradeCode="d70d979f-91c4-447a-9823-a8a99ff9213c">
-		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
-		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
-		<MediaTemplate EmbedCab="yes" />
-		<Feature Id="Complete" Title="WaggonerDx" Level="1">
-			<ComponentGroupRef Id="ProductComponents" />
-		</Feature>
-	</Product>
-	<Fragment>
-		<Directory Id="TARGETDIR" Name="SourceDir">
-			<Directory Id="ProgramFilesFolder">
+  <Product Id="*" Name="WaggonerDx" Language="1033" Version="1.0.0.0" Manufacturer="Waggoner software" UpgradeCode="d70d979f-91c4-447a-9823-a8a99ff9213c">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+    <MediaTemplate EmbedCab="yes" />
+    <Feature Id="Complete" Title="WaggonerDx" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+  </Product>
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
         <Directory Id="INSTALLFOLDER" Name="WaggonerDx">
           <Directory Id="LocalesFolder" Name="locales" />
           <Directory Id="StaticContentFolder" Name="StaticContent">
             <Directory Id="CssFolder" Name="css" />
+            <Directory Id="FontsFolder" Name="fonts" />
             <Directory Id="ImgFolder" Name="img" />
             <Directory Id="JsFolder" Name="js" />
           </Directory>
         </Directory>
-			</Directory>
+      </Directory>
       <Directory Id="ProgramMenuFolder">
         <Directory Id="ApplicationProgramsFolder" Name="WaggonerDx"/>
       </Directory>
-		</Directory>
-	</Fragment>
-	<Fragment>
+    </Directory>
+  </Fragment>
+  <Fragment>
     <ComponentGroup Id="ProductComponents">
       <Component Id="cmp5EBAF03BC4B41C2753A93CC967DBB569" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC63B}" Directory="INSTALLFOLDER">
         <File Id="fil71D485A0B38A95621D771D4B71F24690" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\msvcp120.dll" />
@@ -151,7 +152,15 @@
         <File Id="filC29F38BBC7E8EA11B9E40B43975760AA" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\index.html" />
         <File Id="fil4F99A30083FA510F950C06BB070C277A" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\second.html" />
         <File Id="fil8414CB74075AFFB196C931C2F593FA52" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\third.html" />
+        <File Id="fil8414CB74075AFFB296C931C2F593FA52" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\calibration.html" />
+        <File Id="fil8414CB74075AFFB396C931C2F593FA52" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\change_email.html" />
+        <File Id="fil8414CB74075AFFB496C931C2F593FA52" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\color_calibration.html" />
+        <File Id="fil8414CB74075AFFB596C931C2F593FA52" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\profile_calibration.html" />
       </Component>
+      <Component Id="cmp5EBAF03BC4B41C2753A94CC977DBB56C" Guid="{42FCBBCB-1B80-456B-8AD4-EC52949EC63E}" Directory="FontsFolder">
+        <File Id="filCFAA4861CA960420256AB207778238E7" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\fonts\taile.ttf" />
+      </Component>
+
       <Component Id="cmp5EBAF03BC4B41C2753A93CC967DBB56C" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC63E}" Directory="CssFolder">
         <File Id="filCFAA4861CA960420256AB107778138E7" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\css\responsive.css" />
         <File Id="fil7355F016553A734EA56819E44CB0340F" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\css\style.css" />
@@ -167,15 +176,32 @@
         <File Id="fil61E299B86D100FB6C252660CE5AA6B0F" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\scr2-ar-left.jpg" />
         <File Id="filA0A48C5768DCBCFC681C9F631489185E" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\scr2-ar-right.jpg" />
         <File Id="fil19E401AD95139D5CEF889EC68004CD57" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\scr2-pic1.jpg" />
-        <File Id="fil2DB5D09B90A778024E55F1744E8583FD" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\submit-arrow.jpg" />
         <File Id="filFC6995CAF5CD4E167185D3865B0DD07B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\waggoner-logo.png" />
         <File Id="filFC6995CAF5CD4E167185D3865B0DD08B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\left-arrow-gray-md.png" />
         <File Id="filFC6995CAF5CD4E167185D3865B0DD09B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\left-arrow-right-md.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B1DD09B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\12.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B2DD09B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\15.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B3DD09B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\16.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B4DD09B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\45.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B5DD09B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\5.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B6DD09B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\7.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B7DD09B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\8.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B7DD19B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\cross.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B7DD29B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\eye-err.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B7DD39B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\left-arrow-small.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B7DD49B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\left-arrow-tall.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B7DD59B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\minus.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B7DD69B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\ok.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B7DD79B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\plus.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B7DD89B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\right-arrow-small.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B7DD99B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\right-arrow-tall.png" />
+        <File Id="filFC6995CAF5CD4E167185D3865B7DDA9B" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\img\scale.jpg" />
       </Component>
       <Component Id="cmp5EBAF03BC4B41C2753A93CC967DBB56E" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC630}" Directory="JsFolder">
         <File Id="filAC49C938FA11FE49EC1F5C2AFE9C5507" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\js\data.js" />
         <File Id="fil3D3F0E8FD769D29D18B1F07895A367EB" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\js\main.js" />
         <File Id="filF552A40715F3BD095B4E0F67F3E6AA66" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\js\slider.js" />
+        <File Id="filF553A40725F3BD095B4E0F67F3E6AA66" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\js\tests.js" />
         <File Id="filF552A40715F3BD095B4E0F67F3E6AA67" Source="$(var.WaggonerDx.Native.Launcher.TargetDir)\StaticContent\js\jquery.min.js" />
       </Component>
       <Component Id="ApplicationShortcut" Guid="{42FCBBCB-1B80-456B-8AD4-EC52938EC640}" Directory="ApplicationProgramsFolder">
@@ -187,5 +213,5 @@
         <RegistryValue Root="HKCU" Key="Software\WaggonerDx" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
       </Component>
     </ComponentGroup>
-	</Fragment>
+  </Fragment>
 </Wix>

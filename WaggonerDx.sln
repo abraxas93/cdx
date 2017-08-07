@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.14
+VisualStudioVersion = 15.0.26730.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaggonerDx.Native.Host", "WaggonerDx.Native.Host\WaggonerDx.Native.Host.csproj", "{F4649CC5-E31D-4A0C-89AF-72C47F35450B}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaggonerDx.Native.JsBridge", "WaggonerDx.Native.JsBridge\WaggonerDx.Native.JsBridge.csproj", "{89275AB7-376E-43B6-9C9C-343A29FE2D21}"
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "WaggonerDx.Windows.Setup", "WaggonerDx.Windows.Setup\WaggonerDx.Windows.Setup.wixproj", "{CE7A9D29-B479-4257-B91D-327DD80E9124}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WaggonerDx.Dal", "WaggonerDx.Dal\WaggonerDx.Dal.csproj", "{E63C76AE-8360-4979-934F-58EDBFA38734}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,8 +71,19 @@ Global
 		{CE7A9D29-B479-4257-B91D-327DD80E9124}.Release|Any CPU.ActiveCfg = Release|x86
 		{CE7A9D29-B479-4257-B91D-327DD80E9124}.Release|x86.ActiveCfg = Release|x86
 		{CE7A9D29-B479-4257-B91D-327DD80E9124}.Release|x86.Build.0 = Release|x86
+		{E63C76AE-8360-4979-934F-58EDBFA38734}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E63C76AE-8360-4979-934F-58EDBFA38734}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E63C76AE-8360-4979-934F-58EDBFA38734}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E63C76AE-8360-4979-934F-58EDBFA38734}.Debug|x86.Build.0 = Debug|Any CPU
+		{E63C76AE-8360-4979-934F-58EDBFA38734}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E63C76AE-8360-4979-934F-58EDBFA38734}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E63C76AE-8360-4979-934F-58EDBFA38734}.Release|x86.ActiveCfg = Release|Any CPU
+		{E63C76AE-8360-4979-934F-58EDBFA38734}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BADC0039-E4B2-407C-8268-22AC263A5334}
 	EndGlobalSection
 EndGlobal

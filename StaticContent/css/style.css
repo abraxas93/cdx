@@ -259,8 +259,9 @@ ul {
     right: 0;
     width: 50%;
     margin: auto;
-    bottom: 100px;
-    max-width: 800px;
+    bottom: 150px;
+    max-width: 40%;
+    opacity: 0.6;
 }
 .form-wrap {
     overflow: hidden;

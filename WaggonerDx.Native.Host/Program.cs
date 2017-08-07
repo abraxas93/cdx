@@ -2,9 +2,10 @@
 using CefSharp.WinForms;
 using Microsoft.Owin.Hosting;
 using System;
+using System.Linq;
 using System.IO;
-using System.Net.Http;
 using System.Windows.Forms;
+using WaggonerDx.Dal;
 using WaggonerDx.Native.Dialogs;
 using WaggonerDx.Native.Flows;
 using WaggonerDx.Native.JsBridge;
@@ -118,6 +119,11 @@ namespace WaggonerDx.Main.Host
 #endif
                     mainForm.Controls.Add(browser);
 
+                    SQLitePCL.Batteries_V2.Init();
+                    var mainRepository = new MainRepository();
+                    mainRepository.Users.Add(new MainRepository.RegisteredUsers { Email = "lew" });
+                    mainRepository.SaveChanges();
+                    Console.WriteLine(mainRepository.Users.First().Email);
                     browser.RegisterAsyncJsObject("native", new JsBridge(new MainFlow(mainForm)));
                     browser.Dock = DockStyle.Fill;
 
