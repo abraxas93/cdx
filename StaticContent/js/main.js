@@ -56,6 +56,9 @@ native = window.native || {
     },
     getTabsItems() {
         return Promise.resolve(JSON.stringify(tabs));
+    },
+    getBotTabsItems() {
+        return Promise.resolve(JSON.stringify(configTabs));
     }
 };
 
@@ -193,11 +196,25 @@ var app = (function () {
             $(this).addClass('active');                
         });
     }
-    
+    function renderConfigTabs(data) {
+        var ul = $('<ul/>').appendTo('.config-menu');
+        data.forEach(function(item, i) {            
+            var menuEl = $('<li/>', {
+                class: 'menu-item',
+                html: item.text
+            });
+            if(i === 0) $(menuEl).addClass('left-item');
+            else if(i === data.length - 1) $(menuEl).addClass('right-item');
+            else if(item.active) $(menuEl).addClass('active');
+            $(menuEl).attr('onclick', item.onclick);
+            $(menuEl).appendTo('.config-menu ul');
+        });
+    }
     return {
         renderBotMenu: renderBottomMenu,
         renderTopMenu: renderTopMenu,
         renderTabs: renderSettingTabs,
+        renderBotTabs: renderConfigTabs,
         parseFormFields: parseFormFields,
         loadScreen: loadScreen
     }

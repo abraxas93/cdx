@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="config-menu">
-            <ul>
+            <!--<ul>
                 <li class="menu-item left-item" onclick="window.location.href='deactivation.html'">
                     Deactivation
                 </li>
@@ -108,7 +108,7 @@
                 <li class="menu-item right-item" onclick="window.location.href='teamviewer.html'">
                     TeamViewer
                 </li>
-            </ul>
+            </ul>-->
         </div>
         <div id="main-nav" class="main-menu">
             <div class="nav-wrap">
@@ -135,6 +135,7 @@
             native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });
             native.getTopMenuItems().then(function (items) { app.renderTopMenu(JSON.parse(items)); });
             native.getTabsItems().then(function (items) { app.renderTabs(JSON.parse(items)); });
+            native.getBotTabsItems().then(function (items) { app.renderBotTabs(JSON.parse(items))});
         });
     </script>
 </body>

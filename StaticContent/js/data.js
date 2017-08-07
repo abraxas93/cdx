@@ -1,3 +1,4 @@
+/* side tabs json */
 var tabs = [{
     active: false,
     text: 'Collor Calibration'    
@@ -8,6 +9,34 @@ var tabs = [{
     active: true,
     text: 'Size Calibration'
 }];
+
+/* config menu json for menu */
+var configTabs = [{
+    text: "Deactivation",
+    active: false,
+    onclick: "window.location.href='deactivation.html'"
+},{
+    text:"Calibration",
+    active: true,
+    onclick: "window.location.href='calibration.html'"
+},{
+    text: "Profile",
+    active: false,
+    onclick: "window.location.href='profile_calibration.html'"
+},{
+    text: "Email",
+    active: false,
+    onclick: "window.location.href='change_email.html'"
+},{
+    text: "Test Ordering",
+    active: false,
+    onclick: "window.location.href='third.html'"
+},{
+    text: "TeamViewer",
+    active: false,
+    onclick: "window.location.href='teamviewer.html'"
+}];
+
 
 var log = {
     info: 1,
@@ -20,7 +49,7 @@ var buttons = {
     minimize: 2
 };
 
-
+/* bottom menu */
 var menu = [{
     id: 12,
     title: "UsersKeyboard",
