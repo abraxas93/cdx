@@ -1184,3 +1184,82 @@ li.active {
 .lunch-btn:hover {
     color: #fff;
 }
+/* tests screen styles */
+.test-scr-wrap {
+    width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+.small-test {
+    max-width: 100%;
+}
+.test-picture {
+    position: relative;
+    width: 50%;
+}
+.test-pic {
+    width: 35%;
+    float: left;
+    padding: 15px;
+    padding-top: 80px;
+}
+.test-list-wrap {
+    float: left;
+    width: 65%;
+    padding: 15px;
+}
+.instructions-list li {
+    background: #fff;
+    border-top-left-radius: 18px;
+    padding: 15px;
+    border-bottom-right-radius: 18px;
+    margin-bottom: 20px;
+}
+.test-nums-pad {
+    position: absolute;
+    right: 0;
+    top: 20%;
+    width: 225px;
+}
+.num-item {
+    background: #fff;
+    padding: 10px 21px 10px 21px;
+    display: inline-block;
+    text-align: center;   
+    border-radius: 100%;
+    border: 1px solid #f26d21;
+    font-weight: bold;
+    color: #0c5596;
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.num-item.clear {
+    background: #f26d21;
+    border: 1px solid #f26d21;
+    color: #fff;
+}
+.num-item.not {
+    background: #0c5596;
+    border: 1px solid #0c5596;
+    color: #fff;
+}
+.current-test-pic {
+    margin: 0 auto;
+    display: block;
+}
+.answer-field {
+    border: 1px solid #0c5596;
+    padding: 10px;
+    width: 300px;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: block;
+}
+
+.answer-wrap {
+    width: 50%;
+}
