@@ -8,7 +8,7 @@ var instruction = {
 var test1 = {
     type: 'plate',
     image: 'img/test1-big.png',
-    width: 444,
+    width: 484,
     height: 440,
     panel: 'keypad'   
 }
@@ -16,7 +16,7 @@ var test1 = {
 var test2 = {
     type: 'plate',
     image: 'img/test2.png',
-    width: 445,
+    width: 565,
     height: 400,
     panel: 'shapes'
 }

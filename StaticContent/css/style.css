@@ -1216,9 +1216,14 @@ li.active {
 }
 .nums-pad {    
     width: 225px;
-    display: block;
-    margin: 0 auto;
+    display: block;    
+    margin-right: auto;
+    margin-left: auto;
     margin-top: 19%;
+}
+.floated .nums-pad {
+    float: right;
+    margin-right: 10%;
 }
 .num-item {
     background: #fff;
@@ -1276,4 +1281,35 @@ li.active {
 .test-answer-wrap {
     width: 50%;
     position: absolute;
+}
+.floated .figure-pad {
+    float: right;
+    margin-right: 10%;
+}
+.figure-pad {
+    width: 70px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+.figure-item {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 100%;
+    display: block;
+    border: 1px solid #f26d21;
+    margin-bottom: 15px;
+    background-image: url(../img/buttons-sprite.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.figure-item.circle {
+    background-position: -3px -42px;
+}
+.figure-item.star {
+    background-position: -3px -126px;
+}
+.figure-item.square {
+    background-position: -3px -207px;
 }
