@@ -11,6 +11,7 @@
             <div class="bg-pics">
                 <img src="img/background-eye.png" class="bg-eye" />
                 <img src="img/waggoner-logo.png" class="bg-logo" />
+                <img src="img/bot-logo.png" class="bot-sticker" />
             </div>
             <div class="inner-frame">
                 <a class="submit-arrow"></a>
@@ -63,9 +64,7 @@
 
         $(document).ready(function () {
             $('img').on('dragstart', function (event) { event.preventDefault(); });
-            native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });
-            native.getBotTabsItems().then(function (items) { app.renderBotTabs(JSON.parse(items)); });
-            // native.getTopMenuItems().then(function (items) { app.renderTopMenu(JSON.parse(items)); });
+            native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });            
             $('.submit-arrow').click(function () {
                 app.parseFormFields();
             });

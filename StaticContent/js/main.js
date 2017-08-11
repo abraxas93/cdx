@@ -59,6 +59,9 @@ native = window.native || {
     },
     getBotTabsItems() {
         return Promise.resolve(JSON.stringify(configTabs));
+    },
+    getTestContent() {
+        return Promise.resolve(JSON.stringify(test1)); // can be instruction, test1, test2
     }
 };
 
@@ -210,12 +213,81 @@ var app = (function () {
             $(menuEl).appendTo('.config-menu ul');
         });
     }
+    
+    function renderTestScreen(data) {
+        
+    }
+    function numClick() {        
+        if($(this).html() === 'C') $('.answer-field').val('');
+        else $('.answer-field').val($(this).html());
+    }
+    function renderAnswerInput() {
+        $('<input />', {
+            class: 'answer-field'
+        }).attr('type', 'text').appendTo('.test-pic');
+    }
+    // render instructions for test
+    function renderKeyPad(data, imgEl) {        
+        imgEl.css('width', data.width + 'px');
+        imgEl.css('height', data.height + 'px');
+        $('.test-pic').append(imgEl);
+        $('<ul/>', { class: 'nums-pad'}).appendTo('.test-info');
+        renderAnswerInput();
+        
+        for(var i = 12, y = 5; i > 0; i--) {             
+            if(y < 0) y = 5;
+            var liEl = $('<li/>');
+            if((i-y) === -2) liEl.addClass('num-item clear').html('C');
+            else if((i-y) === -1) liEl.addClass('num-item').html(0);
+            else if((i-y) === 0) liEl.addClass('num-item not').html('n');
+            else liEl.addClass('num-item').html(i-y);    
+            liEl.click(numClick).appendTo('.nums-pad');
+            y = y - 2;
+        }
+    }
+    function renderInstruction(data) {
+        var imgEl = $('<img/>', {            
+            src: data.image
+        });
+        $('.test-pic').append(imgEl);
+        $('<ul/>',{
+            class: 'instructions-list'
+        }).appendTo('.test-info');
+        
+        var lines = data.text.split('\n');
+        lines.forEach(function(instruction) {
+            var liEl = $('<li/>', {
+                html: instruction
+            });
+            liEl.appendTo('.instructions-list');
+        });
+    }
+    function renderShapesPad(data) {
+        
+    }
+    function renderTestScreen(data) {
+        var imgEl = $('<img/>', { src: data.image });
+        if(data.type === 'instruction') {
+            imgEl.addClass('small-test');
+            renderInstruction(data);
+        }
+        if(data.panel === 'keypad') {
+            $('.top-banner').remove();
+            imgEl.addClass('current-test-pic');
+            renderKeyPad(data, imgEl);
+        }
+        else {
+            imgEl.addClass('current-test-pic');
+            renderShapesPad(data, imgEl);
+        }
+    }
     return {
         renderBotMenu: renderBottomMenu,
         renderTopMenu: renderTopMenu,
         renderTabs: renderSettingTabs,
         renderBotTabs: renderConfigTabs,
         parseFormFields: parseFormFields,
+        renderTest: renderTestScreen,
         loadScreen: loadScreen
     }
 })();

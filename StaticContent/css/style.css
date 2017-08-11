@@ -93,7 +93,7 @@ ul {
 
 .bg-logo {
     position: absolute;
-    left: 8%;
+    left: 4%;
     width: 10%;
     top: 50px;
 }
@@ -1186,7 +1186,7 @@ li.active {
 }
 /* tests screen styles */
 .test-scr-wrap {
-    width: 800px;
+    width: 900px;
     margin: 0 auto;
     position: relative;
 }
@@ -1198,14 +1198,13 @@ li.active {
     width: 50%;
 }
 .test-pic {
-    width: 35%;
-    float: left;
-    padding: 15px;
-    padding-top: 80px;
+    width: 50%;
+    float: left;   
+    position: relative;    
 }
-.test-list-wrap {
+.test-info {
     float: left;
-    width: 65%;
+    width: 50%;
     padding: 15px;
 }
 .instructions-list li {
@@ -1215,11 +1214,11 @@ li.active {
     border-bottom-right-radius: 18px;
     margin-bottom: 20px;
 }
-.test-nums-pad {
-    position: absolute;
-    right: 0;
-    top: 20%;
+.nums-pad {    
     width: 225px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 19%;
 }
 .num-item {
     background: #fff;
@@ -1248,18 +1247,33 @@ li.active {
 .current-test-pic {
     margin: 0 auto;
     display: block;
+    position: relative; 
+    //top: 0;
+    //left: 0;
 }
 .answer-field {
     border: 1px solid #0c5596;
     padding: 10px;
-    width: 300px;
-    margin-top: 25px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 300px;    
     text-align: center;
     display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 15px;
+    //left: 0;
+    //right: 0;
 }
 
 .answer-wrap {
     width: 50%;
+}
+.bot-sticker {
+    position: absolute;
+    bottom: 35px;
+    left: 2%;
+    width: 150px;
+}
+.test-answer-wrap {
+    width: 50%;
+    position: absolute;
 }

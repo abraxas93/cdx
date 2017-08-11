@@ -23,21 +23,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="instructions-wrap">
-                        <div class="test-pic">
-                            <img src="img/small-test.jpg" class="small-test" />
-                        </div>
-                        <div class="test-list-wrap">
-                            <ul class="instructions-list">
-                                <li>Position your eyes approximately arms length away from the monitor.</li>
-                                <li>From your line of sight, make sure the test plates are at a 90° angle.</li>
-                                <li>You have ## seconds to view each test plate before it disappears.</li>
-                                <li>As mentioned above, the test plate will disappear but you still have ## seconds to answer.</li>
-                                <li>Enter the number on the test plate, if there is one, using the number pad on the screen or the keyboard.</li>
-                                <li>Selecting "С" clears the current answer and selecting "n" represents the answer nothing.</li>
-                                <li>After entering the answer, select either the enter (return) key or select the arrow on the monitor.</li>
-                                <li>The first test plate will be a demonstration plate with the number 16. Select the arrow to begin.</li>
-                            </ul>
+                    <div class="tests-wrap">
+                        <div class="test-pic">                            
+                        </div>                        
+                        <div class="test-info">                            
                         </div>
                     </div>
                 </div>
@@ -64,6 +53,8 @@
         $(document).ready(function () {
             $('img').on('dragstart', function (event) { event.preventDefault(); });
             native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });
+            native.getTestContent().then(function (items) { app.renderTest(JSON.parse(items))});
+            
             // native.getBotTabsItems().then(function (items) { app.renderBotTabs(JSON.parse(items)); });
             // native.getTopMenuItems().then(function (items) { app.renderTopMenu(JSON.parse(items)); });
             $('.submit-arrow').click(function () {
