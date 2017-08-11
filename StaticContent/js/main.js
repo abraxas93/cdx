@@ -12,6 +12,7 @@ var requiredTable = {
 
 var notValidFields;
 var fieldsString;
+
 native = window.native || {
     // Mocking native if launched not from c#
     init: function () {},
@@ -234,10 +235,8 @@ var app = (function () {
         }).attr('type', 'text').appendTo('.test-pic');
     }
     
-    function renderInstruction(data) {
-        var imgEl = $('<img/>', {            
-            src: data.image
-        });
+    function renderInstruction(data, imgEl) {
+        
         $('.test-pic').append(imgEl);
         $('<ul/>',{
             class: 'instructions-list'
@@ -300,14 +299,14 @@ var app = (function () {
         var imgEl = $('<img/>', { src: data.image });
         if(data.type === 'instruction') {
             imgEl.addClass('small-test');
-            renderInstruction(data);
+            renderInstruction(data, imgEl);
         }
         if(data.panel === 'keypad') {
             $('.top-banner').remove();
             imgEl.addClass('current-test-pic');
             renderKeyPad(data, imgEl);
         }
-        else {
+        else if(data.panel === 'shapes') {
             $('.top-banner').remove();
             imgEl.addClass('current-test-pic');
             renderShapesPad(data, imgEl);
@@ -319,6 +318,7 @@ var app = (function () {
             });
         } 
     }
+    // module api
     return {
         renderBotMenu: renderBottomMenu,
         renderTopMenu: renderTopMenu,

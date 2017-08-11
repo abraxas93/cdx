@@ -1192,6 +1192,7 @@ li.active {
 }
 .small-test {
     max-width: 100%;
+    margin-top: 95px;
 }
 .test-picture {
     position: relative;
