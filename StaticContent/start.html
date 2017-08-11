@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="css/style.css" media="all" rel="stylesheet">
+    <link href="css/responsive.css" media="all" rel="stylesheet">
+</head>
+
+<body style="-webkit-user-select: none">    
+    <iframe id="main-viewport" width="100%" height="100%" frameborder="0"></iframe>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jquery.transit.min.js"></script>
+    <script>
+        native.init("Index");
+
+        $(document).ready(function () {
+            $("#main-viewport").attr('src', 'index.html');
+            $('img').on('dragstart', function (event) { event.preventDefault(); });
+            native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });
+            native.getTopMenuItems().then(function (items) { app.renderTopMenu(JSON.parse(items)); });
+            $('.submit-arrow').click(function () {
+                app.parseFormFields();
+            });
+        });
+    </script>
+</body>
+
+</html>
