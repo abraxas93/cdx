@@ -1,3 +1,27 @@
+/* instructions */
+
+var instruction = {
+    type: 'instruction',
+    image: 'img/small-test.jpg',
+    text: 'Position your eyes approximately arms length away from the monitor.\nFrom your line of sight, make sure the test plates are at a 90° angle.\nYou have ## seconds to view each test plate before it disappears.\nAs mentioned above, the test plate will disappear but you still have ## seconds to answer.\nEnter the number on the test plate, if there is one, using the number pad on the screen or the keyboard.\nSelecting "С" clears the current answer and selecting "n" represents the answer nothing.\nAfter entering the answer, select either the enter (return) key or select the arrow on the monitor.\nThe first test plate will be a demonstration plate with the number 16.Select the arrow to begin.'
+}
+var test1 = {
+    type: 'plate',
+    image: 'img/test1-big.png',
+    width: 484,
+    height: 440,
+    panel: 'keypad'   
+}
+
+var test2 = {
+    type: 'plate',
+    image: 'img/test2.png',
+    width: 565,
+    height: 400,
+    panel: 'shapes'
+}
+
+/* side tabs json */
 var tabs = [{
     active: false,
     text: 'Collor Calibration'    
@@ -8,6 +32,34 @@ var tabs = [{
     active: true,
     text: 'Size Calibration'
 }];
+
+/* config menu json for menu */
+var configTabs = [{
+    text: "Deactivation",
+    active: false,
+    onclick: "window.location.href='deactivation.html'"
+},{
+    text:"Calibration",
+    active: true,
+    onclick: "window.location.href='calibration.html'"
+},{
+    text: "Profile",
+    active: false,
+    onclick: "window.location.href='profile_calibration.html'"
+},{
+    text: "Email",
+    active: false,
+    onclick: "window.location.href='change_email.html'"
+},{
+    text: "Test Ordering",
+    active: false,
+    onclick: "window.location.href='third.html'"
+},{
+    text: "TeamViewer",
+    active: false,
+    onclick: "window.location.href='teamviewer.html'"
+}];
+
 
 var log = {
     info: 1,
@@ -20,7 +72,7 @@ var buttons = {
     minimize: 2
 };
 
-
+/* bottom menu */
 var menu = [{
     id: 12,
     title: "UsersKeyboard",

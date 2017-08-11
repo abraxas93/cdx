@@ -93,7 +93,7 @@ ul {
 
 .bg-logo {
     position: absolute;
-    left: 8%;
+    left: 4%;
     width: 10%;
     top: 50px;
 }
@@ -1183,4 +1183,134 @@ li.active {
 }
 .lunch-btn:hover {
     color: #fff;
+}
+/* tests screen styles */
+.test-scr-wrap {
+    width: 900px;
+    margin: 0 auto;
+    position: relative;
+}
+.small-test {
+    max-width: 100%;
+    margin-top: 95px;
+}
+.test-picture {
+    position: relative;
+    width: 50%;
+}
+.test-pic {
+    width: 50%;
+    float: left;   
+    position: relative;    
+}
+.test-info {
+    float: left;
+    width: 50%;
+    padding: 15px;
+}
+.instructions-list li {
+    background: #fff;
+    border-top-left-radius: 18px;
+    padding: 15px;
+    border-bottom-right-radius: 18px;
+    margin-bottom: 20px;
+}
+.nums-pad {    
+    width: 225px;
+    display: block;    
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 19%;
+}
+.floated .nums-pad {
+    float: right;
+    margin-right: 10%;
+}
+.num-item {
+    background: #fff;
+    padding: 10px 21px 10px 21px;
+    display: inline-block;
+    text-align: center;   
+    border-radius: 100%;
+    border: 1px solid #f26d21;
+    font-weight: bold;
+    color: #0c5596;
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.num-item.clear {
+    background: #f26d21;
+    border: 1px solid #f26d21;
+    color: #fff;
+}
+.num-item.not {
+    background: #0c5596;
+    border: 1px solid #0c5596;
+    color: #fff;
+}
+.current-test-pic {
+    margin: 0 auto;
+    display: block;
+    position: relative; 
+    //top: 0;
+    //left: 0;
+}
+.answer-field {
+    border: 1px solid #0c5596;
+    padding: 10px;
+    width: 300px;    
+    text-align: center;
+    display: block;
+    position: relative;
+    margin: auto;
+    margin-top: 15px;
+    //left: 0;
+    //right: 0;
+}
+
+.answer-wrap {
+    width: 50%;
+}
+.bot-sticker {
+    position: absolute;
+    bottom: 35px;
+    left: 2%;
+    width: 150px;
+}
+.test-answer-wrap {
+    width: 50%;
+    position: absolute;
+}
+.floated .figure-pad {
+    float: right;
+    margin-right: 10%;
+}
+.figure-pad {
+    width: 70px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+.figure-item {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 100%;
+    display: block;
+    border: 1px solid #f26d21;
+    margin-bottom: 15px;
+    background-image: url(../img/buttons-sprite.png);
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.figure-item.circle {
+    background-position: -3px -42px;
+}
+.figure-item.star {
+    background-position: -3px -126px;
+}
+.figure-item.square {
+    background-position: -3px -207px;
 }

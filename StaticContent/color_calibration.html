@@ -68,26 +68,7 @@
             </div>                       
         </div>
         <div class="config-menu">
-            <ul>
-                <li class="menu-item left-item" onclick="window.location.href='deactivation.html'">
-                    Deactivation
-                </li>
-                <li class="menu-item" onclick="window.location.href='calibration.html'">
-                    Calibration
-                </li> 
-                <li class="menu-item" onclick="window.location.href='profile_calibration.html'">
-                    Profile
-                </li>
-                <li class="menu-item" onclick="window.location.href='change_email.html'">
-                    Email
-                </li>
-                <li class="menu-item active" onclick="window.location.href='third.html'">
-                    Test Ordering
-                </li>
-                <li class="menu-item right-item" onclick="window.location.href='teamviewer.html'">
-                    TeamViewer
-                </li>
-            </ul>
+            
         </div>
         <div id="main-nav" class="main-menu">
             <div class="nav-wrap">
@@ -104,6 +85,7 @@
             
             
             native.getTabsItems().then(function (items) { app.renderTabs(JSON.parse(items)); });
+            native.getBotTabsItems().then(function (items) { app.renderBotTabs(JSON.parse(items)); });
             app.renderBotMenu(menu);
             //app.renderTopMenu(topmenu);
             $('.submit-arrow').click(function() {

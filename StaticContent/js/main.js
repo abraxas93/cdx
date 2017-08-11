@@ -12,6 +12,7 @@ var requiredTable = {
 
 var notValidFields;
 var fieldsString;
+
 native = window.native || {
     // Mocking native if launched not from c#
     init: function () {},
@@ -56,6 +57,15 @@ native = window.native || {
     },
     getTabsItems() {
         return Promise.resolve(JSON.stringify(tabs));
+    },
+    getBotTabsItems() {
+        return Promise.resolve(JSON.stringify(configTabs));
+    },
+    getTestContent() {
+        return Promise.resolve(JSON.stringify(test2)); // can be instruction, test1, test2
+    },
+    sendTestAnswer(testData) {
+        // sending testData to server
     }
 };
 
@@ -194,11 +204,128 @@ var app = (function () {
         });
     }
     
+    function renderConfigTabs(data) {
+        var ul = $('<ul/>').appendTo('.config-menu');
+        data.forEach(function(item, i) {            
+            var menuEl = $('<li/>', {
+                class: 'menu-item',
+                html: item.text
+            });
+            if(i === 0) $(menuEl).addClass('left-item');
+            else if(i === data.length - 1) $(menuEl).addClass('right-item');
+            else if(item.active) $(menuEl).addClass('active');
+            $(menuEl).attr('onclick', item.onclick);
+            $(menuEl).appendTo('.config-menu ul');
+        });
+    }    
+    
+    function numClick() {        
+        if($(this).html() === 'C') $('.answer-field').val('');
+        else $('.answer-field').val($(this).html());
+    }
+    
+    function figureClick() {
+        var answer = $(this).attr('data-item');
+        $('.answer-field').val(answer);
+    }
+    
+    function renderAnswerInput() {
+        $('<input />', {
+            class: 'answer-field'
+        }).attr('type', 'text').appendTo('.test-pic');
+    }
+    
+    function renderInstruction(data, imgEl) {
+        
+        $('.test-pic').append(imgEl);
+        $('<ul/>',{
+            class: 'instructions-list'
+        }).appendTo('.test-info');
+        
+        var lines = data.text.split('\n');
+        lines.forEach(function(instruction) {
+            var liEl = $('<li/>', {
+                html: instruction
+            });
+            liEl.appendTo('.instructions-list');
+        });
+    }
+    
+    function renderKeyPad(data, imgEl) {        
+        imgEl.css('width', data.width + 'px');
+        imgEl.css('height', data.height + 'px');
+        if(data.width > $('.test-pic').width()) {
+            var left = data.width / 15;
+            var top = data.height / 21;
+            imgEl.css('left', -left + 'px');
+            imgEl.css('top', -top + 'px');
+            $('.test-info').addClass('floated');
+        }
+        $('.test-pic').append(imgEl);
+        $('<ul/>', { class: 'nums-pad'}).appendTo('.test-info');
+        renderAnswerInput();
+        
+        for(var i = 12, y = 5; i > 0; i--) {             
+            if(y < 0) y = 5;
+            var liEl = $('<li/>');
+            if((i-y) === -2) liEl.addClass('num-item clear').html('C');
+            else if((i-y) === -1) liEl.addClass('num-item').html(0);
+            else if((i-y) === 0) liEl.addClass('num-item not').html('n');
+            else liEl.addClass('num-item').html(i-y);    
+            liEl.click(numClick).appendTo('.nums-pad');
+            y = y - 2;
+        }
+    }
+    
+    function renderShapesPad(data, imgEl) {
+        imgEl.css('width', data.width);
+        imgEl.css('height', data.height);
+        if(data.width > $('.test-pic').width()) {
+            var left = data.width / 15;
+            var top = data.height / 21;
+            imgEl.css('left', -left + 'px');
+            imgEl.css('top', -top + 'px');
+            $('.test-info').addClass('floated');
+        }
+        $('.test-pic').append(imgEl);
+        $('<ul/>', { class: 'figure-pad'}).appendTo('.test-info');
+        renderAnswerInput();
+        var circleEl = $('<li/>').addClass('figure-item circle').appendTo('.figure-pad').attr('data-item','circle').click(figureClick);
+        var starEl = $('<li/>').addClass('figure-item star').appendTo('.figure-pad').attr('data-item','star').click(figureClick);
+        var squareEl = $('<li/>').addClass('figure-item square').appendTo('.figure-pad').attr('data-item','square').click(figureClick);
+    }
+    
+    function renderTestScreen(data) {
+        var imgEl = $('<img/>', { src: data.image });
+        if(data.type === 'instruction') {
+            imgEl.addClass('small-test');
+            renderInstruction(data, imgEl);
+        }
+        if(data.panel === 'keypad') {
+            $('.top-banner').remove();
+            imgEl.addClass('current-test-pic');
+            renderKeyPad(data, imgEl);
+        }
+        else if(data.panel === 'shapes') {
+            $('.top-banner').remove();
+            imgEl.addClass('current-test-pic');
+            renderShapesPad(data, imgEl);
+        }
+        if($('.answer-field')) {
+            $('.submit-arrow').click(function() {
+                var testVal = $('.answer-field').val();
+                native.sendTestAnswer(testVal);
+            });
+        } 
+    }
+    // module api
     return {
         renderBotMenu: renderBottomMenu,
         renderTopMenu: renderTopMenu,
         renderTabs: renderSettingTabs,
+        renderBotTabs: renderConfigTabs,
         parseFormFields: parseFormFields,
+        renderTest: renderTestScreen,
         loadScreen: loadScreen
     }
 })();

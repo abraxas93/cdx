@@ -19,21 +19,15 @@
                         <div class="top-banner">
                             <img src="img/reg-head.jpg" class="top-logo">
                             <div class="text-wrap">
-                                <h1 class="main-title">Settings</h1>
+                                <h1 class="main-title">Starting the test</h1>
                             </div>
                         </div>
                     </div>
-                    <div class="teamviewer-wrap">
-                        <div class="inner-box">
-                            <img src="img/team-icon.png" class="teamview-icon">
-                            <div class="white-box">
-                                Select the launch button below. Please have your
-                                ID and password ready that appears on the
-                                Teamviewer popup and call WaggonerDx customer
-                                service at +1 (###) ###-####. 
-                            </div>
+                    <div class="tests-wrap">
+                        <div class="test-pic">                            
                         </div>                        
-                        <a class="lunch-btn">Lunch</a>
+                        <div class="test-info">                            
+                        </div>
                     </div>
                 </div>
             </div>
@@ -59,7 +53,9 @@
         $(document).ready(function () {
             $('img').on('dragstart', function (event) { event.preventDefault(); });
             native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });
-            native.getBotTabsItems().then(function (items) { app.renderBotTabs(JSON.parse(items)); });
+            native.getTestContent().then(function (items) { app.renderTest(JSON.parse(items))});
+            
+            // native.getBotTabsItems().then(function (items) { app.renderBotTabs(JSON.parse(items)); });
             // native.getTopMenuItems().then(function (items) { app.renderTopMenu(JSON.parse(items)); });
             $('.submit-arrow').click(function () {
                 app.parseFormFields();
