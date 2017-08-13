@@ -152,8 +152,8 @@ var app = (function () {
         model.other = $("input[name='other']").val();
 
         native.registrationSubmitted(JSON.stringify(model)).then(function (location) {
-            // window.location.href = location;
-            loadScreen('', location);
+            window.location.href = location;
+            // loadScreen('', location);
         }).catch(function (errorObject) {
             native.getRegistrationError().then(function (errorObject) {
                 var actualError = JSON.parse(errorObject);

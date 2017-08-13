@@ -9,6 +9,7 @@ using WaggonerDx.Dal;
 using WaggonerDx.Native.Dialogs;
 using WaggonerDx.Native.Flows;
 using WaggonerDx.Native.JsBridge;
+using System.Threading.Tasks;
 
 namespace WaggonerDx.Main.Host
 {
@@ -75,6 +76,7 @@ namespace WaggonerDx.Main.Host
         {
             try
             {
+                Task.Factory.StartNew(() => { SQLitePCL.Batteries_V2.Init(); });
                 string baseAddress = "http://localhost:8000/";
 
                 using (WebApp.Start<Startup>(url: baseAddress))
@@ -119,11 +121,6 @@ namespace WaggonerDx.Main.Host
 #endif
                     mainForm.Controls.Add(browser);
 
-                    SQLitePCL.Batteries_V2.Init();
-                    var mainRepository = new MainRepository();
-                    mainRepository.Users.Add(new MainRepository.RegisteredUsers { Email = "lew" });
-                    mainRepository.SaveChanges();
-                    Console.WriteLine(mainRepository.Users.First().Email);
                     browser.RegisterAsyncJsObject("native", new JsBridge(new MainFlow(mainForm)));
                     browser.Dock = DockStyle.Fill;
 

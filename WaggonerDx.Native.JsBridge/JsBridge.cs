@@ -3,6 +3,8 @@ using System.Linq;
 using Newtonsoft.Json;
 using WaggonerDx.Native.Flows;
 using System.Collections.Generic;
+using static WaggonerDx.Dal.MainRepository;
+using WaggonerDx.Dal;
 
 namespace WaggonerDx.Native.JsBridge
 {
@@ -129,7 +131,7 @@ namespace WaggonerDx.Native.JsBridge
 
             if (!deserialized.ContainsKey("phone") || string.IsNullOrWhiteSpace(deserialized["phone"]))
             {
-                _registrationErrors.Errors.Add("Phone is mandatory");
+                _registrationErrors.Errors.Add("Phone number is mandatory");
                 _registrationErrors.Fields.Add("phone");
             }
 
@@ -166,6 +168,36 @@ namespace WaggonerDx.Native.JsBridge
             if (_registrationErrors.Fields.Count > 0)
             {
                 throw new InvalidOperationException();
+            }
+            else
+            {
+                try
+                {
+                    var registeredUser = new RegisteredUsers();
+                    registeredUser.FirstName = deserialized["firstName"];
+                    registeredUser.LastName = deserialized["lastName"];
+                    registeredUser.Email = deserialized["email"];
+                    registeredUser.PhoneNumber = deserialized["phone"];
+                    registeredUser.Address = deserialized["adress"];
+                    registeredUser.City = deserialized["city"];
+                    registeredUser.State = deserialized["state"];
+                    registeredUser.Country = deserialized["country"];
+                    registeredUser.ZipCode = deserialized["zipCode"];
+
+                    registeredUser.CompanyName = deserialized["companyName"];
+                    registeredUser.WebsiteUrl = deserialized["webSite"];
+
+                    using (var repo = new MainRepository())
+                    {
+                        repo.Users.Add(registeredUser);
+                        repo.SaveChanges();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    _registrationErrors.Errors.Add(ex.Message);
+                    _registrationErrors.Fields.Add("global");
+                }
             }
 
             return "second.html";
@@ -262,6 +294,35 @@ namespace WaggonerDx.Native.JsBridge
             }
 
             return JsonConvert.SerializeObject(menuItems.ToArray().Reverse());
+        }
+
+        public string GetBotTabsItems()
+        {
+            return @"[{
+    text: ""Deactivation"",
+    active: false,
+    onclick: ""window.location.href='deactivation.html'""
+},{
+    text:""Calibration"",
+    active: true,
+    onclick: ""window.location.href='calibration.html'""
+},{
+    text: ""Profile"",
+    active: false,
+    onclick: ""window.location.href='profile_calibration.html'""
+},{
+    text: ""Email"",
+    active: false,
+    onclick: ""window.location.href='change_email.html'""
+},{
+    text: ""Test Ordering"",
+    active: false,
+    onclick: ""window.location.href='third.html'""
+},{
+    text: ""TeamViewer"",
+    active: false,
+    onclick: ""window.location.href='teamviewer.html'""
+}]";
         }
     }
 }
