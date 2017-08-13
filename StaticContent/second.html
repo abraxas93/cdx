@@ -62,6 +62,9 @@
 
             native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });
             native.getTopMenuItems().then(function (items) { app.renderTopMenu(JSON.parse(items)); });
+            $('.submit-arrow').click(function () {
+                app.loadScreen({ time: 2000 }, 'third.html');
+            });
         });
     </script>
 </body>

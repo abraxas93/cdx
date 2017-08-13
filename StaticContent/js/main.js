@@ -29,7 +29,7 @@ native = window.native || {
     testsOrderSubmitted: function(payload) {
         console.log('Saving sort order ...');
     },
-    registrationSubmitted(payload) {
+    registrationSubmitted(payload, location) {        
         console.log('Submitting registration page...');
         payload = JSON.parse(payload);
         notValidFields = [];
@@ -152,8 +152,10 @@ var app = (function () {
         model.other = $("input[name='other']").val();
 
         native.registrationSubmitted(JSON.stringify(model)).then(function (location) {
-            window.location.href = location;
-            // loadScreen('', location);
+            console.log(model);
+            console.log(location);
+            // window.location.href = location;
+            loadScreen({time : 2000}, location);
         }).catch(function (errorObject) {
             native.getRegistrationError().then(function (errorObject) {
                 var actualError = JSON.parse(errorObject);
@@ -165,27 +167,24 @@ var app = (function () {
             });
         });
     }
-
+    
     function loadScreen(transition, location) {
-        /*if(!$('.overlay').length) {
-            $('<div/>', {
-                class: 'overlay'
-            }).appendTo('body');
-        }*/
-
-        var height = $(document).height();
+        // first create a new iframe 
+        // then start loading to new iframe
+        // start transition between old one and new iframe...
+        // after transition finish delete old iframe
+        // 
+        console.log(window.parent.document);
+        var frame = $('<iframe/>').addClass('hidden').attr('frameborder','0').attr('src', location);
+        $('#main-body', window.parent.document).append(frame);   
+        var height = $(document).height();        
+        var overLay = $('.overlay', window.parent.document).height(height).fadeIn(transition.time, function () {
+            frame.removeClass('hidden');
+            $('#main-viewport', window.parent.document).remove();
+            frame.attr('id', 'main-viewport');
+        });
+        console.log(window.parent.document);       
         
-        $('.overlay', window.parent.document).height(height).fadeIn(2000); 
-        setTimeout(function() {
-            $('#main-viewport', window.parent.document).attr('src', location);            
-        }, 3000);
-        
-        
-        /*$('.loading-cont2').load('second.html .bg-wrap', function () {
-            $('.loading-cont').transition(transition.out, transition.time);
-            $('.loading-cont2').transition(transition.in, transition.time);
-            $('.overlay').fadeOut(200);
-        });*/
     }
     
     function renderSettingTabs(data) {
@@ -347,6 +346,7 @@ $(document).keypress(function(e) {
 });
 
 $(document).ready(function() {
-    console.log('loaded...');
-    $('.overlay', window.parent.document).fadeOut(1000);
+    setTimeout(function() {
+        $('.overlay', window.parent.document).fadeOut(1000);
+    }, 2000); 
 });

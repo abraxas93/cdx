@@ -5,8 +5,8 @@
     <link href="css/responsive.css" media="all" rel="stylesheet">
 </head>
 
-<body class="start-window" style="-webkit-user-select: none">    
-    <iframe id="main-viewport" width="100%" height="100%" frameborder="0" ></iframe>
+<body id="main-body" class="start-window" style="-webkit-user-select: none">    
+    <iframe id="main-viewport" frameborder="0" ></iframe>
     <div class="overlay"></div>
     <script src="js/jquery.min.js"></script>
     <script src="js/data.js"></script>
@@ -16,7 +16,7 @@
         native.init("Index");
 
         $(document).ready(function () {
-            $("#main-viewport").attr('src', 'index.html');            
+            $("#main-viewport").attr('src', 'index.html');             
         });
     </script>
 </body>

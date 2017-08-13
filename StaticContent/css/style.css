@@ -1073,7 +1073,7 @@ li.active {
 .overlay {
     background: #fff;
     width: 100%;
-    opacity: 0.5;
+    opacity: 0.9;
     height: 100%;
     position: absolute;
     top: 0;
@@ -1315,4 +1315,9 @@ li.active {
 }
 .figure-item.square {
     background-position: -3px -207px;
+}
+.hidden { display: none;}
+#main-viewport {
+    width: 100%;
+    height: 100%;
 }

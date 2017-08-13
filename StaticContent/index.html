@@ -185,7 +185,8 @@
 
         native.init("Index");
 
-        $(document).ready(function () {
+        $(document).ready(function () {            
+            
             $('img').on('dragstart', function (event) { event.preventDefault(); });
             native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });
             native.getTopMenuItems().then(function (items) { app.renderTopMenu(JSON.parse(items)); });
