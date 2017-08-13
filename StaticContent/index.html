@@ -178,7 +178,7 @@
             native.getBotMenuItems().then(function (items) { app.renderBotMenu(JSON.parse(items)); });
             native.getTopMenuItems().then(function (items) { app.renderTopMenu(JSON.parse(items)); });
             $('.submit-arrow').click(function () {
-                app.parseFormFields();
+                app.parseFormFields();                             
             });
         });
     </script>
